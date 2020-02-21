@@ -3,33 +3,18 @@
 #include<unistd.h>
 #include<sys/stat.h>
 #include<particle_simulator.hpp>
+
 #ifdef ENABLE_PHANTOM_GRAPE_X86
 #include <gp5util.h>
 #endif
+
 #ifdef ENABLE_GPU_CUDA
 #define MULTI_WALK
 #include"force_gpu_cuda.hpp"
 #endif
+
 #include "user-defined.hpp"
-
-
-template<class Tpsys>
-void kick(Tpsys & system,
-          const PS::F64 dt) {
-    PS::S32 n = system.getNumberOfParticleLocal();
-    for(PS::S32 i = 0; i < n; i++) {
-        system[i].vel  += system[i].acc * dt;
-    }
-}
-
-template<class Tpsys>
-void drift(Tpsys & system,
-           const PS::F64 dt) {
-    PS::S32 n = system.getNumberOfParticleLocal();
-    for(PS::S32 i = 0; i < n; i++) {
-        system[i].pos  += system[i].vel * dt;
-    }
-}
+#include "integrator.hpp"
 
 template<class Tpsys>
 void calcEnergy(const Tpsys & system,
@@ -238,6 +223,11 @@ int main(int argc, char *argv[]) {
     PS::F64 time_snap = 0.0;
     PS::S64 n_loop = 0;
     PS::S32 id_snap = 0;
+
+//#######################################################
+// start of calculation
+//#######################################################  
+
     while(time_sys < time_end){
         if( (time_sys >= time_snap) || ( (time_sys + dt) - time_snap ) > (time_snap - time_sys) ){
             char filename[256];
