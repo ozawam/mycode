@@ -22,6 +22,9 @@ public:
     PS::F64vec vel;
     PS::F64vec acc;
     PS::F64    pot;    
+    PS::F64vec jerk;
+    PS::F64    ptime;
+    PS::F64    pdt;
 
     static PS::F64 eps;
 
