@@ -263,40 +263,19 @@ int main(int argc, char *argv[]) {
 // orbit integration
 //#######################################################  
 
-leap_frog(system_grav,
+leap_frog1(system_grav,
           dt,
           time_sys,
-          n_loop,
-          dinfo,
-          tag_max,
-          n_walk_limit,
-          n_tot,
-          theta,
-          n_leaf_limit,
-          n_group_limit,
-          tree_grav
+          n_loop
+//          dinfo
 );
-/*
-#else
-leap_frog(system_grav,
-          dt,
-          time_sys,
-          n_loop,
-          dinfo,
-          tree_grav
-);
-*/
-/*        
-        kick(system_grav, dt * 0.5);
-        
-        time_sys += dt;
-        drift(system_grav, dt);
-        
+
         if(n_loop % 4 == 0){
             dinfo.decomposeDomainAll(system_grav);
         }
         
         system_grav.exchangeParticle(dinfo);
+
 #ifdef MULTI_WALK
         tree_grav.calcForceAllAndWriteBackMultiWalk(DispatchKernelWithSP,
                                                     RetrieveKernel,
@@ -311,9 +290,14 @@ leap_frog(system_grav,
                                            system_grav,
                                            dinfo);
 #endif
-        
-        kick(system_grav, dt * 0.5);
-*/        
+
+leap_frog2(system_grav,
+          dt,
+          time_sys,
+          n_loop
+//          dinfo
+);
+
         n_loop++;
     }
     
