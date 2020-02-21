@@ -1,0 +1,2 @@
+rm: cannot remove 'output': No such file or directory
+N_tot=  1002      t=  0.000000  dt=  0.062832  cpu=  0.000000 [s]  t/tmax=  0.00%N_tot=  1002      t=  0.062832  dt=  0.111246  cpu=  0.189714 [s]  t/tmax= 100.00%Application 2119213 resources: utime ~0s, stime ~0s, Rss ~6400, inblocks ~220, outblocks ~384
