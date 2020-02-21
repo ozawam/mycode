@@ -16,6 +16,15 @@
 #include "user-defined.hpp"
 #include "integrator.hpp"
 
+
+template<class Tpsys>
+PS::S32 kick(Tpsys & system, 
+           const PS::F64 dt) ;
+
+template<class Tpsys>
+PS::S32 drift(Tpsys & system, 
+           const PS::F64 dt) ;
+
 template<class Tpsys>
 void calcEnergy(const Tpsys & system,
                 PS::F64 & etot,

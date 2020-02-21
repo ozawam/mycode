@@ -19,9 +19,9 @@ CFLAGS = -std=c++11 -O3
 
 all:$(EXEFILE)
 
-#integrator.o:integrator.cpp integrator.hpp
-#	$(CC) $(INC) $(CFLAGS) -c $<  -o $@
-#OBJS = integrator.o integrator.hpp
+integrator.o:integrator.cpp integrator.hpp
+	$(CC) $(INC) $(CFLAGS) -c $<  -o $@
+OBJS = integrator.o integrator.hpp
 
 ifeq ($(use_phantom_grape_x86),yes)
 PG_ROOT = $(PS_PATH)/phantom_grape_x86/G5/newton/libpg5

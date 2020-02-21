@@ -1,8 +1,13 @@
 #include<particle_simulator.hpp>
 #include "integrator.hpp"
 
-template<class Tpsys>
-void kick(Tpsys & system, 
+
+//#######################################################
+// leap-frog
+//#######################################################  
+
+//template<class Tpsys>
+void kick(PS::ParticleSystem<FPGrav> & system, 
            const PS::F64 dt) {
     PS::S32 n = system.getNumberOfParticleLocal();
     for(PS::S32 i = 0; i < n; i++) {
@@ -10,12 +15,29 @@ void kick(Tpsys & system,
     }
 }
 
-template<class Tpsys>
-void drift(Tpsys & system,
+//template<class Tpsys>
+void drift(PS::ParticleSystem<FPGrav> & system,
            const PS::F64 dt) {
     PS::S32 n = system.getNumberOfParticleLocal();
     for(PS::S32 i = 0; i < n; i++) {
         system[i].pos  += system[i].vel * dt;
     }
 }
+
+
+//#######################################################
+// Hermite
+//#######################################################  
+
+
+
+
+
+
+
+
+
+
+
+
 
