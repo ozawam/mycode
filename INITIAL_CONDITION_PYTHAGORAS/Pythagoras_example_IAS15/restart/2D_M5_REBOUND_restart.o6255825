@@ -1,0 +1,168 @@
+00045
+Creating simulation from binary file and integrating until tmax
+
+[1mWarning![0m You have to reset function pointers after creating a reb_simulation struct with a binary file.
+N_tot=  848       t=  28274.333883  dt=  0.062832  cpu=  105.469009 [s]  t/tmax=  0.05%  walltime =  718.752972 [m] ,  11.979216 [h] A merger occured! Particles involved: 204, 65.
+A merger occured! Particles involved: 710, 185.
+A merger occured! Particles involved: 84, 172.
+N_tot=  845       t=  28902.652413  dt=  0.062832  cpu=  767.688586 [s]  t/tmax=  0.05%  walltime =  731.545943 [m] ,  12.192432 [h] A merger occured! Particles involved: 485, 104.
+A merger occured! Particles involved: 510, 709.
+N_tot=  843       t=  29530.970944  dt=  0.062832  cpu=  835.568322 [s]  t/tmax=  0.05%  walltime =  745.471823 [m] ,  12.424530 [h] A merger occured! Particles involved: 522, 286.
+A merger occured! Particles involved: 639, 442.
+N_tot=  841       t=  30159.289475  dt=  0.062832  cpu=  1055.442561 [s]  t/tmax=  0.05%  walltime =  763.060387 [m] ,  12.717673 [h] A merger occured! Particles involved: 385, 381.
+A merger occured! Particles involved: 463, 566.
+N_tot=  839       t=  30787.608005  dt=  0.062832  cpu=  1036.776555 [s]  t/tmax=  0.05%  walltime =  780.338285 [m] ,  13.005638 [h] A merger occured! Particles involved: 487, 41.
+A merger occured! Particles involved: 563, 573.
+A merger occured! Particles involved: 134, 579.
+N_tot=  836       t=  31415.926536  dt=  0.062832  cpu=  707.942390 [s]  t/tmax=  0.05%  walltime =  792.136953 [m] ,  13.202283 [h] N_tot=  836       t=  32044.245067  dt=  0.062832  cpu=  899.862095 [s]  t/tmax=  0.05%  walltime =  807.134190 [m] ,  13.452237 [h] A merger occured! Particles involved: 481, 120.
+A merger occured! Particles involved: 453, 684.
+N_tot=  834       t=  32672.563598  dt=  0.062832  cpu=  867.578154 [s]  t/tmax=  0.05%  walltime =  821.592837 [m] ,  13.693214 [h] A merger occured! Particles involved: 53, 141.
+A merger occured! Particles involved: 338, 116.
+N_tot=  832       t=  33300.882128  dt=  0.062832  cpu=  1104.088184 [s]  t/tmax=  0.05%  walltime =  839.994045 [m] ,  13.999901 [h] A merger occured! Particles involved: 805, 41.
+A merger occured! Particles involved: 771, 321.
+N_tot=  830       t=  33929.200659  dt=  0.062832  cpu=  428.446249 [s]  t/tmax=  0.05%  walltime =  847.134334 [m] ,  14.118906 [h] A merger occured! Particles involved: 660, 671.
+N_tot=  829       t=  34557.519190  dt=  0.062832  cpu=  285.362962 [s]  t/tmax=  0.06%  walltime =  851.890137 [m] ,  14.198169 [h] A merger occured! Particles involved: 605, 715.
+A merger occured! Particles involved: 473, 161.
+A merger occured! Particles involved: 502, 455.
+N_tot=  826       t=  35185.837721  dt=  0.062832  cpu=  296.453195 [s]  t/tmax=  0.06%  walltime =  856.830476 [m] ,  14.280508 [h] N_tot=  826       t=  35814.156251  dt=  0.062832  cpu=  385.024385 [s]  t/tmax=  0.06%  walltime =  863.245858 [m] ,  14.387431 [h] A merger occured! Particles involved: 284, 28.
+A merger occured! Particles involved: 646, 725.
+A merger occured! Particles involved: 483, 141.
+N_tot=  823       t=  36442.474782  dt=  0.062832  cpu=  390.671461 [s]  t/tmax=  0.06%  walltime =  869.756700 [m] ,  14.495945 [h] A merger occured! Particles involved: 14, 603.
+A merger occured! Particles involved: 28, 526.
+N_tot=  821       t=  37070.793313  dt=  0.062832  cpu=  371.487228 [s]  t/tmax=  0.06%  walltime =  875.947918 [m] ,  14.599132 [h] A merger occured! Particles involved: 419, 794.
+A merger occured! Particles involved: 385, 736.
+A merger occured! Particles involved: 442, 752.
+A merger occured! Particles involved: 99, 552.
+N_tot=  817       t=  37699.111843  dt=  0.062832  cpu=  351.093933 [s]  t/tmax=  0.06%  walltime =  881.799242 [m] ,  14.696654 [h] A merger occured! Particles involved: 601, 174.
+N_tot=  816       t=  38327.430374  dt=  0.062832  cpu=  421.596910 [s]  t/tmax=  0.06%  walltime =  888.825623 [m] ,  14.813760 [h] A merger occured! Particles involved: 83, 562.
+A merger occured! Particles involved: 266, 33.
+A merger occured! Particles involved: 730, 766.
+N_tot=  813       t=  38955.748905  dt=  0.062832  cpu=  316.977757 [s]  t/tmax=  0.06%  walltime =  894.108365 [m] ,  14.901806 [h] A merger occured! Particles involved: 512, 691.
+A merger occured! Particles involved: 573, 42.
+N_tot=  811       t=  39584.067436  dt=  0.062832  cpu=  317.639488 [s]  t/tmax=  0.06%  walltime =  899.401946 [m] ,  14.990032 [h] A merger occured! Particles involved: 618, 352.
+N_tot=  810       t=  40212.385966  dt=  0.062832  cpu=  335.532947 [s]  t/tmax=  0.06%  walltime =  904.993910 [m] ,  15.083232 [h] A merger occured! Particles involved: 452, 433.
+A merger occured! Particles involved: 419, 722.
+N_tot=  808       t=  40840.704497  dt=  0.062832  cpu=  321.556905 [s]  t/tmax=  0.07%  walltime =  910.352935 [m] ,  15.172549 [h] A merger occured! Particles involved: 322, 64.
+A merger occured! Particles involved: 786, 780.
+N_tot=  806       t=  41469.023028  dt=  0.062832  cpu=  352.500562 [s]  t/tmax=  0.07%  walltime =  916.227549 [m] ,  15.270459 [h] N_tot=  806       t=  42097.341559  dt=  0.062832  cpu=  302.005121 [s]  t/tmax=  0.07%  walltime =  921.259125 [m] ,  15.354319 [h] A merger occured! Particles involved: 777, 564.
+A merger occured! Particles involved: 505, 584.
+N_tot=  804       t=  42725.660089  dt=  0.062832  cpu=  369.377907 [s]  t/tmax=  0.07%  walltime =  927.415190 [m] ,  15.456920 [h] A merger occured! Particles involved: 611, 664.
+A merger occured! Particles involved: 796, 635.
+A merger occured! Particles involved: 239, 797.
+N_tot=  801       t=  43353.978620  dt=  0.062832  cpu=  300.379147 [s]  t/tmax=  0.07%  walltime =  932.421284 [m] ,  15.540355 [h] A merger occured! Particles involved: 302, 159.
+A merger occured! Particles involved: 585, 562.
+A merger occured! Particles involved: 413, 587.
+A merger occured! Particles involved: 766, 361.
+A merger occured! Particles involved: 297, 49.
+N_tot=  796       t=  43982.297151  dt=  0.062832  cpu=  329.282685 [s]  t/tmax=  0.07%  walltime =  937.909068 [m] ,  15.631818 [h] A merger occured! Particles involved: 567, 644.
+N_tot=  795       t=  44610.615681  dt=  0.062832  cpu=  286.693015 [s]  t/tmax=  0.07%  walltime =  942.687049 [m] ,  15.711451 [h] A merger occured! Particles involved: 29, 416.
+N_tot=  794       t=  45238.934212  dt=  0.062832  cpu=  370.322673 [s]  t/tmax=  0.07%  walltime =  948.858847 [m] ,  15.814314 [h] A merger occured! Particles involved: 692, 255.
+A merger occured! Particles involved: 216, 753.
+A merger occured! Particles involved: 787, 733.
+N_tot=  791       t=  45867.252743  dt=  0.062832  cpu=  266.883552 [s]  t/tmax=  0.07%  walltime =  953.305085 [m] ,  15.888418 [h] A merger occured! Particles involved: 743, 493.
+A merger occured! Particles involved: 415, 224.
+N_tot=  789       t=  46495.571274  dt=  0.062832  cpu=  377.914359 [s]  t/tmax=  0.07%  walltime =  959.603418 [m] ,  15.993390 [h] A merger occured! Particles involved: 121, 526.
+A merger occured! Particles involved: 120, 730.
+A merger occured! Particles involved: 701, 476.
+N_tot=  786       t=  47123.889804  dt=  0.062832  cpu=  335.173051 [s]  t/tmax=  0.08%  walltime =  965.189327 [m] ,  16.086489 [h] A merger occured! Particles involved: 578, 772.
+N_tot=  785       t=  47752.208335  dt=  0.062832  cpu=  335.989823 [s]  t/tmax=  0.08%  walltime =  970.787268 [m] ,  16.179788 [h] A merger occured! Particles involved: 14, 689.
+A merger occured! Particles involved: 561, 410.
+A merger occured! Particles involved: 763, 639.
+A merger occured! Particles involved: 239, 434.
+N_tot=  781       t=  48380.526866  dt=  0.062832  cpu=  339.388541 [s]  t/tmax=  0.08%  walltime =  976.443514 [m] ,  16.274059 [h] A merger occured! Particles involved: 760, 713.
+A merger occured! Particles involved: 544, 607.
+N_tot=  779       t=  49008.845396  dt=  0.062832  cpu=  264.316636 [s]  t/tmax=  0.08%  walltime =  980.848520 [m] ,  16.347475 [h] A merger occured! Particles involved: 64, 40.
+A merger occured! Particles involved: 118, 86.
+A merger occured! Particles involved: 29, 693.
+N_tot=  776       t=  49637.163927  dt=  0.062832  cpu=  312.095929 [s]  t/tmax=  0.08%  walltime =  986.049863 [m] ,  16.434164 [h] A merger occured! Particles involved: 464, 301.
+A merger occured! Particles involved: 48, 545.
+N_tot=  774       t=  50265.482458  dt=  0.062832  cpu=  275.124679 [s]  t/tmax=  0.08%  walltime =  990.634830 [m] ,  16.510580 [h] A merger occured! Particles involved: 760, 15.
+A merger occured! Particles involved: 176, 540.
+N_tot=  772       t=  50893.800989  dt=  0.062832  cpu=  307.072456 [s]  t/tmax=  0.08%  walltime =  995.752471 [m] ,  16.595875 [h] N_tot=  772       t=  51522.119519  dt=  0.062832  cpu=  318.911049 [s]  t/tmax=  0.08%  walltime =  1001.067398 [m] ,  16.684457 [h] A merger occured! Particles involved: 373, 117.
+A merger occured! Particles involved: 706, 70.
+N_tot=  770       t=  52150.438050  dt=  0.062832  cpu=  318.529046 [s]  t/tmax=  0.08%  walltime =  1006.375955 [m] ,  16.772933 [h] A merger occured! Particles involved: 475, 607.
+A merger occured! Particles involved: 607, 547.
+N_tot=  768       t=  52778.756581  dt=  0.062832  cpu=  309.545957 [s]  t/tmax=  0.08%  walltime =  1011.534817 [m] ,  16.858914 [h] A merger occured! Particles involved: 492, 98.
+A merger occured! Particles involved: 720, 700.
+A merger occured! Particles involved: 326, 737.
+N_tot=  765       t=  53407.075112  dt=  0.062832  cpu=  287.230954 [s]  t/tmax=  0.09%  walltime =  1016.321765 [m] ,  16.938696 [h] A merger occured! Particles involved: 431, 327.
+N_tot=  764       t=  54035.393642  dt=  0.062832  cpu=  250.306742 [s]  t/tmax=  0.09%  walltime =  1020.493317 [m] ,  17.008222 [h] A merger occured! Particles involved: 146, 182.
+N_tot=  763       t=  54663.712173  dt=  0.062832  cpu=  306.745462 [s]  t/tmax=  0.09%  walltime =  1025.605507 [m] ,  17.093425 [h] A merger occured! Particles involved: 117, 329.
+A merger occured! Particles involved: 360, 652.
+A merger occured! Particles involved: 121, 422.
+N_tot=  760       t=  55292.030704  dt=  0.062832  cpu=  300.773547 [s]  t/tmax=  0.09%  walltime =  1030.618151 [m] ,  17.176969 [h] A merger occured! Particles involved: 533, 71.
+A merger occured! Particles involved: 239, 47.
+A merger occured! Particles involved: 743, 117.
+N_tot=  757       t=  55920.349234  dt=  0.062832  cpu=  290.244813 [s]  t/tmax=  0.09%  walltime =  1035.455327 [m] ,  17.257589 [h] A merger occured! Particles involved: 132, 354.
+A merger occured! Particles involved: 540, 556.
+A merger occured! Particles involved: 255, 684.
+N_tot=  754       t=  56548.667765  dt=  0.062832  cpu=  271.948251 [s]  t/tmax=  0.09%  walltime =  1039.987588 [m] ,  17.333126 [h] A merger occured! Particles involved: 207, 384.
+A merger occured! Particles involved: 577, 291.
+N_tot=  752       t=  57176.986296  dt=  0.062832  cpu=  267.217236 [s]  t/tmax=  0.09%  walltime =  1044.440976 [m] ,  17.407350 [h] A merger occured! Particles involved: 435, 195.
+N_tot=  751       t=  57805.304827  dt=  0.062832  cpu=  281.164508 [s]  t/tmax=  0.09%  walltime =  1049.126759 [m] ,  17.485446 [h] A merger occured! Particles involved: 649, 59.
+A merger occured! Particles involved: 684, 739.
+N_tot=  749       t=  58433.623357  dt=  0.062832  cpu=  290.876867 [s]  t/tmax=  0.09%  walltime =  1053.973394 [m] ,  17.566223 [h] N_tot=  749       t=  59061.941888  dt=  0.062832  cpu=  306.029101 [s]  t/tmax=  0.09%  walltime =  1059.073375 [m] ,  17.651223 [h] N_tot=  749       t=  59690.260419  dt=  0.062832  cpu=  310.374344 [s]  t/tmax=  0.10%  walltime =  1064.246032 [m] ,  17.737434 [h] A merger occured! Particles involved: 467, 349.
+A merger occured! Particles involved: 683, 91.
+N_tot=  747       t=  60318.578950  dt=  0.062832  cpu=  345.207823 [s]  t/tmax=  0.10%  walltime =  1069.999257 [m] ,  17.833321 [h] A merger occured! Particles involved: 615, 268.
+N_tot=  746       t=  60946.897480  dt=  0.062832  cpu=  323.760415 [s]  t/tmax=  0.10%  walltime =  1075.395013 [m] ,  17.923250 [h] A merger occured! Particles involved: 89, 465.
+A merger occured! Particles involved: 421, 517.
+A merger occured! Particles involved: 292, 672.
+N_tot=  743       t=  61575.216011  dt=  0.062832  cpu=  266.385498 [s]  t/tmax=  0.10%  walltime =  1079.834484 [m] ,  17.997241 [h] A merger occured! Particles involved: 148, 293.
+A merger occured! Particles involved: 49, 224.
+N_tot=  741       t=  62203.534542  dt=  0.062832  cpu=  297.540535 [s]  t/tmax=  0.10%  walltime =  1084.791602 [m] ,  18.079860 [h] A merger occured! Particles involved: 696, 232.
+A merger occured! Particles involved: 339, 722.
+A merger occured! Particles involved: 500, 91.
+A merger occured! Particles involved: 141, 349.
+A merger occured! Particles involved: 422, 116.
+N_tot=  736       t=  62831.853072  dt=  0.062832  cpu=  275.961367 [s]  t/tmax=  0.10%  walltime =  1089.390738 [m] ,  18.156512 [h] A merger occured! Particles involved: 286, 18.
+A merger occured! Particles involved: 561, 12.
+A merger occured! Particles involved: 574, 398.
+N_tot=  733       t=  63460.171603  dt=  0.062832  cpu=  272.329866 [s]  t/tmax=  0.10%  walltime =  1093.923647 [m] ,  18.232061 [h] N_tot=  733       t=  64088.490134  dt=  0.062832  cpu=  272.841192 [s]  t/tmax=  0.10%  walltime =  1098.470740 [m] ,  18.307846 [h] A merger occured! Particles involved: 14, 632.
+A merger occured! Particles involved: 340, 62.
+A merger occured! Particles involved: 281, 202.
+A merger occured! Particles involved: 452, 188.
+N_tot=  729       t=  64716.808665  dt=  0.062832  cpu=  257.590724 [s]  t/tmax=  0.10%  walltime =  1102.763692 [m] ,  18.379395 [h] A merger occured! Particles involved: 419, 185.
+A merger occured! Particles involved: 645, 676.
+A merger occured! Particles involved: 609, 438.
+A merger occured! Particles involved: 553, 416.
+A merger occured! Particles involved: 476, 116.
+N_tot=  724       t=  65345.127195  dt=  0.062832  cpu=  271.945370 [s]  t/tmax=  0.10%  walltime =  1107.295893 [m] ,  18.454932 [h] N_tot=  724       t=  65973.445726  dt=  0.062832  cpu=  228.779937 [s]  t/tmax=  0.11%  walltime =  1111.108256 [m] ,  18.518471 [h] A merger occured! Particles involved: 372, 331.
+N_tot=  723       t=  66601.764257  dt=  0.062832  cpu=  263.653222 [s]  t/tmax=  0.11%  walltime =  1115.502260 [m] ,  18.591704 [h] A merger occured! Particles involved: 134, 76.
+N_tot=  722       t=  67230.082787  dt=  0.062832  cpu=  283.453363 [s]  t/tmax=  0.11%  walltime =  1120.224595 [m] ,  18.670410 [h] A merger occured! Particles involved: 72, 517.
+A merger occured! Particles involved: 20, 103.
+A merger occured! Particles involved: 522, 356.
+N_tot=  719       t=  67858.401318  dt=  0.062832  cpu=  270.127037 [s]  t/tmax=  0.11%  walltime =  1124.726432 [m] ,  18.745441 [h] A merger occured! Particles involved: 332, 685.
+A merger occured! Particles involved: 70, 34.
+N_tot=  717       t=  68486.719849  dt=  0.062832  cpu=  241.306171 [s]  t/tmax=  0.11%  walltime =  1128.747952 [m] ,  18.812466 [h] N_tot=  717       t=  69115.038379  dt=  0.062832  cpu=  415.743065 [s]  t/tmax=  0.11%  walltime =  1135.676532 [m] ,  18.927942 [h] A merger occured! Particles involved: 516, 214.
+A merger occured! Particles involved: 92, 80.
+A merger occured! Particles involved: 425, 464.
+A merger occured! Particles involved: 465, 224.
+N_tot=  713       t=  69743.356910  dt=  0.062832  cpu=  253.431590 [s]  t/tmax=  0.11%  walltime =  1139.900140 [m] ,  18.998336 [h] N_tot=  713       t=  70371.675441  dt=  0.062832  cpu=  238.149373 [s]  t/tmax=  0.11%  walltime =  1143.867653 [m] ,  19.064461 [h] A merger occured! Particles involved: 129, 256.
+A merger occured! Particles involved: 169, 60.
+A merger occured! Particles involved: 703, 443.
+A merger occured! Particles involved: 167, 460.
+N_tot=  709       t=  70999.993971  dt=  0.062832  cpu=  248.781252 [s]  t/tmax=  0.11%  walltime =  1148.013755 [m] ,  19.133563 [h] A merger occured! Particles involved: 623, 516.
+A merger occured! Particles involved: 322, 583.
+N_tot=  707       t=  71628.312502  dt=  0.062832  cpu=  229.454332 [s]  t/tmax=  0.11%  walltime =  1151.837763 [m] ,  19.197296 [h] A merger occured! Particles involved: 627, 113.
+A merger occured! Particles involved: 288, 33.
+A merger occured! Particles involved: 475, 145.
+N_tot=  704       t=  72256.693864  dt=  0.062832  cpu=  251.018330 [s]  t/tmax=  0.12%  walltime =  1156.019587 [m] ,  19.266993 [h] N_tot=  704       t=  72885.012395  dt=  0.062832  cpu=  282.460185 [s]  t/tmax=  0.12%  walltime =  1160.726986 [m] ,  19.345450 [h] N_tot=  704       t=  73513.330926  dt=  0.062832  cpu=  206.624616 [s]  t/tmax=  0.12%  walltime =  1164.170513 [m] ,  19.402842 [h] N_tot=  704       t=  74141.649456  dt=  0.062832  cpu=  256.750838 [s]  t/tmax=  0.12%  walltime =  1168.449442 [m] ,  19.474157 [h] A merger occured! Particles involved: 53, 177.
+A merger occured! Particles involved: 307, 660.
+A merger occured! Particles involved: 91, 502.
+A merger occured! Particles involved: 521, 334.
+A merger occured! Particles involved: 164, 445.
+A merger occured! Particles involved: 522, 62.
+N_tot=  698       t=  74769.967987  dt=  0.062832  cpu=  271.637371 [s]  t/tmax=  0.12%  walltime =  1172.976496 [m] ,  19.549608 [h] A merger occured! Particles involved: 230, 331.
+N_tot=  697       t=  75398.286518  dt=  0.062832  cpu=  270.717952 [s]  t/tmax=  0.12%  walltime =  1177.487949 [m] ,  19.624799 [h] A merger occured! Particles involved: 162, 18.
+N_tot=  696       t=  76026.605048  dt=  0.062832  cpu=  283.802593 [s]  t/tmax=  0.12%  walltime =  1182.217702 [m] ,  19.703628 [h] A merger occured! Particles involved: 328, 565.
+A merger occured! Particles involved: 527, 59.
+A merger occured! Particles involved: 72, 162.
+N_tot=  693       t=  76654.923579  dt=  0.062832  cpu=  2793.058266 [s]  t/tmax=  0.12%  walltime =  1228.768440 [m] ,  20.479474 [h] A merger occured! Particles involved: 556, 305.
+N_tot=  692       t=  77283.242110  dt=  0.062832  cpu=  5075.866049 [s]  t/tmax=  0.12%  walltime =  1313.365939 [m] ,  21.889432 [h] A merger occured! Particles involved: 541, 1.
+N_tot=  691       t=  77911.560640  dt=  0.062832  cpu=  4577.152692 [s]  t/tmax=  0.12%  walltime =  1389.648963 [m] ,  23.160816 [h] A merger occured! Particles involved: 218, 604.
+A merger occured! Particles involved: 445, 217.
+A merger occured! Particles involved: 145, 577.
+=>> PBS: job killed: walltime 43217 exceeded limit 43200
+aprun: Apid 2077045: Caught signal Terminated, sending to application
+Application 2077045 exit signals: Terminated
+Application 2077045 resources: utime ~43206s, stime ~1s, Rss ~6304, inblocks ~0, outblocks ~51136

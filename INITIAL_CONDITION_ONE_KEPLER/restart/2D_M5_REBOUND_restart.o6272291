@@ -1,0 +1,8 @@
+03614
+Creating simulation from binary file and integrating until tmax
+
+[1mWarning![0m You have to reset function pointers after creating a reb_simulation struct with a binary file.
+N_tot=  53        t=  2256920.165114  dt=  0.006283  cpu=  4564.678497 [s]  t/tmax=  3.59%  walltime =  14390.965612 [m] ,  239.849427 [h] N_tot=  53        t=  2257548.483659  dt=  0.006283  cpu=  5551.776353 [s]  t/tmax=  3.59%  walltime =  14483.494653 [m] ,  241.391578 [h] N_tot=  53        t=  2258176.802203  dt=  0.006283  cpu=  5551.875659 [s]  t/tmax=  3.59%  walltime =  14576.025200 [m] ,  242.933753 [h] N_tot=  53        t=  2258805.120748  dt=  0.006283  cpu=  5615.030612 [s]  t/tmax=  3.60%  walltime =  14669.607967 [m] ,  244.493466 [h] N_tot=  53        t=  2259433.439292  dt=  0.006283  cpu=  5675.431214 [s]  t/tmax=  3.60%  walltime =  14764.197643 [m] ,  246.069961 [h] N_tot=  53        t=  2260061.757837  dt=  0.006283  cpu=  5658.276353 [s]  t/tmax=  3.60%  walltime =  14858.501379 [m] ,  247.641690 [h] N_tot=  53        t=  2260690.076381  dt=  0.006283  cpu=  5711.058250 [s]  t/tmax=  3.60%  walltime =  14953.685084 [m] ,  249.228085 [h] N_tot=  53        t=  2261318.394926  dt=  0.006283  cpu=  5759.981492 [s]  t/tmax=  3.60%  walltime =  15049.683902 [m] ,  250.828065 [h] =>> PBS: job killed: walltime 43254 exceeded limit 43200
+aprun: Apid 2113741: Caught signal Terminated, sending to application
+Application 2113741 exit signals: Terminated
+Application 2113741 resources: utime ~43124s, stime ~1s, Rss ~6396, inblocks ~0, outblocks ~832

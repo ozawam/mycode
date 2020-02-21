@@ -1,0 +1,18 @@
+00133
+Creating simulation from binary file and integrating until tmax
+
+[1mWarning![0m You have to reset function pointers after creating a reb_simulation struct with a binary file.
+N_tot=  680       t=  82309.790355  dt=  0.062832  cpu=  2669.555096 [s]  t/tmax=  0.13%  walltime =  2065.514223 [m] ,  34.425237 [h] A merger occured! Particles involved: 232, 251.
+A merger occured! Particles involved: 131, 98.
+A merger occured! Particles involved: 556, 307.
+N_tot=  677       t=  82938.108886  dt=  0.062832  cpu=  7545.387280 [s]  t/tmax=  0.13%  walltime =  2191.270247 [m] ,  36.521171 [h] A merger occured! Particles involved: 577, 641.
+N_tot=  676       t=  83566.427416  dt=  0.062832  cpu=  6988.940034 [s]  t/tmax=  0.13%  walltime =  2307.751303 [m] ,  38.462522 [h] A merger occured! Particles involved: 96, 257.
+N_tot=  675       t=  84194.745947  dt=  0.062832  cpu=  6960.412619 [s]  t/tmax=  0.13%  walltime =  2423.756458 [m] ,  40.395941 [h] A merger occured! Particles involved: 515, 668.
+A merger occured! Particles involved: 70, 409.
+N_tot=  673       t=  84823.064477  dt=  0.062832  cpu=  7095.925139 [s]  t/tmax=  0.14%  walltime =  2542.020954 [m] ,  42.367016 [h] A merger occured! Particles involved: 57, 361.
+A merger occured! Particles involved: 327, 601.
+N_tot=  671       t=  85451.383008  dt=  0.062832  cpu=  8381.943106 [s]  t/tmax=  0.14%  walltime =  2681.719017 [m] ,  44.695317 [h] A merger occured! Particles involved: 368, 230.
+=>> PBS: job killed: walltime 43205 exceeded limit 43200
+aprun: Apid 2078748: Caught signal Terminated, sending to application
+Application 2078748 exit signals: Terminated
+Application 2078748 resources: utime ~43197s, stime ~1s, Rss ~6312, inblocks ~0, outblocks ~3448

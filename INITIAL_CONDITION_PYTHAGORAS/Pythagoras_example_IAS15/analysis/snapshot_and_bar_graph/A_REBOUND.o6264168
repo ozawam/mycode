@@ -1,0 +1,5 @@
+rm: cannot remove 'nohup.out': No such file or directory
+You need to delete .dat before starting this analysis.
+I can't open the file. 
+Application 2102168 exit codes: 1
+Application 2102168 resources: utime ~0s, stime ~0s, Rss ~17276, inblocks ~1092, outblocks ~0
