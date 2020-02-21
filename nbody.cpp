@@ -205,12 +205,12 @@ int main(int argc, char *argv[]) {
     g5_open();
     g5_set_eps_to_all(FPGrav::eps);
 #endif
-    
     PS::TreeForForceLong<FPGrav, FPGrav, FPGrav>::Monopole tree_grav;
     tree_grav.initialize(n_tot, theta, n_leaf_limit, n_group_limit);
-#ifdef MULTI_WALK
+
     const PS::S32 n_walk_limit = 200;
     const PS::S32 tag_max = 1;
+#ifdef MULTI_WALK
     tree_grav.calcForceAllAndWriteBackMultiWalk(DispatchKernelWithSP,
                                                 RetrieveKernel,
                                                 tag_max,
@@ -262,7 +262,31 @@ int main(int argc, char *argv[]) {
 //#######################################################
 // orbit integration
 //#######################################################  
-        
+
+leap_frog(system_grav,
+          dt,
+          time_sys,
+          n_loop,
+          dinfo,
+          tag_max,
+          n_walk_limit,
+          n_tot,
+          theta,
+          n_leaf_limit,
+          n_group_limit,
+          tree_grav
+);
+/*
+#else
+leap_frog(system_grav,
+          dt,
+          time_sys,
+          n_loop,
+          dinfo,
+          tree_grav
+);
+*/
+/*        
         kick(system_grav, dt * 0.5);
         
         time_sys += dt;
@@ -289,7 +313,7 @@ int main(int argc, char *argv[]) {
 #endif
         
         kick(system_grav, dt * 0.5);
-        
+*/        
         n_loop++;
     }
     
