@@ -195,6 +195,7 @@ class CalcGravity{
             PS::F64vec    j2     = 3.0 * ( vij * rij ) * r5_inv * rij;
             jri    -= j1 - j2;
             poti   -= r_inv;
+
         }
         force[i].acc += ai;
         force[i].jrk += jri;

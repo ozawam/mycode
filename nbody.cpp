@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
     PS::S32 n_leaf_limit = 8;
     PS::S32 n_group_limit = 64;
     PS::F32 time_end = 10.0;
-    PS::F32 dt = 1.0 / 128.0;
+    PS::F64 dt = 1.0 / 128.0;
     PS::F32 dt_diag = 1.0 / 8.0;
     PS::F32 dt_snap = 1.0;
     char dir_name[1024];
@@ -211,8 +211,6 @@ int main(int argc, char *argv[]) {
                                                 n_walk_limit);
 #else
     tree_grav.calcForceAllAndWriteBack(CalcGravity(),
-//                                       CalcGravity<PS::SPJMonopole>,
-//                                       CalcGravity<FPGrav>,
                                        system_grav,
                                        dinfo);
 #endif
@@ -225,6 +223,8 @@ int main(int argc, char *argv[]) {
     PS::F64 time_snap = 0.0;
     PS::S64 n_loop = 0;
     PS::S32 id_snap = 0;
+
+    initial_timestep( system_grav, dt, time_sys);
 
 //#######################################################
 // start of calculation
@@ -246,8 +246,8 @@ int main(int argc, char *argv[]) {
         if(PS::Comm::getRank() == 0){
             if( (time_sys >= time_diag) || ( (time_sys + dt) - time_diag ) > (time_diag - time_sys) ){
                 fout_eng << time_sys << "   " << fabs((Etot1 - Etot0) / Etot0) << std::endl;
-                fprintf(stdout, "time: %10.7f energy error: %+e\n",
-                        time_sys, fabs((Etot1 - Etot0) / Etot0));
+                fprintf(stdout, "time: %10.7f energy error: %+e timestep: %10.7f \n",
+                        time_sys, fabs((Etot1 - Etot0) / Etot0), dt);
                 time_diag += dt_diag;
             }            
         }

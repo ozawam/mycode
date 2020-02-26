@@ -2,804 +2,804 @@ This is a sample program of N-body simulation on FDPS!
 Number of processes: 1
 Number of threads per process: 1
 initial energy: -1.281614e+01
-time:  0.0000000 energy error: +0.000000e+00
-time:  0.1249982 energy error: +1.607796e-14
-time:  0.2500017 energy error: +7.678610e-14
-time:  0.3750012 energy error: +1.898862e-13
-time:  0.5000007 energy error: +3.696544e-13
-time:  0.6250002 energy error: +6.280105e-13
-time:  0.7499998 energy error: +9.860222e-13
-time:  0.8749993 energy error: +1.202936e-12
-time:  0.9999988 energy error: +1.030237e-12
-time:  1.1249983 energy error: +1.043404e-12
-time:  1.2499979 energy error: +1.336549e-12
-time:  1.3749974 energy error: +1.443274e-12
-time:  1.4999969 energy error: +1.550830e-12
-time:  1.6249964 energy error: +1.611399e-12
-time:  1.7499959 energy error: +1.855618e-12
-time:  1.8749955 energy error: +2.054652e-12
-time:  2.0000050 energy error: +4.396489e-13
-time:  2.1250045 energy error: +2.852451e-13
-time:  2.2500041 energy error: +2.859381e-13
-time:  2.3750036 energy error: +2.328532e-13
-time:  2.5000031 energy error: +2.192701e-13
-time:  2.6250026 energy error: +4.013945e-13
-time:  2.7500021 energy error: +2.991054e-13
-time:  2.8750017 energy error: +5.592634e-13
-time:  3.0000012 energy error: +8.306482e-13
-time:  3.1250007 energy error: +9.211560e-13
-time:  3.2500002 energy error: +8.454787e-13
-time:  3.3749998 energy error: +7.973835e-13
-time:  3.4999993 energy error: +9.892101e-13
-time:  3.6249988 energy error: +1.201134e-12
-time:  3.7499983 energy error: +1.576333e-12
-time:  3.8749979 energy error: +1.665316e-12
-time:  3.9999974 energy error: +1.730043e-12
-time:  4.1249967 energy error: +2.013071e-12
-time:  4.2499962 energy error: +2.080709e-12
-time:  4.3749957 energy error: +2.691949e-12
-time:  4.4999952 energy error: +2.841917e-12
-time:  4.6250048 energy error: +2.744064e-12
-time:  4.7500043 energy error: +2.672544e-12
-time:  4.8750038 energy error: +2.850372e-12
-time:  5.0000033 energy error: +2.764715e-12
-time:  5.1250029 energy error: +2.405872e-12
-time:  5.2500024 energy error: +2.426385e-12
-time:  5.3750019 energy error: +1.932127e-12
-time:  5.5000014 energy error: +2.328532e-12
-time:  5.6250010 energy error: +2.535466e-12
-time:  5.7500005 energy error: +2.706225e-12
-time:  5.8750000 energy error: +2.770953e-12
-time:  5.9999995 energy error: +2.660347e-12
-time:  6.1249990 energy error: +2.457017e-12
-time:  6.2499986 energy error: +2.190760e-12
-time:  6.3749981 energy error: +1.787702e-12
-time:  6.4999976 energy error: +1.428166e-12
-time:  6.6249971 energy error: +1.141812e-12
-time:  6.7499967 energy error: +8.077787e-13
-time:  6.8749962 energy error: +5.926667e-13
-time:  6.9999957 energy error: +9.120082e-13
-time:  7.1249952 energy error: +1.100508e-12
-time:  7.2500048 energy error: +1.159276e-12
-time:  7.3750043 energy error: +3.684070e-12
-time:  7.5000038 energy error: +3.740620e-12
-time:  7.6250033 energy error: +3.594809e-12
-time:  7.7500029 energy error: +3.485590e-12
-time:  7.8750024 energy error: +3.253153e-12
-time:  8.0000019 energy error: +3.400210e-12
-time:  8.1250000 energy error: +3.462859e-12
-time:  8.2499981 energy error: +3.555169e-12
-time:  8.3749962 energy error: +3.594532e-12
-time:  8.5000038 energy error: +3.600076e-12
-time:  8.6250019 energy error: +3.582612e-12
-time:  8.7500000 energy error: +3.759470e-12
-time:  8.8749981 energy error: +3.621282e-12
-time:  8.9999962 energy error: +3.903894e-12
-time:  9.1250038 energy error: +3.405477e-12
-time:  9.2500019 energy error: +3.243312e-12
-time:  9.3750000 energy error: +3.346017e-12
-time:  9.4999981 energy error: +3.139082e-12
-time:  9.6249962 energy error: +3.467710e-12
-time:  9.7500038 energy error: +3.580256e-12
-time:  9.8750019 energy error: +3.726898e-12
-time: 10.0000000 energy error: +3.353917e-12
-time: 10.1249981 energy error: +3.268538e-12
-time: 10.2499962 energy error: +2.887102e-12
-time: 10.3750038 energy error: +3.233055e-12
-time: 10.5000019 energy error: +2.712878e-12
-time: 10.6250000 energy error: +2.668109e-12
-time: 10.7499981 energy error: +2.839700e-12
-time: 10.8749962 energy error: +2.903180e-12
-time: 11.0000038 energy error: +3.475611e-12
-time: 11.1250019 energy error: +3.424882e-12
-time: 11.2500000 energy error: +3.362095e-12
-time: 11.3749981 energy error: +3.520241e-12
-time: 11.4999962 energy error: +3.751292e-12
-time: 11.6250038 energy error: +4.447911e-12
-time: 11.7500019 energy error: +4.846395e-12
-time: 11.8750000 energy error: +5.328456e-12
-time: 11.9999981 energy error: +5.012996e-12
-time: 12.1249962 energy error: +4.905440e-12
-time: 12.2500038 energy error: +5.571843e-12
-time: 12.3750019 energy error: +6.070260e-12
-time: 12.5000000 energy error: +6.660293e-12
-time: 12.6249981 energy error: +6.893008e-12
-time: 12.7499962 energy error: +7.080676e-12
-time: 12.8750038 energy error: +7.204310e-12
-time: 13.0000019 energy error: +6.948865e-12
-time: 13.1250000 energy error: +6.739020e-12
-time: 13.2499981 energy error: +6.753296e-12
-time: 13.3749962 energy error: +6.976585e-12
-time: 13.5000038 energy error: +6.478030e-12
-time: 13.6250019 energy error: +6.774502e-12
-time: 13.7500000 energy error: +7.324063e-12
-time: 13.8749981 energy error: +7.460726e-12
-time: 13.9999962 energy error: +7.282482e-12
-time: 14.1250038 energy error: +7.783671e-12
-time: 14.2500019 energy error: +8.072520e-12
-time: 14.3750000 energy error: +8.562482e-12
-time: 14.4999981 energy error: +8.894991e-12
-time: 14.6249962 energy error: +9.062423e-12
-time: 14.7500038 energy error: +9.234291e-12
-time: 14.8750019 energy error: +9.540049e-12
-time: 15.0000000 energy error: +9.391744e-12
-time: 15.1249981 energy error: +8.694848e-12
-time: 15.2499962 energy error: +8.844123e-12
-time: 15.3750038 energy error: +8.976073e-12
-time: 15.5000019 energy error: +9.091530e-12
-time: 15.6250000 energy error: +9.080580e-12
-time: 15.7499981 energy error: +8.879744e-12
-time: 15.8749962 energy error: +9.263120e-12
-time: 16.0000038 energy error: +9.538386e-12
-time: 16.1250019 energy error: +9.523417e-12
-time: 16.2500000 energy error: +9.018347e-12
-time: 16.3749981 energy error: +8.461163e-12
-time: 16.4999962 energy error: +7.763712e-12
-time: 16.6250038 energy error: +7.290799e-12
-time: 16.7500019 energy error: +7.535710e-12
-time: 16.8750000 energy error: +7.356219e-12
-time: 16.9999981 energy error: +7.079706e-12
-time: 17.1249962 energy error: +7.184906e-12
-time: 17.2500038 energy error: +7.422749e-12
-time: 17.3750019 energy error: +6.922946e-12
-time: 17.5000000 energy error: +6.870554e-12
-time: 17.6249981 energy error: +7.112278e-12
-time: 17.7499962 energy error: +7.341250e-12
-time: 17.8750038 energy error: +8.011812e-12
-time: 18.0000019 energy error: +8.365943e-12
-time: 18.1250000 energy error: +8.317570e-12
-time: 18.2499981 energy error: +8.351112e-12
-time: 18.3749962 energy error: +8.321174e-12
-time: 18.5000038 energy error: +8.327827e-12
-time: 18.6250019 energy error: +8.335866e-12
-time: 18.7500000 energy error: +8.248269e-12
-time: 18.8749981 energy error: +7.995457e-12
-time: 18.9999962 energy error: +7.750684e-12
-time: 19.1250038 energy error: +7.725735e-12
-time: 19.2500019 energy error: +7.713815e-12
-time: 19.3750000 energy error: +7.485120e-12
-time: 19.4999981 energy error: +7.894969e-12
-time: 19.6249962 energy error: +8.068916e-12
-time: 19.7500038 energy error: +7.442430e-12
-time: 19.8750019 energy error: +6.630216e-12
-time: 20.0000000 energy error: +6.252107e-12
-time: 20.1249981 energy error: +6.036995e-12
-time: 20.2499962 energy error: +6.366871e-12
-time: 20.3750038 energy error: +6.548718e-12
-time: 20.5000019 energy error: +6.803470e-12
-time: 20.6250000 energy error: +7.356635e-12
-time: 20.7499981 energy error: +7.411522e-12
-time: 20.8749962 energy error: +7.505218e-12
-time: 21.0000038 energy error: +7.425798e-12
-time: 21.1250019 energy error: +7.244505e-12
-time: 21.2500000 energy error: +7.136256e-12
-time: 21.3749981 energy error: +7.126970e-12
-time: 21.4999962 energy error: +7.039234e-12
-time: 21.6250038 energy error: +6.798758e-12
-time: 21.7500019 energy error: +6.816222e-12
-time: 21.8750000 energy error: +6.396532e-12
-time: 21.9999981 energy error: +6.461952e-12
-time: 22.1249962 energy error: +5.793331e-12
-time: 22.2500038 energy error: +5.342317e-12
-time: 22.3750019 energy error: +5.254165e-12
-time: 22.5000000 energy error: +5.776144e-12
-time: 22.6249981 energy error: +6.118771e-12
-time: 22.7499962 energy error: +6.058202e-12
-time: 22.8750038 energy error: +6.204151e-12
-time: 23.0000019 energy error: +6.040599e-12
-time: 23.1250000 energy error: +6.117108e-12
-time: 23.2499981 energy error: +6.259315e-12
-time: 23.3749962 energy error: +6.237138e-12
-time: 23.5000038 energy error: +6.399026e-12
-time: 23.6250019 energy error: +6.610258e-12
-time: 23.7500000 energy error: +7.277770e-12
-time: 23.8749981 energy error: +7.690807e-12
-time: 23.9999962 energy error: +7.773692e-12
-time: 24.1250038 energy error: +7.765653e-12
-time: 24.2500019 energy error: +7.572717e-12
-time: 24.3750000 energy error: +7.176590e-12
-time: 24.4999981 energy error: +6.854753e-12
-time: 24.6249962 energy error: +6.797094e-12
-time: 24.7500038 energy error: +6.803193e-12
-time: 24.8750019 energy error: +7.234803e-12
-time: 25.0000000 energy error: +7.810837e-12
-time: 25.1249981 energy error: +7.434114e-12
-time: 25.2499962 energy error: +7.461835e-12
-time: 25.3750038 energy error: +7.405562e-12
-time: 25.5000019 energy error: +7.415126e-12
-time: 25.6250000 energy error: +7.226210e-12
-time: 25.7499981 energy error: +6.681915e-12
-time: 25.8749962 energy error: +6.682608e-12
-time: 26.0000038 energy error: +6.431737e-12
-time: 26.1250019 energy error: +5.853485e-12
-time: 26.2500000 energy error: +5.263313e-12
-time: 26.3749981 energy error: +4.784301e-12
-time: 26.4999962 energy error: +4.929834e-12
-time: 26.6250038 energy error: +5.205377e-12
-time: 26.7500019 energy error: +5.798875e-12
-time: 26.8750000 energy error: +5.317230e-12
-time: 26.9999981 energy error: +5.204545e-12
-time: 27.1249962 energy error: +5.284935e-12
-time: 27.2500038 energy error: +5.093386e-12
-time: 27.3750019 energy error: +4.993037e-12
-time: 27.5000000 energy error: +4.697951e-12
-time: 27.6249981 energy error: +4.505293e-12
-time: 27.7499962 energy error: +4.013668e-12
-time: 27.8750038 energy error: +3.637499e-12
-time: 28.0000019 energy error: +3.377202e-12
-time: 28.1250000 energy error: +3.773746e-12
-time: 28.2499981 energy error: +4.390529e-12
-time: 28.3749962 energy error: +4.417696e-12
-time: 28.5000038 energy error: +4.123025e-12
-time: 28.6250019 energy error: +3.841800e-12
-time: 28.7500000 energy error: +3.909161e-12
-time: 28.8749981 energy error: +4.144786e-12
-time: 28.9999962 energy error: +4.030577e-12
-time: 29.1250038 energy error: +4.145895e-12
-time: 29.2500019 energy error: +4.008401e-12
-time: 29.3750000 energy error: +4.124827e-12
-time: 29.4999981 energy error: +4.280063e-12
-time: 29.6249962 energy error: +4.337306e-12
-time: 29.7500038 energy error: +4.162527e-12
-time: 29.8750019 energy error: +3.912349e-12
-time: 30.0000000 energy error: +4.821862e-12
-time: 30.1249981 energy error: +4.744383e-12
-time: 30.2499962 energy error: +4.651935e-12
-time: 30.3750038 energy error: +5.206347e-12
-time: 30.5000019 energy error: +5.415360e-12
-time: 30.6250000 energy error: +5.679677e-12
-time: 30.7499981 energy error: +6.169777e-12
-time: 30.8749962 energy error: +6.474427e-12
-time: 31.0000038 energy error: +6.724882e-12
-time: 31.1250019 energy error: +7.574935e-12
-time: 31.2500000 energy error: +7.687481e-12
-time: 31.3749981 energy error: +7.871268e-12
-time: 31.4999962 energy error: +7.570222e-12
-time: 31.6250038 energy error: +7.132930e-12
-time: 31.7500019 energy error: +6.997792e-12
-time: 31.8750000 energy error: +7.402097e-12
-time: 31.9999981 energy error: +7.602378e-12
-time: 32.1250000 energy error: +7.655325e-12
-time: 32.2500038 energy error: +7.940431e-12
-time: 32.3749962 energy error: +8.131842e-12
-time: 32.5000000 energy error: +8.292344e-12
-time: 32.6250038 energy error: +1.124071e-11
-time: 32.7499962 energy error: +1.071125e-11
-time: 32.8750000 energy error: +1.072344e-11
-time: 33.0000038 energy error: +1.071596e-11
-time: 33.1249962 energy error: +1.064416e-11
-time: 33.2500000 energy error: +1.048893e-11
-time: 33.3750038 energy error: +1.054298e-11
-time: 33.4999962 energy error: +1.058013e-11
-time: 33.6250000 energy error: +1.051831e-11
-time: 33.7500038 energy error: +1.041838e-11
-time: 33.8749962 energy error: +9.626122e-12
-time: 34.0000000 energy error: +8.591866e-12
-time: 34.1250038 energy error: +8.772465e-12
-time: 34.2499962 energy error: +8.951263e-12
-time: 34.3750000 energy error: +9.077392e-12
-time: 34.5000038 energy error: +8.958609e-12
-time: 34.6249962 energy error: +8.711480e-12
-time: 34.7500000 energy error: +9.088758e-12
-time: 34.8750038 energy error: +8.484725e-12
-time: 34.9999962 energy error: +8.570382e-12
-time: 35.1250000 energy error: +8.542523e-12
-time: 35.2500038 energy error: +8.065590e-12
-time: 35.3749962 energy error: +7.858240e-12
-time: 35.5000000 energy error: +7.594339e-12
-time: 35.6250038 energy error: +7.851309e-12
-time: 35.7499962 energy error: +7.877090e-12
-time: 35.8750000 energy error: +7.485675e-12
-time: 36.0000038 energy error: +6.497435e-12
-time: 36.1249962 energy error: +6.601664e-12
-time: 36.2500000 energy error: +6.334160e-12
-time: 36.3750038 energy error: +8.651326e-12
-time: 36.4999962 energy error: +9.015575e-12
-time: 36.6250000 energy error: +8.776901e-12
-time: 36.7500038 energy error: +9.075868e-12
-time: 36.8749962 energy error: +9.158059e-12
-time: 37.0000000 energy error: +9.106637e-12
-time: 37.1250038 energy error: +8.833589e-12
-time: 37.2499962 energy error: +9.105251e-12
-time: 37.3750000 energy error: +9.387863e-12
-time: 37.5000038 energy error: +9.568601e-12
-time: 37.6249962 energy error: +8.716470e-12
-time: 37.7500000 energy error: +8.927146e-12
-time: 37.8750038 energy error: +8.830540e-12
-time: 37.9999962 energy error: +8.726726e-12
-time: 38.1250000 energy error: +8.773574e-12
-time: 38.2500038 energy error: +8.659642e-12
-time: 38.3749962 energy error: +7.749159e-12
-time: 38.5000000 energy error: +8.690274e-12
-time: 38.6250038 energy error: +9.126735e-12
-time: 38.7499962 energy error: +9.028604e-12
-time: 38.8750000 energy error: +8.668790e-12
-time: 39.0000038 energy error: +7.728230e-12
-time: 39.1249962 energy error: +8.381882e-12
-time: 39.2500000 energy error: +7.947500e-12
-time: 39.3750038 energy error: +8.214311e-12
-time: 39.4999962 energy error: +8.183818e-12
-time: 39.6250000 energy error: +8.187838e-12
-time: 39.7500038 energy error: +8.437046e-12
-time: 39.8749962 energy error: +8.636357e-12
-time: 40.0000000 energy error: +8.611686e-12
-time: 40.1250038 energy error: +8.805730e-12
-time: 40.2499962 energy error: +8.880160e-12
-time: 40.3750000 energy error: +8.249655e-12
-time: 40.5000038 energy error: +8.676275e-12
-time: 40.6249962 energy error: +9.193126e-12
-time: 40.7500000 energy error: +9.528684e-12
-time: 40.8750038 energy error: +9.003655e-12
-time: 40.9999962 energy error: +8.506902e-12
-time: 41.1250000 energy error: +8.116596e-12
-time: 41.2500038 energy error: +8.684037e-12
-time: 41.3749962 energy error: +8.631645e-12
-time: 41.5000000 energy error: +8.487636e-12
-time: 41.6250038 energy error: +8.473776e-12
-time: 41.7499962 energy error: +8.853964e-12
-time: 41.8750000 energy error: +5.596237e-12
-time: 42.0000038 energy error: +5.157282e-12
-time: 42.1249962 energy error: +5.093386e-12
-time: 42.2500000 energy error: +5.260541e-12
-time: 42.3750038 energy error: +4.859146e-12
-time: 42.4999962 energy error: +5.142174e-12
-time: 42.6250000 energy error: +5.497413e-12
-time: 42.7500038 energy error: +5.745097e-12
-time: 42.8749962 energy error: +5.550360e-12
-time: 43.0000000 energy error: +5.128314e-12
-time: 43.1250038 energy error: +4.528162e-12
-time: 43.2499962 energy error: +4.926230e-12
-time: 43.3750000 energy error: +4.886867e-12
-time: 43.5000038 energy error: +4.753531e-12
-time: 43.6249962 energy error: +4.984582e-12
-time: 43.7500000 energy error: +4.888253e-12
-time: 43.8750038 energy error: +2.958344e-12
-time: 43.9999962 energy error: +1.607796e-13
-time: 44.1250000 energy error: +4.083246e-13
-time: 44.2500038 energy error: +4.582217e-13
-time: 44.3749962 energy error: +8.307868e-13
-time: 44.5000000 energy error: +2.575245e-13
-time: 44.6250038 energy error: +7.793651e-13
-time: 44.7499962 energy error: +8.184511e-13
-time: 44.8750000 energy error: +5.943300e-13
-time: 45.0000038 energy error: +4.062456e-13
-time: 45.1249962 energy error: +4.130371e-13
-time: 45.2500000 energy error: +1.482498e-12
-time: 45.3750038 energy error: +3.409635e-13
-time: 45.4999962 energy error: +6.727793e-13
-time: 45.6250000 energy error: +6.295351e-13
-time: 45.7500038 energy error: +5.997355e-13
-time: 45.8749962 energy error: +4.815071e-13
-time: 46.0000000 energy error: +1.024665e-11
-time: 46.1250038 energy error: +1.452837e-11
-time: 46.2499962 energy error: +1.443163e-11
-time: 46.3750000 energy error: +1.442165e-11
-time: 46.5000038 energy error: +1.453808e-11
-time: 46.6249962 energy error: +1.474612e-11
-time: 46.7500000 energy error: +1.479297e-11
-time: 46.8750038 energy error: +1.523012e-11
-time: 46.9999962 energy error: +1.516664e-11
-time: 47.1250000 energy error: +1.538161e-11
-time: 47.2500038 energy error: +1.616763e-11
-time: 47.3749962 energy error: +1.656584e-11
-time: 47.5000000 energy error: +1.614975e-11
-time: 47.6250038 energy error: +1.615128e-11
-time: 47.7499962 energy error: +1.610221e-11
-time: 47.8750000 energy error: +1.611649e-11
-time: 48.0000038 energy error: +1.594046e-11
-time: 48.1249962 energy error: +1.813483e-11
-time: 48.2500000 energy error: +1.975288e-11
-time: 48.3750038 energy error: +1.961483e-11
-time: 48.4999962 energy error: +1.970492e-11
-time: 48.6250000 energy error: +1.970104e-11
-time: 48.7500038 energy error: +1.981636e-11
-time: 48.8749962 energy error: +1.955440e-11
-time: 49.0000000 energy error: +1.946084e-11
-time: 49.1250038 energy error: +1.919666e-11
-time: 49.2499962 energy error: +1.937144e-11
-time: 49.3750000 energy error: +1.939348e-11
-time: 49.5000038 energy error: +1.948288e-11
-time: 49.6249962 energy error: +1.960651e-11
-time: 49.7500000 energy error: +1.937338e-11
-time: 49.8750038 energy error: +1.949508e-11
-time: 49.9999962 energy error: +1.944837e-11
-time: 50.1250000 energy error: +1.936950e-11
-time: 50.2500038 energy error: +2.318663e-11
-time: 50.3749962 energy error: +2.333161e-11
-time: 50.5000000 energy error: +2.336681e-11
-time: 50.6250038 energy error: +2.343362e-11
-time: 50.7499962 energy error: +2.319675e-11
-time: 50.8750000 energy error: +2.383931e-11
-time: 51.0000038 energy error: +2.350556e-11
-time: 51.1249962 energy error: +2.260824e-11
-time: 51.2500000 energy error: +2.230387e-11
-time: 51.3750038 energy error: +2.235681e-11
-time: 51.4999962 energy error: +2.186519e-11
-time: 51.6250000 energy error: +2.186242e-11
-time: 51.7500038 energy error: +2.163566e-11
-time: 51.8749962 energy error: +2.136663e-11
-time: 52.0000000 energy error: +2.138715e-11
-time: 52.1250038 energy error: +2.133517e-11
-time: 52.2499962 energy error: +2.320215e-11
-time: 52.3750000 energy error: +3.990521e-11
-time: 52.5000038 energy error: +3.982565e-11
-time: 52.6249962 energy error: +3.974762e-11
-time: 52.7500000 energy error: +3.910990e-11
-time: 52.8750038 energy error: +4.030328e-11
-time: 52.9999962 energy error: +3.965046e-11
-time: 53.1250000 energy error: +3.782339e-11
-time: 53.2500038 energy error: +3.693647e-11
-time: 53.3749962 energy error: +3.671872e-11
-time: 53.5000000 energy error: +3.659842e-11
-time: 53.6250038 energy error: +3.671651e-11
-time: 53.7499962 energy error: +3.742629e-11
-time: 53.8750000 energy error: +3.853886e-11
-time: 54.0000038 energy error: +3.758693e-11
-time: 54.1249962 energy error: +3.802908e-11
-time: 54.2500000 energy error: +3.795312e-11
-time: 54.3750038 energy error: +4.423877e-11
-time: 54.4999962 energy error: +4.750121e-11
-time: 54.6250000 energy error: +4.731271e-11
-time: 54.7500038 energy error: +4.772478e-11
-time: 54.8749962 energy error: +4.705242e-11
-time: 55.0000000 energy error: +4.863332e-11
-time: 55.1250038 energy error: +4.722608e-11
-time: 55.2499962 energy error: +4.550366e-11
-time: 55.3750000 energy error: +4.469602e-11
-time: 55.5000038 energy error: +4.476699e-11
-time: 55.6249962 energy error: +4.512611e-11
-time: 55.7500000 energy error: +4.646987e-11
-time: 55.8750038 energy error: +4.807849e-11
-time: 55.9999962 energy error: +4.711437e-11
-time: 56.1250000 energy error: +4.709677e-11
-time: 56.2500038 energy error: +4.689718e-11
-time: 56.3749962 energy error: +4.764342e-11
-time: 56.5000000 energy error: +4.556160e-11
-time: 56.6250038 energy error: +4.495729e-11
-time: 56.7499962 energy error: +4.512486e-11
-time: 56.8750000 energy error: +4.486748e-11
-time: 57.0000038 energy error: +4.523062e-11
-time: 57.1249962 energy error: +4.599155e-11
-time: 57.2500000 energy error: +4.422824e-11
-time: 57.3750038 energy error: +4.279855e-11
-time: 57.4999962 energy error: +4.238080e-11
-time: 57.6250000 energy error: +4.287894e-11
-time: 57.7500038 energy error: +4.431085e-11
-time: 57.8749962 energy error: +4.607693e-11
-time: 58.0000000 energy error: +4.521121e-11
-time: 58.1250038 energy error: +4.528647e-11
-time: 58.2499962 energy error: +4.524517e-11
-time: 58.3750000 energy error: +4.519403e-11
-time: 58.5000038 energy error: +4.569909e-11
-time: 58.6249962 energy error: +4.578780e-11
-time: 58.7500000 energy error: +4.563437e-11
-time: 58.8750038 energy error: +4.570602e-11
-time: 58.9999962 energy error: +4.552972e-11
-time: 59.1250000 energy error: +4.720585e-11
-time: 59.2500038 energy error: +4.557602e-11
-time: 59.3749962 energy error: +4.377930e-11
-time: 59.5000000 energy error: +4.315531e-11
-time: 59.6250038 energy error: +4.322351e-11
-time: 59.7499962 energy error: +4.416240e-11
-time: 59.8750000 energy error: +4.624491e-11
-time: 60.0000038 energy error: +4.658699e-11
-time: 60.1249962 energy error: +4.533720e-11
-time: 60.2500000 energy error: +4.539542e-11
-time: 60.3750038 energy error: +4.556576e-11
-time: 60.4999962 energy error: +4.538890e-11
-time: 60.6250000 energy error: +4.570020e-11
-time: 60.7500038 energy error: +4.963320e-11
-time: 60.8749962 energy error: +4.948213e-11
-time: 61.0000000 energy error: +4.972773e-11
-time: 61.1250038 energy error: +4.928933e-11
-time: 61.2499962 energy error: +5.016253e-11
-time: 61.3750000 energy error: +4.840726e-11
-time: 61.5000038 energy error: +4.774945e-11
-time: 61.6249962 energy error: +4.788334e-11
-time: 61.7500000 energy error: +4.830261e-11
-time: 61.8750038 energy error: +4.958677e-11
-time: 61.9999962 energy error: +5.117087e-11
-time: 62.1250000 energy error: +5.068063e-11
-time: 62.2500038 energy error: +5.046316e-11
-time: 62.3749962 energy error: +5.074979e-11
-time: 62.5000000 energy error: +5.064140e-11
-time: 62.6250038 energy error: +5.035228e-11
-time: 62.7499962 energy error: +5.888468e-11
-time: 62.8750000 energy error: +5.950022e-11
-time: 63.0000038 energy error: +5.973598e-11
-time: 63.1249962 energy error: +6.079034e-11
-time: 63.2500000 energy error: +5.989621e-11
-time: 63.3750038 energy error: +5.921442e-11
-time: 63.4999962 energy error: +5.883354e-11
-time: 63.6250000 energy error: +5.903243e-11
-time: 63.7500038 energy error: +5.928649e-11
-time: 63.8749962 energy error: +5.980750e-11
-time: 64.0000000 energy error: +6.122278e-11
-time: 64.1250000 energy error: +5.993640e-11
-time: 64.2500000 energy error: +6.028291e-11
-time: 64.3750000 energy error: +6.026406e-11
-time: 64.5000000 energy error: +6.169056e-11
-time: 64.6250000 energy error: +7.905614e-11
-time: 64.7500000 energy error: +7.897353e-11
-time: 64.8750000 energy error: +7.924894e-11
-time: 65.0000000 energy error: +7.959226e-11
-time: 65.1250000 energy error: +7.928165e-11
-time: 65.2500000 energy error: +7.911422e-11
-time: 65.3750000 energy error: +8.016247e-11
-time: 65.5000000 energy error: +8.015970e-11
-time: 65.6250000 energy error: +8.000654e-11
-time: 65.7500000 energy error: +7.995429e-11
-time: 65.8750000 energy error: +8.007044e-11
-time: 66.0000000 energy error: +8.152632e-11
-time: 66.1250000 energy error: +8.146340e-11
-time: 66.2500000 energy error: +8.143970e-11
-time: 66.3750000 energy error: +8.158010e-11
-time: 66.5000000 energy error: +8.137123e-11
-time: 66.6250000 energy error: +8.089554e-11
-time: 66.7500000 energy error: +8.108432e-11
-time: 66.8750000 energy error: +8.130900e-11
-time: 67.0000000 energy error: +8.110663e-11
-time: 67.1250000 energy error: +8.120781e-11
-time: 67.2500000 energy error: +8.099797e-11
-time: 67.3750000 energy error: +8.433886e-11
-time: 67.5000000 energy error: +8.427358e-11
-time: 67.6250000 energy error: +8.425902e-11
-time: 67.7500000 energy error: +8.458904e-11
-time: 67.8750000 energy error: +8.429825e-11
-time: 68.0000000 energy error: +8.334965e-11
-time: 68.1250000 energy error: +8.301312e-11
-time: 68.2500000 energy error: +8.279316e-11
-time: 68.3750000 energy error: +8.253244e-11
-time: 68.5000000 energy error: +8.240535e-11
-time: 68.6250000 energy error: +8.228033e-11
-time: 68.7500000 energy error: +1.019764e-10
-time: 68.8750000 energy error: +1.016739e-10
-time: 69.0000000 energy error: +1.015389e-10
-time: 69.1250000 energy error: +1.014897e-10
-time: 69.2500000 energy error: +1.015168e-10
-time: 69.3750000 energy error: +1.010089e-10
-time: 69.5000000 energy error: +1.005183e-10
-time: 69.6250000 energy error: +1.007899e-10
-time: 69.7500000 energy error: +1.012541e-10
-time: 69.8750000 energy error: +1.017230e-10
-time: 70.0000000 energy error: +1.013826e-10
-time: 70.1250000 energy error: +1.072178e-10
-time: 70.2500000 energy error: +1.073188e-10
-time: 70.3750000 energy error: +1.073220e-10
-time: 70.5000000 energy error: +1.073242e-10
-time: 70.6250000 energy error: +1.077143e-10
-time: 70.7500000 energy error: +1.069732e-10
-time: 70.8750000 energy error: +1.068789e-10
-time: 71.0000000 energy error: +1.069450e-10
-time: 71.1250000 energy error: +1.068250e-10
-time: 71.2500000 energy error: +1.065461e-10
-time: 71.3750000 energy error: +1.063110e-10
-time: 71.5000000 energy error: +1.072056e-10
-time: 71.6250000 energy error: +1.078440e-10
-time: 71.7500000 energy error: +1.085931e-10
-time: 71.8750000 energy error: +1.089787e-10
-time: 72.0000000 energy error: +1.092572e-10
-time: 72.1250000 energy error: +1.092546e-10
-time: 72.2500000 energy error: +1.095905e-10
-time: 72.3750000 energy error: +1.091448e-10
-time: 72.5000000 energy error: +1.091233e-10
-time: 72.6250000 energy error: +1.095896e-10
-time: 72.7500000 energy error: +1.098734e-10
-time: 72.8750000 energy error: +1.098025e-10
-time: 73.0000000 energy error: +1.083920e-10
-time: 73.1250000 energy error: +1.082676e-10
-time: 73.2500000 energy error: +1.083119e-10
-time: 73.3750000 energy error: +1.079230e-10
-time: 73.5000000 energy error: +1.083234e-10
-time: 73.6250000 energy error: +1.079033e-10
-time: 73.7500000 energy error: +1.075305e-10
-time: 73.8750000 energy error: +1.119647e-10
-time: 74.0000000 energy error: +1.118535e-10
-time: 74.1250000 energy error: +1.121252e-10
-time: 74.2500000 energy error: +1.122923e-10
-time: 74.3750000 energy error: +1.118981e-10
-time: 74.5000000 energy error: +1.119685e-10
-time: 74.6250000 energy error: +1.122826e-10
-time: 74.7500000 energy error: +1.121684e-10
-time: 74.8750000 energy error: +1.131761e-10
-time: 75.0000000 energy error: +1.129310e-10
-time: 75.1250000 energy error: +1.129744e-10
-time: 75.2500000 energy error: +1.126183e-10
-time: 75.3750000 energy error: +1.132698e-10
-time: 75.5000000 energy error: +1.130813e-10
-time: 75.6250000 energy error: +1.132143e-10
-time: 75.7500000 energy error: +1.129216e-10
-time: 75.8750000 energy error: +1.165984e-10
-time: 76.0000000 energy error: +1.164695e-10
-time: 76.1250000 energy error: +1.166148e-10
-time: 76.2500000 energy error: +1.165971e-10
-time: 76.3750000 energy error: +1.164768e-10
-time: 76.5000000 energy error: +1.165540e-10
-time: 76.6250000 energy error: +1.165283e-10
-time: 76.7500000 energy error: +1.165527e-10
-time: 76.8750000 energy error: +1.174324e-10
-time: 77.0000000 energy error: +1.174083e-10
-time: 77.1250000 energy error: +1.177141e-10
-time: 77.2500000 energy error: +1.169009e-10
-time: 77.3750000 energy error: +1.183927e-10
-time: 77.5000000 energy error: +1.179900e-10
-time: 77.6250000 energy error: +1.181012e-10
-time: 77.7500000 energy error: +1.190340e-10
-time: 77.8750000 energy error: +1.259166e-10
-time: 78.0000000 energy error: +1.259544e-10
-time: 78.1250000 energy error: +1.262018e-10
-time: 78.2500000 energy error: +1.247961e-10
-time: 78.3750000 energy error: +1.250682e-10
-time: 78.5000000 energy error: +1.265255e-10
-time: 78.6250000 energy error: +1.259755e-10
-time: 78.7500000 energy error: +1.261787e-10
-time: 78.8750000 energy error: +1.280911e-10
-time: 79.0000000 energy error: +1.279887e-10
-time: 79.1250000 energy error: +1.277534e-10
-time: 79.2500000 energy error: +1.269402e-10
-time: 79.3750000 energy error: +1.282419e-10
-time: 79.5000000 energy error: +1.279195e-10
-time: 79.6250000 energy error: +1.282436e-10
-time: 79.7500000 energy error: +1.339482e-10
-time: 79.8750000 energy error: +1.363350e-10
-time: 80.0000000 energy error: +1.360973e-10
-time: 80.1250000 energy error: +1.365620e-10
-time: 80.2500000 energy error: +1.351272e-10
-time: 80.3750000 energy error: +1.354038e-10
-time: 80.5000000 energy error: +1.362438e-10
-time: 80.6250000 energy error: +1.359302e-10
-time: 80.7500000 energy error: +1.357185e-10
-time: 80.8750000 energy error: +1.361994e-10
-time: 81.0000000 energy error: +1.361007e-10
-time: 81.1250000 energy error: +1.360841e-10
-time: 81.2500000 energy error: +1.354386e-10
-time: 81.3750000 energy error: +1.363713e-10
-time: 81.5000000 energy error: +1.361893e-10
-time: 81.6250000 energy error: +1.362253e-10
-time: 81.7500000 energy error: +1.449622e-10
-time: 81.8750000 energy error: +1.448372e-10
-time: 82.0000000 energy error: +1.447597e-10
-time: 82.1250000 energy error: +1.449496e-10
-time: 82.2500000 energy error: +1.443719e-10
-time: 82.3750000 energy error: +1.443362e-10
-time: 82.5000000 energy error: +1.449417e-10
-time: 82.6250000 energy error: +1.448061e-10
-time: 82.7500000 energy error: +1.485135e-10
-time: 82.8750000 energy error: +1.482856e-10
-time: 83.0000000 energy error: +1.482332e-10
-time: 83.1250000 energy error: +1.484012e-10
-time: 83.2500000 energy error: +1.485700e-10
-time: 83.3750000 energy error: +1.482511e-10
-time: 83.5000000 energy error: +1.482277e-10
-time: 83.6250000 energy error: +1.481914e-10
-time: 83.7500000 energy error: +1.504793e-10
-time: 83.8750000 energy error: +1.503263e-10
-time: 84.0000000 energy error: +1.504497e-10
-time: 84.1250000 energy error: +1.501401e-10
-time: 84.2500000 energy error: +1.499809e-10
-time: 84.3750000 energy error: +1.498513e-10
-time: 84.5000000 energy error: +1.497746e-10
-time: 84.6250000 energy error: +1.496916e-10
-time: 84.7500000 energy error: +1.573493e-10
-time: 84.8750000 energy error: +1.571893e-10
-time: 85.0000000 energy error: +1.571784e-10
-time: 85.1250000 energy error: +1.569774e-10
-time: 85.2500000 energy error: +1.571390e-10
-time: 85.3750000 energy error: +1.565297e-10
-time: 85.5000000 energy error: +1.562490e-10
-time: 85.6250000 energy error: +1.562231e-10
-time: 85.7500000 energy error: +1.562442e-10
-time: 85.8750000 energy error: +1.558379e-10
-time: 86.0000000 energy error: +1.561170e-10
-time: 86.1250000 energy error: +1.559905e-10
-time: 86.2500000 energy error: +1.560044e-10
-time: 86.3750000 energy error: +1.558353e-10
-time: 86.5000000 energy error: +1.557266e-10
-time: 86.6250000 energy error: +1.553075e-10
-time: 86.7500000 energy error: +1.553846e-10
-time: 86.8750000 energy error: +1.558065e-10
-time: 87.0000000 energy error: +1.566664e-10
-time: 87.1250000 energy error: +1.566223e-10
-time: 87.2500000 energy error: +1.559041e-10
-time: 87.3750000 energy error: +1.522283e-10
-time: 87.5000000 energy error: +1.473778e-10
-time: 87.6250000 energy error: +1.485808e-10
-time: 87.7500000 energy error: +1.493102e-10
-time: 87.8750000 energy error: +1.490038e-10
-time: 88.0000000 energy error: +1.408340e-10
-time: 88.1250000 energy error: +1.411553e-10
-time: 88.2500000 energy error: +1.415584e-10
-time: 88.3750000 energy error: +1.426065e-10
-time: 88.5000000 energy error: +1.316973e-10
-time: 88.6250000 energy error: +1.319776e-10
-time: 88.7500000 energy error: +1.320663e-10
-time: 88.8750000 energy error: +1.324402e-10
-time: 89.0000000 energy error: +1.212256e-10
-time: 89.1250000 energy error: +1.220054e-10
-time: 89.2500000 energy error: +1.219330e-10
-time: 89.3750000 energy error: +1.221864e-10
-time: 89.5000000 energy error: +1.122241e-10
-time: 89.6250000 energy error: +1.126316e-10
-time: 89.7500000 energy error: +1.123694e-10
-time: 89.8750000 energy error: +1.123644e-10
-time: 90.0000000 energy error: +1.066257e-10
-time: 90.1250000 energy error: +1.028130e-10
-time: 90.2500000 energy error: +1.022296e-10
-time: 90.3750000 energy error: +1.017505e-10
-time: 90.5000000 energy error: +1.038093e-10
-time: 90.6250000 energy error: +9.092916e-11
-time: 90.7500000 energy error: +9.063587e-11
-time: 90.8750000 energy error: +9.121662e-11
-time: 91.0000000 energy error: +9.224977e-11
-time: 91.1250000 energy error: +8.417253e-11
-time: 91.2500000 energy error: +8.439430e-11
-time: 91.3750000 energy error: +8.748681e-11
-time: 91.5000000 energy error: +8.775348e-11
-time: 91.6250000 energy error: +7.634368e-11
-time: 91.7500000 energy error: +7.746165e-11
-time: 91.8750000 energy error: +7.695908e-11
-time: 92.0000000 energy error: +7.784503e-11
-time: 92.1250000 energy error: +6.686766e-11
-time: 92.2500000 energy error: +6.422866e-11
-time: 92.3750000 energy error: +6.427773e-11
-time: 92.5000000 energy error: +6.157303e-11
-time: 92.6250000 energy error: +5.881649e-11
-time: 92.7500000 energy error: +5.330314e-11
-time: 92.8750000 energy error: +5.319184e-11
-time: 93.0000000 energy error: +5.327569e-11
-time: 93.1250000 energy error: +5.456082e-11
-time: 93.2500000 energy error: +4.265842e-11
-time: 93.3750000 energy error: +4.342753e-11
-time: 93.5000000 energy error: +4.400869e-11
-time: 93.6250000 energy error: +4.431972e-11
-time: 93.7500000 energy error: +3.310839e-11
-time: 93.8750000 energy error: +3.260305e-11
-time: 94.0000000 energy error: +3.088478e-11
-time: 94.1250000 energy error: +3.027729e-11
-time: 94.2500000 energy error: +2.101444e-11
-time: 94.3750000 energy error: +2.028872e-11
-time: 94.5000000 energy error: +1.852735e-11
-time: 94.6250000 energy error: +1.720064e-11
-time: 94.7500000 energy error: +7.710766e-12
-time: 94.8750000 energy error: +9.188829e-12
-time: 95.0000000 energy error: +8.820145e-12
-time: 95.1250000 energy error: +9.806999e-12
-time: 95.2500000 energy error: +6.589744e-12
-time: 95.3750000 energy error: +4.637659e-12
-time: 95.5000000 energy error: +4.424903e-12
-time: 95.6250000 energy error: +1.921565e-11
-time: 95.7500000 energy error: +2.085754e-11
-time: 95.8750000 energy error: +3.833761e-12
-time: 96.0000000 energy error: +1.318531e-12
-time: 96.1250000 energy error: +4.045824e-12
-time: 96.2500000 energy error: +1.340680e-11
-time: 96.3750000 energy error: +2.241711e-11
-time: 96.5000000 energy error: +2.494717e-11
-time: 96.6250000 energy error: +2.694250e-11
-time: 96.7500000 energy error: +3.187621e-11
-time: 96.8750000 energy error: +4.671533e-11
-time: 97.0000000 energy error: +3.871766e-11
-time: 97.1250000 energy error: +3.871572e-11
-time: 97.2500000 energy error: +1.998074e-11
-time: 97.3750000 energy error: +3.180441e-11
-time: 97.5000000 energy error: +4.298746e-11
-time: 97.6250000 energy error: +3.632495e-11
-time: 97.7500000 energy error: +4.762817e-11
-time: 97.8750000 energy error: +5.095603e-11
-time: 98.0000000 energy error: +6.572835e-11
-time: 98.1250000 energy error: +6.596065e-11
-time: 98.2500000 energy error: +6.844746e-11
-time: 98.3750000 energy error: +6.187019e-11
-time: 98.5000000 energy error: +7.317355e-11
-time: 98.6250000 energy error: +7.852987e-11
-time: 98.7500000 energy error: +7.801648e-11
-time: 98.8750000 energy error: +7.379726e-11
-time: 99.0000000 energy error: +8.370184e-11
-time: 99.1250000 energy error: +8.860839e-11
-time: 99.2500000 energy error: +8.632282e-11
-time: 99.3750000 energy error: +8.132452e-11
-time: 99.5000000 energy error: +9.475571e-11
-time: 99.6250000 energy error: +8.836334e-11
-time: 99.7500000 energy error: +7.587603e-11
-time: 99.8750000 energy error: +8.206494e-11
-cputime:  617.563858032227
+time:  0.0000000 energy error: +0.000000e+00 timestep:  0.0000100 
+time:  0.1240099 energy error: +2.772061e-16 timestep:  0.0035646 
+time:  0.2506001 energy error: +1.067244e-14 timestep:  0.0032546 
+time:  0.3736589 energy error: +1.316729e-14 timestep:  0.0028947 
+time:  0.5011390 energy error: +1.995884e-14 timestep:  0.0025355 
+time:  0.6246359 energy error: +3.160150e-14 timestep:  0.0022209 
+time:  0.7491097 energy error: +3.839305e-14 timestep:  0.0019332 
+time:  0.8746411 energy error: +5.017431e-14 timestep:  0.0016604 
+time:  1.0001915 energy error: +6.056954e-14 timestep:  0.0014087 
+time:  1.1251307 energy error: +7.886515e-14 timestep:  0.0011746 
+time:  1.2502395 energy error: +9.632913e-14 timestep:  0.0009539 
+time:  1.3753053 energy error: +1.305641e-13 timestep:  0.0007453 
+time:  1.4997648 energy error: +1.700660e-13 timestep:  0.0005485 
+time:  1.6250094 energy error: +2.479609e-13 timestep:  0.0003601 
+time:  1.7499821 energy error: +4.091563e-13 timestep:  0.0001799 
+time:  1.8749989 energy error: +1.819581e-12 timestep:  0.0000079 
+time:  1.9999886 energy error: +9.813097e-14 timestep:  0.0001624 
+time:  2.1250501 energy error: +2.176068e-13 timestep:  0.0003228 
+time:  2.2501318 energy error: +2.425554e-13 timestep:  0.0003671 
+time:  2.3751035 energy error: +2.176068e-13 timestep:  0.0002104 
+time:  2.4999976 energy error: +8.676552e-14 timestep:  0.0000755 
+time:  2.6249883 energy error: +3.889202e-13 timestep:  0.0000853 
+time:  2.7500193 energy error: +5.779748e-13 timestep:  0.0002579 
+time:  2.8750331 energy error: +6.433954e-13 timestep:  0.0004487 
+time:  3.0002103 energy error: +6.819271e-13 timestep:  0.0006637 
+time:  3.1249928 energy error: +7.257257e-13 timestep:  0.0009052 
+time:  3.2497880 energy error: +7.534463e-13 timestep:  0.0011769 
+time:  3.3752928 energy error: +7.736823e-13 timestep:  0.0013515 
+time:  3.4998240 energy error: +7.836617e-13 timestep:  0.0011030 
+time:  3.6246657 energy error: +7.904533e-13 timestep:  0.0008898 
+time:  3.7498174 energy error: +7.951658e-13 timestep:  0.0007049 
+time:  3.8750525 energy error: +8.016801e-13 timestep:  0.0005451 
+time:  4.0000730 energy error: +8.615567e-13 timestep:  0.0004083 
+time:  4.1251230 energy error: +9.386200e-13 timestep:  0.0002941 
+time:  4.2499733 energy error: +6.866396e-13 timestep:  0.0002092 
+time:  4.3749723 energy error: +7.980765e-13 timestep:  0.0002172 
+time:  4.5001493 energy error: +9.463817e-13 timestep:  0.0003093 
+time:  4.6251421 energy error: +8.650217e-13 timestep:  0.0004246 
+time:  4.7497530 energy error: +8.106893e-13 timestep:  0.0005529 
+time:  4.8750830 energy error: +8.087489e-13 timestep:  0.0006881 
+time:  5.0003672 energy error: +8.169265e-13 timestep:  0.0008272 
+time:  5.1250782 energy error: +8.170651e-13 timestep:  0.0009743 
+time:  5.2503185 energy error: +8.196985e-13 timestep:  0.0011402 
+time:  5.3745756 energy error: +8.154019e-13 timestep:  0.0013325 
+time:  5.4998369 energy error: +8.194213e-13 timestep:  0.0015624 
+time:  5.6248608 energy error: +8.180353e-13 timestep:  0.0018355 
+time:  5.7499881 energy error: +8.187283e-13 timestep:  0.0021597 
+time:  5.8761668 energy error: +8.233022e-13 timestep:  0.0025376 
+time:  5.9988804 energy error: +8.131842e-13 timestep:  0.0026904 
+time:  6.1247334 energy error: +7.977993e-13 timestep:  0.0023410 
+time:  6.2502894 energy error: +7.822757e-13 timestep:  0.0019955 
+time:  6.3749580 energy error: +7.630099e-13 timestep:  0.0016808 
+time:  6.5006104 energy error: +7.541393e-13 timestep:  0.0013942 
+time:  6.6253386 energy error: +7.323786e-13 timestep:  0.0011357 
+time:  6.7498226 energy error: +7.086775e-13 timestep:  0.0008990 
+time:  6.8751302 energy error: +6.808183e-13 timestep:  0.0006791 
+time:  7.0001702 energy error: +6.403462e-13 timestep:  0.0004765 
+time:  7.1251097 energy error: +5.807469e-13 timestep:  0.0002890 
+time:  7.2499814 energy error: +4.036121e-13 timestep:  0.0001132 
+time:  7.3749919 energy error: +6.464447e-13 timestep:  0.0000566 
+time:  7.4999280 energy error: +2.666723e-13 timestep:  0.0002309 
+time:  7.6250129 energy error: +1.776891e-13 timestep:  0.0004341 
+time:  7.7498298 energy error: +9.535891e-14 timestep:  0.0007317 
+time:  7.8751450 energy error: +4.629342e-14 timestep:  0.0006115 
+time:  8.0000191 energy error: +2.744341e-14 timestep:  0.0004613 
+time:  8.1249514 energy error: +1.663237e-15 timestep:  0.0003862 
+time:  8.2498474 energy error: +1.219707e-13 timestep:  0.0003133 
+time:  8.3751259 energy error: +2.298039e-13 timestep:  0.0003099 
+time:  8.4999475 energy error: +7.207360e-15 timestep:  0.0003686 
+time:  8.6248569 energy error: +3.548239e-14 timestep:  0.0004553 
+time:  8.7500715 energy error: +2.494855e-14 timestep:  0.0005462 
+time:  8.8747740 energy error: +5.059012e-14 timestep:  0.0006481 
+time:  8.9999485 energy error: +6.736109e-14 timestep:  0.0007819 
+time:  9.1248531 energy error: +8.274603e-14 timestep:  0.0009986 
+time:  9.2501116 energy error: +1.040909e-13 timestep:  0.0010270 
+time:  9.3754311 energy error: +1.239111e-13 timestep:  0.0010121 
+time:  9.4999990 energy error: +1.397119e-13 timestep:  0.0010500 
+time:  9.6252832 energy error: +1.519090e-13 timestep:  0.0010916 
+time:  9.7503395 energy error: +1.524634e-13 timestep:  0.0011098 
+time:  9.8751831 energy error: +1.462262e-13 timestep:  0.0011014 
+time:  9.9995584 energy error: +1.153178e-13 timestep:  0.0011003 
+time: 10.1251392 energy error: +9.147803e-14 timestep:  0.0010751 
+time: 10.2501669 energy error: +6.652947e-14 timestep:  0.0010055 
+time: 10.3753452 energy error: +7.068756e-14 timestep:  0.0009638 
+time: 10.4996538 energy error: +7.595448e-14 timestep:  0.0010278 
+time: 10.6253357 energy error: +7.567728e-14 timestep:  0.0012069 
+time: 10.7496805 energy error: +6.403462e-14 timestep:  0.0011959 
+time: 10.8754597 energy error: +5.488682e-14 timestep:  0.0011605 
+time: 10.9995012 energy error: +5.100593e-14 timestep:  0.0013236 
+time: 11.1249609 energy error: +4.310555e-14 timestep:  0.0015761 
+time: 11.2502632 energy error: +4.504600e-14 timestep:  0.0017633 
+time: 11.3756981 energy error: +6.846992e-14 timestep:  0.0014517 
+time: 11.5000019 energy error: +9.896259e-14 timestep:  0.0011542 
+time: 11.6245813 energy error: +1.268218e-13 timestep:  0.0009031 
+time: 11.7499952 energy error: +1.668781e-13 timestep:  0.0006541 
+time: 11.8748360 energy error: +2.055484e-13 timestep:  0.0004539 
+time: 11.9998732 energy error: +2.547524e-13 timestep:  0.0002808 
+time: 12.1250305 energy error: +4.191357e-13 timestep:  0.0001173 
+time: 12.2499838 energy error: +6.564241e-13 timestep:  0.0000403 
+time: 12.3749714 energy error: +3.806040e-13 timestep:  0.0002009 
+time: 12.5000124 energy error: +2.772061e-13 timestep:  0.0003715 
+time: 12.6248331 energy error: +2.286951e-13 timestep:  0.0005731 
+time: 12.7502050 energy error: +1.732538e-13 timestep:  0.0007944 
+time: 12.8746948 energy error: +1.397119e-13 timestep:  0.0010431 
+time: 12.9997768 energy error: +1.031207e-13 timestep:  0.0011443 
+time: 13.1253681 energy error: +9.605193e-14 timestep:  0.0009619 
+time: 13.2500286 energy error: +1.197531e-13 timestep:  0.0008476 
+time: 13.3746767 energy error: +1.761645e-13 timestep:  0.0008022 
+time: 13.4997473 energy error: +2.325759e-13 timestep:  0.0006799 
+time: 13.6251135 energy error: +2.209333e-13 timestep:  0.0006881 
+time: 13.7501240 energy error: +1.667395e-13 timestep:  0.0007929 
+time: 13.8748903 energy error: +1.264060e-13 timestep:  0.0008252 
+time: 14.0004711 energy error: +1.250200e-13 timestep:  0.0009493 
+time: 14.1245708 energy error: +1.286236e-13 timestep:  0.0011336 
+time: 14.2500067 energy error: +1.605024e-13 timestep:  0.0013690 
+time: 14.3744621 energy error: +1.905792e-13 timestep:  0.0015979 
+time: 14.5006132 energy error: +2.286951e-13 timestep:  0.0013074 
+time: 14.6246824 energy error: +2.508716e-13 timestep:  0.0010475 
+time: 14.7497883 energy error: +2.833047e-13 timestep:  0.0008120 
+time: 14.8752890 energy error: +3.207275e-13 timestep:  0.0005926 
+time: 14.9999523 energy error: +3.839305e-13 timestep:  0.0004073 
+time: 15.1250944 energy error: +4.729137e-13 timestep:  0.0002364 
+time: 15.2499819 energy error: +6.641859e-13 timestep:  0.0000729 
+time: 15.3750343 energy error: +4.584989e-13 timestep:  0.0000831 
+time: 15.5000372 energy error: +2.289723e-13 timestep:  0.0002481 
+time: 15.6248102 energy error: +1.643832e-13 timestep:  0.0004204 
+time: 15.7501993 energy error: +1.277920e-13 timestep:  0.0006051 
+time: 15.8753338 energy error: +1.067244e-13 timestep:  0.0008074 
+time: 16.0004387 energy error: +7.387544e-14 timestep:  0.0010349 
+time: 16.1253510 energy error: +4.629342e-14 timestep:  0.0012976 
+time: 16.2505283 energy error: +2.882944e-14 timestep:  0.0015966 
+time: 16.3747692 energy error: +7.484566e-15 timestep:  0.0019185 
+time: 16.4998703 energy error: +7.484566e-15 timestep:  0.0021639 
+time: 16.6246414 energy error: +1.649377e-14 timestep:  0.0020699 
+time: 16.7501450 energy error: +1.150405e-14 timestep:  0.0017835 
+time: 16.8749027 energy error: +1.524634e-14 timestep:  0.0014501 
+time: 16.9996052 energy error: +1.746399e-14 timestep:  0.0011424 
+time: 17.1252899 energy error: +7.761772e-15 timestep:  0.0009039 
+time: 17.2500172 energy error: +1.871141e-14 timestep:  0.0007304 
+time: 17.3747330 energy error: +2.578017e-14 timestep:  0.0006059 
+time: 17.4999409 energy error: +4.227394e-14 timestep:  0.0005067 
+time: 17.6249542 energy error: +9.716075e-14 timestep:  0.0004122 
+time: 17.7499714 energy error: +7.706331e-14 timestep:  0.0003219 
+time: 17.8749313 energy error: +1.846193e-13 timestep:  0.0002704 
+time: 18.0000362 energy error: +3.381915e-14 timestep:  0.0002897 
+time: 18.1251755 energy error: +4.615482e-14 timestep:  0.0003662 
+time: 18.2500629 energy error: +2.772061e-16 timestep:  0.0004513 
+time: 18.3747406 energy error: +8.870596e-15 timestep:  0.0005589 
+time: 18.4998055 energy error: +1.787980e-14 timestep:  0.0007061 
+time: 18.6249905 energy error: +4.019489e-15 timestep:  0.0007153 
+time: 18.7498455 energy error: +3.409635e-14 timestep:  0.0006113 
+time: 18.8749809 energy error: +6.458903e-14 timestep:  0.0005050 
+time: 19.0000877 energy error: +5.544123e-16 timestep:  0.0004008 
+time: 19.1250572 energy error: +2.006972e-13 timestep:  0.0003484 
+time: 19.2500706 energy error: +1.067244e-13 timestep:  0.0003574 
+time: 19.3750534 energy error: +2.716620e-14 timestep:  0.0004362 
+time: 19.4998856 energy error: +2.356252e-15 timestep:  0.0005444 
+time: 19.6252937 energy error: +3.811584e-14 timestep:  0.0007072 
+time: 19.7503300 energy error: +9.189383e-14 timestep:  0.0008394 
+time: 19.8749428 energy error: +1.455332e-13 timestep:  0.0005913 
+time: 20.0000172 energy error: +2.090134e-13 timestep:  0.0003779 
+time: 20.1249275 energy error: +2.899576e-13 timestep:  0.0001979 
+time: 20.2500134 energy error: +3.819901e-13 timestep:  0.0000404 
+time: 20.3749542 energy error: +5.211475e-14 timestep:  0.0001153 
+time: 20.4999180 energy error: +7.318242e-14 timestep:  0.0002726 
+time: 20.6250725 energy error: +1.147633e-13 timestep:  0.0004363 
+time: 20.7501373 energy error: +1.388803e-13 timestep:  0.0006235 
+time: 20.8753204 energy error: +1.541266e-13 timestep:  0.0008548 
+time: 20.9997711 energy error: +1.796296e-13 timestep:  0.0011376 
+time: 21.1256886 energy error: +2.034693e-13 timestep:  0.0013971 
+time: 21.2498188 energy error: +2.203789e-13 timestep:  0.0016875 
+time: 21.3753033 energy error: +2.447730e-13 timestep:  0.0020264 
+time: 21.5001125 energy error: +2.562771e-13 timestep:  0.0018141 
+time: 21.6245365 energy error: +2.639002e-13 timestep:  0.0020405 
+time: 21.7493134 energy error: +2.663951e-13 timestep:  0.0020170 
+time: 21.8756313 energy error: +2.647319e-13 timestep:  0.0018558 
+time: 22.0001965 energy error: +2.663951e-13 timestep:  0.0016518 
+time: 22.1256523 energy error: +2.521190e-13 timestep:  0.0014517 
+time: 22.2500019 energy error: +2.417238e-13 timestep:  0.0012910 
+time: 22.3746014 energy error: +2.345164e-13 timestep:  0.0011867 
+time: 22.4995003 energy error: +2.239826e-13 timestep:  0.0011308 
+time: 22.6255379 energy error: +2.063800e-13 timestep:  0.0010797 
+time: 22.7494659 energy error: +2.012517e-13 timestep:  0.0010792 
+time: 22.8748455 energy error: +2.124785e-13 timestep:  0.0012143 
+time: 23.0003319 energy error: +2.321601e-13 timestep:  0.0013567 
+time: 23.1247311 energy error: +2.586333e-13 timestep:  0.0013833 
+time: 23.2503529 energy error: +2.856609e-13 timestep:  0.0014272 
+time: 23.3754482 energy error: +2.860767e-13 timestep:  0.0013597 
+time: 23.5000324 energy error: +2.833047e-13 timestep:  0.0012686 
+time: 23.6249504 energy error: +2.644547e-13 timestep:  0.0009320 
+time: 23.7502384 energy error: +2.478223e-13 timestep:  0.0006777 
+time: 23.8751831 energy error: +2.176068e-13 timestep:  0.0004811 
+time: 24.0000057 energy error: +2.383973e-13 timestep:  0.0003249 
+time: 24.1249561 energy error: +3.052040e-13 timestep:  0.0001676 
+time: 24.2500210 energy error: +5.266917e-14 timestep:  0.0001441 
+time: 24.3750248 energy error: +7.151918e-14 timestep:  0.0001357 
+time: 24.5000134 energy error: +6.580874e-13 timestep:  0.0000369 
+time: 24.6250610 energy error: +1.771347e-13 timestep:  0.0002337 
+time: 24.7501316 energy error: +1.386031e-15 timestep:  0.0004785 
+time: 24.8752022 energy error: +2.716620e-14 timestep:  0.0006203 
+time: 25.0001831 energy error: +1.718678e-14 timestep:  0.0005916 
+time: 25.1248360 energy error: +4.116511e-14 timestep:  0.0005708 
+time: 25.2500668 energy error: +1.167038e-13 timestep:  0.0006067 
+time: 25.3752327 energy error: +1.607796e-13 timestep:  0.0006880 
+time: 25.5001831 energy error: +1.707590e-13 timestep:  0.0008210 
+time: 25.6246452 energy error: +1.751943e-13 timestep:  0.0009957 
+time: 25.7502766 energy error: +1.564829e-13 timestep:  0.0011944 
+time: 25.8751564 energy error: +1.483053e-13 timestep:  0.0013618 
+time: 25.9995518 energy error: +1.361082e-13 timestep:  0.0015373 
+time: 26.1243191 energy error: +1.302869e-13 timestep:  0.0017047 
+time: 26.2499485 energy error: +1.143475e-13 timestep:  0.0018236 
+time: 26.3750267 energy error: +1.072788e-13 timestep:  0.0018355 
+time: 26.4991627 energy error: +1.079718e-13 timestep:  0.0018503 
+time: 26.6241417 energy error: +9.757656e-14 timestep:  0.0020720 
+time: 26.7503452 energy error: +7.345963e-14 timestep:  0.0022845 
+time: 26.8760204 energy error: +3.076988e-14 timestep:  0.0023805 
+time: 27.0006313 energy error: +2.189928e-14 timestep:  0.0023404 
+time: 27.1252861 energy error: +8.011257e-14 timestep:  0.0023664 
+time: 27.2494621 energy error: +1.300097e-13 timestep:  0.0022692 
+time: 27.3752174 energy error: +1.519090e-13 timestep:  0.0021558 
+time: 27.4999542 energy error: +1.616112e-13 timestep:  0.0020659 
+time: 27.6257477 energy error: +1.661851e-13 timestep:  0.0019167 
+time: 27.7499256 energy error: +1.735310e-13 timestep:  0.0017343 
+time: 27.8747482 energy error: +1.787980e-13 timestep:  0.0015529 
+time: 27.9993515 energy error: +1.872527e-13 timestep:  0.0013824 
+time: 28.1255226 energy error: +1.973708e-13 timestep:  0.0012232 
+time: 28.2497673 energy error: +2.248142e-13 timestep:  0.0010796 
+time: 28.3749142 energy error: +2.663951e-13 timestep:  0.0009302 
+time: 28.4999084 energy error: +3.237768e-13 timestep:  0.0008133 
+time: 28.6252499 energy error: +4.097107e-13 timestep:  0.0007317 
+time: 28.7500896 energy error: +4.709732e-13 timestep:  0.0006846 
+time: 28.8751297 energy error: +4.709732e-13 timestep:  0.0006741 
+time: 28.9999313 energy error: +4.174724e-13 timestep:  0.0007150 
+time: 29.1246510 energy error: +3.243312e-13 timestep:  0.0008058 
+time: 29.2496338 energy error: +2.576631e-13 timestep:  0.0008925 
+time: 29.3751526 energy error: +2.553069e-13 timestep:  0.0008523 
+time: 29.4998093 energy error: +3.169852e-13 timestep:  0.0006023 
+time: 29.6250954 energy error: +3.997312e-13 timestep:  0.0003658 
+time: 29.7500610 energy error: +5.175439e-13 timestep:  0.0001482 
+time: 29.8750000 energy error: +1.082213e-12 timestep:  0.0000150 
+time: 29.9999084 energy error: +3.487253e-13 timestep:  0.0001911 
+time: 30.1249523 energy error: +1.934899e-13 timestep:  0.0003723 
+time: 30.2500610 energy error: +3.379143e-13 timestep:  0.0003120 
+time: 30.3748798 energy error: +2.949473e-13 timestep:  0.0002789 
+time: 30.5000343 energy error: +2.569701e-13 timestep:  0.0003941 
+time: 30.6250229 energy error: +2.713848e-13 timestep:  0.0005739 
+time: 30.7496872 energy error: +2.708304e-13 timestep:  0.0007353 
+time: 30.8748970 energy error: +2.797010e-13 timestep:  0.0009741 
+time: 30.9996071 energy error: +2.747113e-13 timestep:  0.0011955 
+time: 31.1251469 energy error: +2.790080e-13 timestep:  0.0012166 
+time: 31.2501736 energy error: +2.763745e-13 timestep:  0.0011126 
+time: 31.3753262 energy error: +2.820572e-13 timestep:  0.0009822 
+time: 31.5000896 energy error: +2.950859e-13 timestep:  0.0008306 
+time: 31.6252117 energy error: +3.074216e-13 timestep:  0.0007349 
+time: 31.7502842 energy error: +3.168466e-13 timestep:  0.0007386 
+time: 31.8751850 energy error: +3.198959e-13 timestep:  0.0007798 
+time: 32.0002327 energy error: +2.910664e-13 timestep:  0.0008525 
+time: 32.1249542 energy error: +2.643161e-13 timestep:  0.0009643 
+time: 32.2498817 energy error: +2.443572e-13 timestep:  0.0011110 
+time: 32.3747215 energy error: +2.250914e-13 timestep:  0.0012604 
+time: 32.5006065 energy error: +2.214877e-13 timestep:  0.0013957 
+time: 32.6250000 energy error: +2.367340e-13 timestep:  0.0015324 
+time: 32.7496529 energy error: +2.547524e-13 timestep:  0.0013455 
+time: 32.8745537 energy error: +2.639002e-13 timestep:  0.0010313 
+time: 33.0000038 energy error: +2.802554e-13 timestep:  0.0007827 
+time: 33.1250153 energy error: +2.838591e-13 timestep:  0.0005992 
+time: 33.2502022 energy error: +2.935613e-13 timestep:  0.0004490 
+time: 33.3750687 energy error: +3.101937e-13 timestep:  0.0003050 
+time: 33.4999733 energy error: +3.004915e-13 timestep:  0.0001594 
+time: 33.6250076 energy error: +8.704273e-13 timestep:  0.0000451 
+time: 33.7499275 energy error: +3.207275e-13 timestep:  0.0001479 
+time: 33.8751221 energy error: +3.645261e-13 timestep:  0.0003028 
+time: 33.9997711 energy error: +3.459533e-13 timestep:  0.0004767 
+time: 34.1251030 energy error: +3.139359e-13 timestep:  0.0006700 
+time: 34.2497559 energy error: +2.930069e-13 timestep:  0.0008736 
+time: 34.3744965 energy error: +2.730480e-13 timestep:  0.0011091 
+time: 34.4997520 energy error: +2.565543e-13 timestep:  0.0013914 
+time: 34.6245995 energy error: +2.386745e-13 timestep:  0.0016398 
+time: 34.7500000 energy error: +2.270318e-13 timestep:  0.0015991 
+time: 34.8745728 energy error: +2.120627e-13 timestep:  0.0013629 
+time: 35.0004463 energy error: +1.923811e-13 timestep:  0.0011430 
+time: 35.1248360 energy error: +1.638288e-13 timestep:  0.0009750 
+time: 35.2499657 energy error: +1.295939e-13 timestep:  0.0008104 
+time: 35.3750992 energy error: +1.218321e-13 timestep:  0.0005749 
+time: 35.5001831 energy error: +1.527406e-13 timestep:  0.0004667 
+time: 35.6249847 energy error: +1.883616e-13 timestep:  0.0004380 
+time: 35.7500343 energy error: +1.738082e-13 timestep:  0.0005427 
+time: 35.8748055 energy error: +1.056155e-13 timestep:  0.0006751 
+time: 35.9996262 energy error: +9.757656e-14 timestep:  0.0008059 
+time: 36.1252136 energy error: +1.574531e-13 timestep:  0.0005633 
+time: 36.2498512 energy error: +1.970936e-13 timestep:  0.0003401 
+time: 36.3749962 energy error: +2.295267e-13 timestep:  0.0001729 
+time: 36.4999886 energy error: +4.723593e-13 timestep:  0.0000788 
+time: 36.6249733 energy error: +2.378429e-13 timestep:  0.0001531 
+time: 36.7499313 energy error: +3.210047e-13 timestep:  0.0001852 
+time: 36.8749962 energy error: +7.861566e-13 timestep:  0.0000240 
+time: 37.0000153 energy error: +2.810870e-13 timestep:  0.0001347 
+time: 37.1250000 energy error: +3.315385e-13 timestep:  0.0002815 
+time: 37.2502136 energy error: +3.630014e-13 timestep:  0.0004977 
+time: 37.3748512 energy error: +4.041665e-13 timestep:  0.0006988 
+time: 37.4997978 energy error: +4.183041e-13 timestep:  0.0008541 
+time: 37.6247978 energy error: +4.098493e-13 timestep:  0.0006734 
+time: 37.7499504 energy error: +3.797724e-13 timestep:  0.0004714 
+time: 37.8748779 energy error: +3.114411e-13 timestep:  0.0002794 
+time: 38.0000229 energy error: +5.156034e-14 timestep:  0.0001003 
+time: 38.1249924 energy error: +6.802639e-13 timestep:  0.0000596 
+time: 38.2500381 energy error: +8.906633e-13 timestep:  0.0002325 
+time: 38.3750343 energy error: +9.707759e-13 timestep:  0.0004197 
+time: 38.4999123 energy error: +1.009030e-12 timestep:  0.0006205 
+time: 38.6249809 energy error: +1.040355e-12 timestep:  0.0008423 
+time: 38.7498665 energy error: +1.074451e-12 timestep:  0.0011005 
+time: 38.8754807 energy error: +1.088034e-12 timestep:  0.0014086 
+time: 38.9998245 energy error: +1.095519e-12 timestep:  0.0016276 
+time: 39.1248703 energy error: +1.089420e-12 timestep:  0.0014798 
+time: 39.2505188 energy error: +1.071956e-12 timestep:  0.0011744 
+time: 39.3753586 energy error: +1.042849e-12 timestep:  0.0009062 
+time: 39.4999352 energy error: +1.031484e-12 timestep:  0.0006752 
+time: 39.6248817 energy error: +1.010694e-12 timestep:  0.0004654 
+time: 39.7500381 energy error: +9.713303e-13 timestep:  0.0002710 
+time: 39.8750191 energy error: +8.077787e-13 timestep:  0.0000918 
+time: 39.9999771 energy error: +2.273090e-13 timestep:  0.0000672 
+time: 40.1250267 energy error: +4.684784e-14 timestep:  0.0002433 
+time: 40.2501831 energy error: +5.682726e-15 timestep:  0.0004351 
+time: 40.3746834 energy error: +4.781806e-14 timestep:  0.0006414 
+time: 40.5003319 energy error: +6.625227e-14 timestep:  0.0008721 
+time: 40.6245842 energy error: +8.759714e-14 timestep:  0.0011377 
+time: 40.7504501 energy error: +1.125457e-13 timestep:  0.0014503 
+time: 40.8743362 energy error: +1.171196e-13 timestep:  0.0016440 
+time: 41.0005264 energy error: +1.117141e-13 timestep:  0.0014587 
+time: 41.1251526 energy error: +9.549751e-14 timestep:  0.0011495 
+time: 41.2499619 energy error: +6.250998e-14 timestep:  0.0008812 
+time: 41.3750305 energy error: +4.518460e-14 timestep:  0.0006498 
+time: 41.4998055 energy error: +1.302869e-14 timestep:  0.0004413 
+time: 41.6249275 energy error: +3.271032e-14 timestep:  0.0002482 
+time: 41.7500000 energy error: +1.402663e-13 timestep:  0.0000710 
+time: 41.8750267 energy error: +2.925634e-12 timestep:  0.0000884 
+time: 41.9999886 energy error: +3.160427e-12 timestep:  0.0002671 
+time: 42.1249275 energy error: +3.235689e-12 timestep:  0.0004614 
+time: 42.2500038 energy error: +3.268953e-12 timestep:  0.0006727 
+time: 42.3750114 energy error: +3.293763e-12 timestep:  0.0009083 
+time: 42.5003014 energy error: +3.302634e-12 timestep:  0.0011855 
+time: 42.6243134 energy error: +3.307901e-12 timestep:  0.0014968 
+time: 42.7507248 energy error: +3.310257e-12 timestep:  0.0016454 
+time: 42.8747559 energy error: +3.303743e-12 timestep:  0.0014174 
+time: 43.0001755 energy error: +3.293486e-12 timestep:  0.0011064 
+time: 43.1248245 energy error: +3.264379e-12 timestep:  0.0008436 
+time: 43.2497482 energy error: +3.245529e-12 timestep:  0.0006156 
+time: 43.3751869 energy error: +3.196880e-12 timestep:  0.0004083 
+time: 43.5000000 energy error: +3.135063e-12 timestep:  0.0002179 
+time: 43.6250114 energy error: +3.098056e-12 timestep:  0.0000447 
+time: 43.7499847 energy error: +8.366081e-13 timestep:  0.0001159 
+time: 43.8750229 energy error: +9.804781e-13 timestep:  0.0002976 
+time: 43.9997711 energy error: +1.053522e-12 timestep:  0.0004946 
+time: 44.1250381 energy error: +1.105498e-12 timestep:  0.0007102 
+time: 44.2499237 energy error: +1.122823e-12 timestep:  0.0009521 
+time: 44.3744659 energy error: +1.136961e-12 timestep:  0.0012375 
+time: 44.4994125 energy error: +1.155118e-12 timestep:  0.0015480 
+time: 44.6244202 energy error: +1.154564e-12 timestep:  0.0016302 
+time: 44.7495956 energy error: +1.148881e-12 timestep:  0.0013619 
+time: 44.8755112 energy error: +1.122823e-12 timestep:  0.0010546 
+time: 45.0003586 energy error: +1.091222e-12 timestep:  0.0007983 
+time: 45.1252785 energy error: +1.069738e-12 timestep:  0.0005746 
+time: 45.2498322 energy error: +1.060452e-12 timestep:  0.0003716 
+time: 45.3749237 energy error: +1.030375e-12 timestep:  0.0001836 
+time: 45.5000076 energy error: +2.245370e-12 timestep:  0.0000178 
+time: 45.6249352 energy error: +6.264859e-13 timestep:  0.0001489 
+time: 45.7498398 energy error: +7.102021e-13 timestep:  0.0003336 
+time: 45.8750839 energy error: +7.840776e-13 timestep:  0.0005347 
+time: 45.9996490 energy error: +8.310640e-13 timestep:  0.0007539 
+time: 46.1247597 energy error: +8.607251e-13 timestep:  0.0010040 
+time: 46.2502823 energy error: +8.773574e-13 timestep:  0.0013027 
+time: 46.3751526 energy error: +8.924652e-13 timestep:  0.0015982 
+time: 46.4993057 energy error: +8.966232e-13 timestep:  0.0015955 
+time: 46.6254387 energy error: +8.805453e-13 timestep:  0.0012952 
+time: 46.7495651 energy error: +8.658534e-13 timestep:  0.0010007 
+time: 46.8752823 energy error: +8.188669e-13 timestep:  0.0007500 
+time: 46.9999504 energy error: +8.136000e-13 timestep:  0.0005310 
+time: 47.1248627 energy error: +7.986309e-13 timestep:  0.0003307 
+time: 47.2500153 energy error: +7.878198e-13 timestep:  0.0001459 
+time: 47.3750076 energy error: +3.478383e-12 timestep:  0.0000203 
+time: 47.4999084 energy error: +2.737965e-12 timestep:  0.0001864 
+time: 47.6248817 energy error: +2.787446e-12 timestep:  0.0003747 
+time: 47.7497177 energy error: +2.833324e-12 timestep:  0.0005789 
+time: 47.8746414 energy error: +2.872549e-12 timestep:  0.0008042 
+time: 48.0002785 energy error: +2.886686e-12 timestep:  0.0010647 
+time: 48.1245232 energy error: +2.907338e-12 timestep:  0.0013709 
+time: 48.2501640 energy error: +2.912605e-12 timestep:  0.0016365 
+time: 48.3752289 energy error: +2.915793e-12 timestep:  0.0015416 
+time: 48.4997444 energy error: +2.899576e-12 timestep:  0.0012289 
+time: 48.6246147 energy error: +2.883775e-12 timestep:  0.0009430 
+time: 48.7499199 energy error: +2.858550e-12 timestep:  0.0007004 
+time: 48.8750954 energy error: +2.811979e-12 timestep:  0.0004850 
+time: 48.9999123 energy error: +2.781764e-12 timestep:  0.0002883 
+time: 49.1249809 energy error: +2.731866e-12 timestep:  0.0001073 
+time: 49.2500191 energy error: +1.094410e-12 timestep:  0.0000530 
+time: 49.3749809 energy error: +1.115339e-12 timestep:  0.0002270 
+time: 49.4998665 energy error: +1.140980e-12 timestep:  0.0004184 
+time: 49.6252823 energy error: +1.150960e-12 timestep:  0.0006277 
+time: 49.7501183 energy error: +1.180067e-12 timestep:  0.0008592 
+time: 49.8749275 energy error: +1.203629e-12 timestep:  0.0011289 
+time: 50.0000534 energy error: +1.219153e-12 timestep:  0.0014457 
+time: 50.1258011 energy error: +1.224558e-12 timestep:  0.0016562 
+time: 50.2501411 energy error: +1.218460e-12 timestep:  0.0014779 
+time: 50.3749084 energy error: +1.206124e-12 timestep:  0.0011606 
+time: 50.4996223 energy error: +1.180621e-12 timestep:  0.0008859 
+time: 50.6250229 energy error: +1.153732e-12 timestep:  0.0006500 
+time: 50.7500305 energy error: +1.079302e-12 timestep:  0.0004391 
+time: 50.8749123 energy error: +1.005427e-12 timestep:  0.0002458 
+time: 51.0000305 energy error: +9.619053e-13 timestep:  0.0000690 
+time: 51.1249619 energy error: +3.740620e-12 timestep:  0.0000903 
+time: 51.2499161 energy error: +3.744916e-12 timestep:  0.0002690 
+time: 51.3748932 energy error: +3.744500e-12 timestep:  0.0004640 
+time: 51.5001450 energy error: +3.737570e-12 timestep:  0.0006770 
+time: 51.6252480 energy error: +3.769588e-12 timestep:  0.0009155 
+time: 51.7505798 energy error: +3.807288e-12 timestep:  0.0011971 
+time: 51.8744888 energy error: +3.822673e-12 timestep:  0.0015112 
+time: 52.0000687 energy error: +3.826969e-12 timestep:  0.0016479 
+time: 52.1251869 energy error: +3.811446e-12 timestep:  0.0014060 
+time: 52.2494545 energy error: +3.800358e-12 timestep:  0.0010955 
+time: 52.3753166 energy error: +3.778874e-12 timestep:  0.0008295 
+time: 52.4999046 energy error: +3.740758e-12 timestep:  0.0006017 
+time: 52.6248703 energy error: +3.664942e-12 timestep:  0.0003950 
+time: 52.7499924 energy error: +3.563762e-12 timestep:  0.0002046 
+time: 52.8750153 energy error: +3.385241e-12 timestep:  0.0000337 
+time: 52.9999619 energy error: +2.627360e-12 timestep:  0.0001286 
+time: 53.1248512 energy error: +2.670327e-12 timestep:  0.0003111 
+time: 53.2497978 energy error: +2.657159e-12 timestep:  0.0005094 
+time: 53.3746605 energy error: +2.662288e-12 timestep:  0.0007261 
+time: 53.4996681 energy error: +2.668109e-12 timestep:  0.0009713 
+time: 53.6245079 energy error: +2.693196e-12 timestep:  0.0012622 
+time: 53.7503891 energy error: +2.708304e-12 timestep:  0.0015712 
+time: 53.8743172 energy error: +2.710106e-12 timestep:  0.0016187 
+time: 54.0005302 energy error: +2.706086e-12 timestep:  0.0013334 
+time: 54.1249504 energy error: +2.703037e-12 timestep:  0.0010323 
+time: 54.2496338 energy error: +2.689454e-12 timestep:  0.0007786 
+time: 54.3749123 energy error: +2.658961e-12 timestep:  0.0005554 
+time: 54.5000343 energy error: +2.614608e-12 timestep:  0.0003525 
+time: 54.6249924 energy error: +2.469075e-12 timestep:  0.0001659 
+time: 54.7500000 energy error: +1.205292e-12 timestep:  0.0000100 
+time: 54.8749466 energy error: +1.929909e-12 timestep:  0.0001664 
+time: 54.9998589 energy error: +1.954858e-12 timestep:  0.0003524 
+time: 55.1250992 energy error: +1.938641e-12 timestep:  0.0005545 
+time: 55.2498055 energy error: +1.910089e-12 timestep:  0.0007756 
+time: 55.3746376 energy error: +1.914801e-12 timestep:  0.0010282 
+time: 55.4994583 energy error: +1.945294e-12 timestep:  0.0013289 
+time: 55.6249504 energy error: +1.969134e-12 timestep:  0.0016144 
+time: 55.7504959 energy error: +1.969550e-12 timestep:  0.0015719 
+time: 55.8755035 energy error: +1.964837e-12 timestep:  0.0012663 
+time: 56.0000114 energy error: +1.960956e-12 timestep:  0.0009759 
+time: 56.1250420 energy error: +1.950145e-12 timestep:  0.0007300 
+time: 56.2501945 energy error: +1.925474e-12 timestep:  0.0005122 
+time: 56.3749313 energy error: +1.921039e-12 timestep:  0.0003135 
+time: 56.4999352 energy error: +1.807384e-12 timestep:  0.0001301 
+time: 56.6250000 energy error: +3.035962e-12 timestep:  0.0000326 
+time: 56.7500038 energy error: +2.758894e-12 timestep:  0.0002030 
+time: 56.8748627 energy error: +2.773309e-12 timestep:  0.0003920 
+time: 57.0001831 energy error: +2.766794e-12 timestep:  0.0005977 
+time: 57.1251373 energy error: +2.777051e-12 timestep:  0.0008240 
+time: 57.2496719 energy error: +2.801029e-12 timestep:  0.0010841 
+time: 57.3748741 energy error: +2.821127e-12 timestep:  0.0013937 
+time: 57.5004196 energy error: +2.832492e-12 timestep:  0.0016417 
+time: 57.6246758 energy error: +2.833878e-12 timestep:  0.0015206 
+time: 57.7498245 energy error: +2.795069e-12 timestep:  0.0012063 
+time: 57.8754387 energy error: +2.760696e-12 timestep:  0.0009239 
+time: 57.9998398 energy error: +2.721055e-12 timestep:  0.0006864 
+time: 58.1250572 energy error: +2.729094e-12 timestep:  0.0004728 
+time: 58.2499847 energy error: +2.717175e-12 timestep:  0.0002770 
+time: 58.3749619 energy error: +2.631241e-12 timestep:  0.0000970 
+time: 58.5000038 energy error: +2.067403e-12 timestep:  0.0000624 
+time: 58.6249847 energy error: +2.115637e-12 timestep:  0.0002380 
+time: 58.7500610 energy error: +2.171356e-12 timestep:  0.0004302 
+time: 58.8752022 energy error: +2.204066e-12 timestep:  0.0006390 
+time: 58.9996681 energy error: +2.206977e-12 timestep:  0.0008695 
+time: 59.1248169 energy error: +2.228876e-12 timestep:  0.0011393 
+time: 59.2495575 energy error: +2.255349e-12 timestep:  0.0014523 
+time: 59.3754425 energy error: +2.264497e-12 timestep:  0.0016504 
+time: 59.5004005 energy error: +2.255488e-12 timestep:  0.0014617 
+time: 59.6250763 energy error: +2.243429e-12 timestep:  0.0011482 
+time: 59.7496033 energy error: +2.212798e-12 timestep:  0.0008780 
+time: 59.8747597 energy error: +2.152783e-12 timestep:  0.0006451 
+time: 59.9998703 energy error: +2.171217e-12 timestep:  0.0004356 
+time: 60.1250610 energy error: +2.177870e-12 timestep:  0.0002424 
+time: 60.2499886 energy error: +2.186602e-12 timestep:  0.0000662 
+time: 60.3750000 energy error: +1.591163e-12 timestep:  0.0000930 
+time: 60.5000038 energy error: +1.687354e-12 timestep:  0.0002723 
+time: 60.6251297 energy error: +1.776614e-12 timestep:  0.0004675 
+time: 60.7499237 energy error: +1.812512e-12 timestep:  0.0006792 
+time: 60.8753510 energy error: +1.827620e-12 timestep:  0.0009170 
+time: 60.9995689 energy error: +1.840649e-12 timestep:  0.0011938 
+time: 61.1244850 energy error: +1.848133e-12 timestep:  0.0015071 
+time: 61.2496185 energy error: +1.845777e-12 timestep:  0.0016420 
+time: 61.3744240 energy error: +1.843559e-12 timestep:  0.0014040 
+time: 61.4997253 energy error: +1.826095e-12 timestep:  0.0010935 
+time: 61.6246605 energy error: +1.788950e-12 timestep:  0.0008314 
+time: 61.7502785 energy error: +1.760259e-12 timestep:  0.0006033 
+time: 61.8749275 energy error: +1.770100e-12 timestep:  0.0003982 
+time: 61.9999542 energy error: +1.765526e-12 timestep:  0.0002084 
+time: 62.1249962 energy error: +1.950422e-12 timestep:  0.0000368 
+time: 62.2500572 energy error: +4.472721e-12 timestep:  0.0001250 
+time: 62.3749580 energy error: +4.547705e-12 timestep:  0.0003073 
+time: 62.4998131 energy error: +4.644866e-12 timestep:  0.0005050 
+time: 62.6249313 energy error: +4.695318e-12 timestep:  0.0007212 
+time: 62.7499352 energy error: +4.721791e-12 timestep:  0.0009645 
+time: 62.8749657 energy error: +4.741750e-12 timestep:  0.0012528 
+time: 62.9998016 energy error: +4.751868e-12 timestep:  0.0015582 
+time: 63.1247292 energy error: +4.755471e-12 timestep:  0.0016157 
+time: 63.2496300 energy error: +4.746601e-12 timestep:  0.0013389 
+time: 63.3745956 energy error: +4.735790e-12 timestep:  0.0010371 
+time: 63.4999084 energy error: +4.698921e-12 timestep:  0.0007829 
+time: 63.6248283 energy error: +4.662607e-12 timestep:  0.0005612 
+time: 63.7499390 energy error: +4.645836e-12 timestep:  0.0003591 
+time: 63.8749199 energy error: +4.640431e-12 timestep:  0.0001726 
+time: 63.9999962 energy error: +3.028200e-12 timestep:  0.0000115 
+time: 64.1250305 energy error: +5.802479e-12 timestep:  0.0001628 
+time: 64.2499161 energy error: +5.865682e-12 timestep:  0.0003485 
+time: 64.3748627 energy error: +5.936647e-12 timestep:  0.0005501 
+time: 64.5000610 energy error: +5.982247e-12 timestep:  0.0007716 
+time: 64.6252060 energy error: +6.005255e-12 timestep:  0.0010239 
+time: 64.7494278 energy error: +6.025214e-12 timestep:  0.0013215 
+time: 64.8757706 energy error: +6.036718e-12 timestep:  0.0016070 
+time: 65.0006409 energy error: +6.034223e-12 timestep:  0.0015639 
+time: 65.1250534 energy error: +6.021610e-12 timestep:  0.0012606 
+time: 65.2500305 energy error: +6.000404e-12 timestep:  0.0009702 
+time: 65.3751526 energy error: +5.971575e-12 timestep:  0.0007256 
+time: 65.5001755 energy error: +5.933182e-12 timestep:  0.0005095 
+time: 65.6250992 energy error: +5.917519e-12 timestep:  0.0003119 
+time: 65.7500381 energy error: +5.864573e-12 timestep:  0.0001298 
+time: 65.8750076 energy error: +6.248226e-12 timestep:  0.0000340 
+time: 65.9999237 energy error: +6.241712e-12 timestep:  0.0002037 
+time: 66.1248856 energy error: +6.268601e-12 timestep:  0.0003934 
+time: 66.2501602 energy error: +6.320023e-12 timestep:  0.0005998 
+time: 66.3748779 energy error: +6.361326e-12 timestep:  0.0008270 
+time: 66.4999847 energy error: +6.378790e-12 timestep:  0.0010904 
+time: 66.6246567 energy error: +6.397918e-12 timestep:  0.0014004 
+time: 66.7505112 energy error: +6.410115e-12 timestep:  0.0016374 
+time: 66.8750534 energy error: +6.400274e-12 timestep:  0.0014940 
+time: 67.0001221 energy error: +6.388631e-12 timestep:  0.0011761 
+time: 67.1253967 energy error: +6.367148e-12 timestep:  0.0008969 
+time: 67.2503128 energy error: +6.337764e-12 timestep:  0.0006613 
+time: 67.3748703 energy error: +6.277333e-12 timestep:  0.0004518 
+time: 67.4999390 energy error: +6.233950e-12 timestep:  0.0002590 
+time: 67.6249771 energy error: +6.165619e-12 timestep:  0.0000825 
+time: 67.7500381 energy error: +5.371146e-12 timestep:  0.0000728 
+time: 67.8751144 energy error: +5.463456e-12 timestep:  0.0002485 
+time: 68.0001526 energy error: +5.520422e-12 timestep:  0.0004417 
+time: 68.1250763 energy error: +5.567408e-12 timestep:  0.0006535 
+time: 68.2502747 energy error: +5.608712e-12 timestep:  0.0008930 
+time: 68.3749847 energy error: +5.624513e-12 timestep:  0.0011753 
+time: 68.4995651 energy error: +5.636571e-12 timestep:  0.0014873 
+time: 68.6255035 energy error: +5.630888e-12 timestep:  0.0015953 
+time: 68.7502136 energy error: +5.620216e-12 timestep:  0.0013473 
+time: 68.8752975 energy error: +5.595683e-12 timestep:  0.0010514 
+time: 69.0000076 energy error: +5.566299e-12 timestep:  0.0007987 
+time: 69.1249008 energy error: +5.532341e-12 timestep:  0.0005713 
+time: 69.2499847 energy error: +5.446546e-12 timestep:  0.0003611 
+time: 69.3750305 energy error: +5.332060e-12 timestep:  0.0001770 
+time: 69.4999924 energy error: +6.104079e-12 timestep:  0.0000232 
+time: 69.6249619 energy error: +5.038499e-12 timestep:  0.0001433 
+time: 69.7501068 energy error: +5.144946e-12 timestep:  0.0002270 
+time: 69.8750305 energy error: +5.258046e-12 timestep:  0.0000684 
+time: 70.0000000 energy error: +5.004680e-12 timestep:  0.0001021 
+time: 70.1249695 energy error: +4.981949e-12 timestep:  0.0001473 
+time: 70.2500000 energy error: +5.844614e-12 timestep:  0.0000167 
+time: 70.3750076 energy error: +4.717494e-12 timestep:  0.0001860 
+time: 70.4998779 energy error: +4.869957e-12 timestep:  0.0003858 
+time: 70.6252747 energy error: +4.929280e-12 timestep:  0.0006210 
+time: 70.7498398 energy error: +4.967950e-12 timestep:  0.0009009 
+time: 70.8752975 energy error: +4.963376e-12 timestep:  0.0008891 
+time: 71.0002899 energy error: +4.933576e-12 timestep:  0.0006106 
+time: 71.1250687 energy error: +4.877442e-12 timestep:  0.0003811 
+time: 71.2500687 energy error: +4.762401e-12 timestep:  0.0001841 
+time: 71.3750076 energy error: +5.676073e-12 timestep:  0.0000191 
+time: 71.4999695 energy error: +5.236701e-12 timestep:  0.0001491 
+time: 71.6249390 energy error: +5.293113e-12 timestep:  0.0003436 
+time: 71.7501678 energy error: +5.374057e-12 timestep:  0.0005717 
+time: 71.8752289 energy error: +5.407737e-12 timestep:  0.0008557 
+time: 72.0003357 energy error: +5.412034e-12 timestep:  0.0009538 
+time: 72.1249771 energy error: +5.390689e-12 timestep:  0.0006720 
+time: 72.2501755 energy error: +5.324021e-12 timestep:  0.0004253 
+time: 72.3749619 energy error: +5.294637e-12 timestep:  0.0002206 
+time: 72.5000076 energy error: +5.419934e-12 timestep:  0.0000449 
+time: 72.6249695 energy error: +6.070814e-12 timestep:  0.0001153 
+time: 72.7499847 energy error: +5.996939e-12 timestep:  0.0003044 
+time: 72.8751984 energy error: +6.052935e-12 timestep:  0.0005254 
+time: 72.9999390 energy error: +6.090357e-12 timestep:  0.0007991 
+time: 73.1251297 energy error: +6.103525e-12 timestep:  0.0009852 
+time: 73.2498856 energy error: +6.086061e-12 timestep:  0.0007293 
+time: 73.3751068 energy error: +6.051687e-12 timestep:  0.0004695 
+time: 73.4999466 energy error: +5.950507e-12 timestep:  0.0002578 
+time: 73.6250076 energy error: +5.973792e-12 timestep:  0.0000753 
+time: 73.7499619 energy error: +6.119603e-12 timestep:  0.0000827 
+time: 73.8748932 energy error: +6.067211e-12 timestep:  0.0002661 
+time: 73.9999084 energy error: +6.029511e-12 timestep:  0.0004793 
+time: 74.1247711 energy error: +6.075388e-12 timestep:  0.0007412 
+time: 74.2500076 energy error: +6.086061e-12 timestep:  0.0009893 
+time: 74.3752518 energy error: +6.066102e-12 timestep:  0.0007870 
+time: 74.5000229 energy error: +6.022303e-12 timestep:  0.0005152 
+time: 74.6249847 energy error: +5.899917e-12 timestep:  0.0002962 
+time: 74.7499771 energy error: +5.839070e-12 timestep:  0.0001080 
+time: 74.8749924 energy error: +4.078257e-12 timestep:  0.0000516 
+time: 74.9999466 energy error: +4.035428e-12 timestep:  0.0002288 
+time: 75.1250687 energy error: +3.980542e-12 timestep:  0.0004358 
+time: 75.2500839 energy error: +4.030854e-12 timestep:  0.0006858 
+time: 75.3751907 energy error: +4.050397e-12 timestep:  0.0009661 
+time: 75.5002899 energy error: +4.034874e-12 timestep:  0.0008458 
+time: 75.6252213 energy error: +4.006737e-12 timestep:  0.0005626 
+time: 75.7500534 energy error: +3.919833e-12 timestep:  0.0003360 
+time: 75.8749466 energy error: +3.905834e-12 timestep:  0.0001424 
+time: 75.9999924 energy error: +2.373993e-12 timestep:  0.0000238 
+time: 76.1250916 energy error: +1.519090e-12 timestep:  0.0001922 
+time: 76.2499390 energy error: +1.462262e-12 timestep:  0.0003929 
+time: 76.3750229 energy error: +1.482498e-12 timestep:  0.0006321 
+time: 76.4998856 energy error: +1.461708e-12 timestep:  0.0009223 
+time: 76.6250381 energy error: +1.440086e-12 timestep:  0.0009035 
+time: 76.7498550 energy error: +1.434819e-12 timestep:  0.0006136 
+time: 76.8748627 energy error: +1.407653e-12 timestep:  0.0003777 
+time: 77.0000153 energy error: +1.464203e-12 timestep:  0.0001782 
+time: 77.1250076 energy error: +2.376211e-12 timestep:  0.0000151 
+time: 77.2499237 energy error: +3.040120e-12 timestep:  0.0001558 
+time: 77.3751526 energy error: +2.985649e-12 timestep:  0.0003514 
+time: 77.5000153 energy error: +2.967769e-12 timestep:  0.0005807 
+time: 77.6247711 energy error: +2.949473e-12 timestep:  0.0008668 
+time: 77.7498856 energy error: +2.931732e-12 timestep:  0.0009528 
+time: 77.8747482 energy error: +2.923416e-12 timestep:  0.0006673 
+time: 77.9999008 energy error: +2.957789e-12 timestep:  0.0004206 
+time: 78.1250000 energy error: +2.994658e-12 timestep:  0.0002154 
+time: 78.2499924 energy error: +3.277685e-12 timestep:  0.0000405 
+time: 78.3750229 energy error: +1.352766e-12 timestep:  0.0001206 
+time: 78.5000076 energy error: +1.275703e-12 timestep:  0.0003105 
+time: 78.6251907 energy error: +1.240913e-12 timestep:  0.0005321 
+time: 78.7501221 energy error: +1.223726e-12 timestep:  0.0008080 
+time: 78.8752136 energy error: +1.223033e-12 timestep:  0.0009841 
+time: 79.0000381 energy error: +1.223033e-12 timestep:  0.0007230 
+time: 79.1252136 energy error: +1.261288e-12 timestep:  0.0004646 
+time: 79.2501144 energy error: +1.293582e-12 timestep:  0.0002534 
+time: 79.3749695 energy error: +1.243547e-12 timestep:  0.0000717 
+time: 79.5000076 energy error: +4.328851e-12 timestep:  0.0000865 
+time: 79.6249695 energy error: +4.380134e-12 timestep:  0.0002707 
+time: 79.7498932 energy error: +4.347147e-12 timestep:  0.0004845 
+time: 79.8747635 energy error: +4.327188e-12 timestep:  0.0007474 
+time: 79.9999008 energy error: +4.317486e-12 timestep:  0.0009903 
+time: 80.1246948 energy error: +4.337167e-12 timestep:  0.0007829 
+time: 80.2499390 energy error: +4.425042e-12 timestep:  0.0005115 
+time: 80.3749695 energy error: +4.518321e-12 timestep:  0.0002931 
+time: 80.4999847 energy error: +4.601345e-12 timestep:  0.0001052 
+time: 80.6249771 energy error: +1.000160e-12 timestep:  0.0000540 
+time: 80.7500458 energy error: +8.590618e-13 timestep:  0.0002321 
+time: 80.8749695 energy error: +7.727121e-13 timestep:  0.0004394 
+time: 80.9997711 energy error: +7.673066e-13 timestep:  0.0006898 
+time: 81.1246185 energy error: +7.861566e-13 timestep:  0.0009685 
+time: 81.2496262 energy error: +7.944728e-13 timestep:  0.0008435 
+time: 81.3748169 energy error: +8.457559e-13 timestep:  0.0005601 
+time: 81.4998398 energy error: +8.880299e-13 timestep:  0.0003338 
+time: 81.6249619 energy error: +8.948214e-13 timestep:  0.0001402 
+time: 81.7500076 energy error: +3.896409e-12 timestep:  0.0000254 
+time: 81.8750610 energy error: +6.142888e-13 timestep:  0.0001946 
+time: 82.0000534 energy error: +5.966862e-13 timestep:  0.0003960 
+time: 82.1249619 energy error: +6.026461e-13 timestep:  0.0006357 
+time: 82.2496567 energy error: +6.393760e-13 timestep:  0.0009256 
+time: 82.3748550 energy error: +6.339704e-13 timestep:  0.0009011 
+time: 82.4999084 energy error: +6.643245e-13 timestep:  0.0006106 
+time: 82.6250992 energy error: +7.236466e-13 timestep:  0.0003749 
+time: 82.7500687 energy error: +7.185183e-13 timestep:  0.0001760 
+time: 82.8750000 energy error: +1.495804e-12 timestep:  0.0000141 
+time: 82.9999619 energy error: +1.018733e-12 timestep:  0.0001579 
+time: 83.1249466 energy error: +1.049502e-12 timestep:  0.0003537 
+time: 83.2501450 energy error: +1.041463e-12 timestep:  0.0005843 
+time: 83.3749008 energy error: +9.638457e-13 timestep:  0.0008711 
+time: 83.5002441 energy error: +9.639843e-13 timestep:  0.0009503 
+time: 83.6252518 energy error: +9.375112e-13 timestep:  0.0006631 
+time: 83.7501144 energy error: +8.892773e-13 timestep:  0.0004177 
+time: 83.8750305 energy error: +8.460331e-13 timestep:  0.0002131 
+time: 84.0000153 energy error: +3.492797e-13 timestep:  0.0000387 
+time: 84.1250305 energy error: +1.591718e-12 timestep:  0.0001227 
+time: 84.2498474 energy error: +1.520198e-12 timestep:  0.0003127 
+time: 84.3749771 energy error: +1.433156e-12 timestep:  0.0005348 
+time: 84.4998627 energy error: +1.506893e-12 timestep:  0.0008115 
+time: 84.6252899 energy error: +1.527960e-12 timestep:  0.0009833 
+time: 84.7497330 energy error: +1.502041e-12 timestep:  0.0007204 
+time: 84.8749619 energy error: +1.567323e-12 timestep:  0.0004623 
+time: 85.0000229 energy error: +1.621656e-12 timestep:  0.0002511 
+time: 85.1249924 energy error: +1.618884e-12 timestep:  0.0000696 
+time: 85.2499924 energy error: +2.367340e-12 timestep:  0.0000886 
+time: 85.3749847 energy error: +2.469768e-12 timestep:  0.0002733 
+time: 85.4997635 energy error: +2.530338e-12 timestep:  0.0004874 
+time: 85.6247406 energy error: +2.563325e-12 timestep:  0.0007516 
+time: 85.7504578 energy error: +2.576631e-12 timestep:  0.0009915 
+time: 85.8748398 energy error: +2.572750e-12 timestep:  0.0007789 
+time: 85.9999924 energy error: +2.573305e-12 timestep:  0.0005082 
+time: 86.1251373 energy error: +2.514537e-12 timestep:  0.0002900 
+time: 86.2500000 energy error: +2.459927e-12 timestep:  0.0001028 
+time: 86.3750153 energy error: +3.580949e-12 timestep:  0.0000564 
+time: 86.4999237 energy error: +3.663556e-12 timestep:  0.0002347 
+time: 86.6250229 energy error: +3.681852e-12 timestep:  0.0004428 
+time: 86.7502365 energy error: +3.737293e-12 timestep:  0.0006953 
+time: 86.8751144 energy error: +3.753094e-12 timestep:  0.0009721 
+time: 86.9998856 energy error: +3.736877e-12 timestep:  0.0008388 
+time: 87.1249237 energy error: +3.738679e-12 timestep:  0.0005563 
+time: 87.2501602 energy error: +3.736739e-12 timestep:  0.0003301 
+time: 87.3749542 energy error: +3.661339e-12 timestep:  0.0001374 
+time: 87.5000153 energy error: +7.645345e-12 timestep:  0.0000274 
+time: 87.6249390 energy error: +8.213756e-12 timestep:  0.0001972 
+time: 87.7501297 energy error: +8.261436e-12 timestep:  0.0003995 
+time: 87.8749924 energy error: +8.323946e-12 timestep:  0.0006401 
+time: 87.9996872 energy error: +8.386317e-12 timestep:  0.0009299 
+time: 88.1248779 energy error: +8.407662e-12 timestep:  0.0008970 
+time: 88.2499313 energy error: +8.397821e-12 timestep:  0.0006066 
+time: 88.3751297 energy error: +8.421800e-12 timestep:  0.0003715 
+time: 88.4999313 energy error: +8.390475e-12 timestep:  0.0001733 
+time: 88.6250076 energy error: +7.711875e-12 timestep:  0.0000132 
+time: 88.7500763 energy error: +3.458978e-12 timestep:  0.0001609 
+time: 88.8750763 energy error: +3.468680e-12 timestep:  0.0003572 
+time: 88.9998856 energy error: +3.415180e-12 timestep:  0.0005878 
+time: 89.1246109 energy error: +3.334235e-12 timestep:  0.0008752 
+time: 89.2501221 energy error: +3.271032e-12 timestep:  0.0009472 
+time: 89.3752594 energy error: +3.262716e-12 timestep:  0.0006588 
+time: 89.4998093 energy error: +3.287249e-12 timestep:  0.0004148 
+time: 89.6249771 energy error: +3.287803e-12 timestep:  0.0002101 
+time: 89.7499924 energy error: +4.307783e-12 timestep:  0.0000364 
+time: 89.8750458 energy error: +1.031373e-11 timestep:  0.0001256 
+time: 89.9999008 energy error: +1.024124e-11 timestep:  0.0003161 
+time: 90.1248856 energy error: +1.018455e-11 timestep:  0.0005386 
+time: 90.2499313 energy error: +1.014283e-11 timestep:  0.0008167 
+time: 90.3748322 energy error: +1.005454e-11 timestep:  0.0009819 
+time: 90.5003052 energy error: +1.011414e-11 timestep:  0.0007143 
+time: 90.6250839 energy error: +1.019730e-11 timestep:  0.0004584 
+time: 90.7499542 energy error: +1.021047e-11 timestep:  0.0002481 
+time: 90.8750305 energy error: +1.013078e-11 timestep:  0.0000669 
+time: 91.0000305 energy error: +1.009529e-11 timestep:  0.0000913 
+time: 91.1250305 energy error: +1.009460e-11 timestep:  0.0002765 
+time: 91.2498779 energy error: +1.008088e-11 timestep:  0.0004914 
+time: 91.3752670 energy error: +9.990786e-12 timestep:  0.0007576 
+time: 91.4997711 energy error: +9.917881e-12 timestep:  0.0009917 
+time: 91.6246490 energy error: +9.995499e-12 timestep:  0.0007744 
+time: 91.7502136 energy error: +1.008878e-11 timestep:  0.0005041 
+time: 91.8750153 energy error: +1.011248e-11 timestep:  0.0002871 
+time: 91.9999847 energy error: +1.011692e-11 timestep:  0.0001001 
+time: 92.1249924 energy error: +1.651317e-11 timestep:  0.0000587 
+time: 92.2500305 energy error: +1.645565e-11 timestep:  0.0002378 
+time: 92.3751297 energy error: +1.635613e-11 timestep:  0.0004464 
+time: 92.5000916 energy error: +1.627450e-11 timestep:  0.0006993 
+time: 92.6246414 energy error: +1.622238e-11 timestep:  0.0009737 
+time: 92.7500076 energy error: +1.626826e-11 timestep:  0.0008337 
+time: 92.8749161 energy error: +1.633340e-11 timestep:  0.0005525 
+time: 93.0000076 energy error: +1.643777e-11 timestep:  0.0003272 
+time: 93.1249924 energy error: +1.655808e-11 timestep:  0.0001346 
+time: 93.2500153 energy error: +1.784653e-11 timestep:  0.0000293 
+time: 93.3750916 energy error: +1.732261e-11 timestep:  0.0002004 
+time: 93.5000076 energy error: +1.728436e-11 timestep:  0.0004026 
+time: 93.6246796 energy error: +1.722781e-11 timestep:  0.0006435 
+time: 93.7500916 energy error: +1.720133e-11 timestep:  0.0009344 
+time: 93.8751755 energy error: +1.728075e-11 timestep:  0.0008919 
+time: 94.0000916 energy error: +1.735421e-11 timestep:  0.0006022 
+time: 94.1248550 energy error: +1.737861e-11 timestep:  0.0003688 
+time: 94.2499771 energy error: +1.751222e-11 timestep:  0.0001704 
+time: 94.3750000 energy error: +1.816809e-11 timestep:  0.0000127 
+time: 94.5000000 energy error: +3.839998e-11 timestep:  0.0001637 
+time: 94.6251602 energy error: +3.842368e-11 timestep:  0.0003606 
+time: 94.7500916 energy error: +3.838141e-11 timestep:  0.0005923 
+time: 94.8750153 energy error: +3.833955e-11 timestep:  0.0008807 
+time: 94.9997559 energy error: +3.841148e-11 timestep:  0.0009443 
+time: 95.1250610 energy error: +3.849312e-11 timestep:  0.0006550 
+time: 95.2498016 energy error: +3.852140e-11 timestep:  0.0004114 
+time: 95.3750763 energy error: +3.854884e-11 timestep:  0.0002071 
+time: 95.4999924 energy error: +3.917810e-11 timestep:  0.0000344 
+time: 95.6250153 energy error: +3.989717e-11 timestep:  0.0001281 
+time: 95.7500305 energy error: +3.982634e-11 timestep:  0.0003193 
+time: 95.8747787 energy error: +3.976023e-11 timestep:  0.0005420 
+time: 95.9999237 energy error: +3.971117e-11 timestep:  0.0008211 
+time: 96.1251984 energy error: +3.972641e-11 timestep:  0.0009799 
+time: 96.2500534 energy error: +3.979946e-11 timestep:  0.0007107 
+time: 96.3751831 energy error: +3.986169e-11 timestep:  0.0004549 
+time: 96.4999008 energy error: +3.997312e-11 timestep:  0.0002454 
+time: 96.6250076 energy error: +4.001249e-11 timestep:  0.0000647 
+time: 96.7499771 energy error: +4.231164e-11 timestep:  0.0000937 
+time: 96.8749313 energy error: +4.221905e-11 timestep:  0.0002793 
+time: 97.0001373 energy error: +4.215793e-11 timestep:  0.0004952 
+time: 97.1251068 energy error: +4.207657e-11 timestep:  0.0007617 
+time: 97.2501678 energy error: +4.204912e-11 timestep:  0.0009921 
+time: 97.3753281 energy error: +4.210207e-11 timestep:  0.0007685 
+time: 97.5000076 energy error: +4.218856e-11 timestep:  0.0005010 
+time: 97.6249771 energy error: +4.224622e-11 timestep:  0.0002842 
+time: 97.7499847 energy error: +4.211537e-11 timestep:  0.0000976 
+time: 97.8750000 energy error: +5.226943e-11 timestep:  0.0000610 
+time: 98.0000153 energy error: +5.196506e-11 timestep:  0.0002406 
+time: 98.1249161 energy error: +5.189936e-11 timestep:  0.0004493 
+time: 98.2500839 energy error: +5.181509e-11 timestep:  0.0007035 
+time: 98.3753738 energy error: +5.174940e-11 timestep:  0.0009769 
+time: 98.5003967 energy error: +5.178599e-11 timestep:  0.0008285 
+time: 98.6251144 energy error: +5.189105e-11 timestep:  0.0005485 
+time: 98.7500839 energy error: +5.195730e-11 timestep:  0.0003241 
+time: 98.8750229 energy error: +5.194399e-11 timestep:  0.0001320 
+time: 98.9999847 energy error: +5.883756e-11 timestep:  0.0000312 
+time: 99.1249084 energy error: +5.712636e-11 timestep:  0.0002028 
+time: 99.2498932 energy error: +5.704681e-11 timestep:  0.0004056 
+time: 99.3749313 energy error: +5.696642e-11 timestep:  0.0006481 
+time: 99.5003586 energy error: +5.686704e-11 timestep:  0.0009386 
+time: 99.6253586 energy error: +5.686496e-11 timestep:  0.0008874 
+time: 99.7502594 energy error: +5.693176e-11 timestep:  0.0005981 
+time: 99.8749619 energy error: +5.698956e-11 timestep:  0.0003655 
+cputime:  26.041759967804

@@ -16,14 +16,6 @@
 
 #include "user-defined.hpp"
 
-//template<class Tpsys>
-void kick(PS::ParticleSystem<FPGrav> & system, 
-           const PS::F64 dt) ;
-
-//template<class Tpsys>
-void drift(PS::ParticleSystem<FPGrav> & system, 
-           const PS::F64 dt) ;
-
 
 void leap_frog(PS::ParticleSystem<FPGrav> & system_grav,
           const PS::F64 dt,
@@ -35,14 +27,10 @@ void leap_frog(PS::ParticleSystem<FPGrav> & system_grav,
           PS::TreeForForceLong<FPGrav, FPGrav, FPGrav>::Monopole & tree_grav
 ) ;
 
-static void predict(PS::ParticleSystem<FPGrav> & particle,
-                    PS::F64 & dt_sys,
-                    PS::F32 & time_sys);
-
 
 
 void hermite(PS::ParticleSystem<FPGrav> & system_grav,
-          const PS::F64 dt,
+          PS::F64 & dt,
           PS::F32 & time_sys,
           const PS::S64 n_loop,
           PS::DomainInfo & dinfo,
@@ -50,5 +38,10 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
           const PS::S32 n_walk_limit,
           PS::TreeForForceLong<FPGrav, FPGrav, FPGrav>::Monopole & tree_grav
 );
+
+void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,PS::F32 & time_sys);
+
+
+
 
 
