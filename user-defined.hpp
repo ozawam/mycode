@@ -22,9 +22,29 @@ public:
     PS::F64vec vel;
     PS::F64vec acc;
     PS::F64    pot;    
-    PS::F64vec jerk;
-    PS::F64    ptime;
-    PS::F64    pdt;
+
+//#######################################################
+// add
+//#######################################################  
+    PS::F64vec jrk;
+    PS::F64    ptime;//particle time for individual timestep
+    PS::F64    pdt;//particle dt for individual timestep  
+
+//for hermite
+// ---------------------------------------------------------------------------
+    PS::F64vec x0;
+    PS::F64vec v0;
+    PS::F64vec a0;
+    PS::F64vec j0;
+    PS::F64vec s0;
+    PS::F64vec c0;//position,velocity,acceleration,jerk,snap,crackle
+    PS::F64vec xp;
+    PS::F64vec vp;
+    PS::F64vec a1;
+    PS::F64vec j1;
+
+
+
 
     static PS::F64 eps;
 
@@ -39,15 +59,28 @@ public:
     void copyFromFP(const FPGrav & fp){ 
         mass = fp.mass;
         pos  = fp.pos;
+        vel  = fp.vel;
+
     }
 
     void copyFromForce(const FPGrav & force) {
         acc = force.acc;
+        jrk = force.jrk;
         pot = force.pot;
     }
 
+/*
+//for hermite
+// ---------------------------------------------------------------------------
+    void copyFromForce(const FPGrav & force) {
+        a1 = force.a1;
+        j1 = force.j1;
+        pot = force.pot;
+    }
+*/
     void clear() {
         acc = 0.0;
+        jrk = 0.0;
         pot = 0.0;
     }
 
@@ -58,6 +91,15 @@ public:
                 this->vel.x, this->vel.y, this->vel.z);
     }
 
+/*
+    void writeascii(file* fp) const {
+        fprintf(fp, "%lld\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t\n", 
+                this->id, this->mass,
+                this->pos.x, this->pos.y, this->pos.z,
+                this->vel.x, this->vel.y, this->vel.z,
+                this->xp.x, this->xp.y, this->xp.z);
+    }
+*/
     void readAscii(FILE* fp) {
         fscanf(fp, "%lld\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", 
                &this->id, &this->mass,
@@ -122,30 +164,86 @@ void CalcGravity(const FPGrav * iptcl,
 
 #else
 
-template <class TParticleJ>
-void CalcGravity(const FPGrav * ep_i,
-                 const PS::S32 n_ip,
-                 const TParticleJ * ep_j,
-                 const PS::S32 n_jp,
-                 FPGrav * force) {
+class CalcGravity{
+  public:
+  void operator () (const FPGrav * ep_i,
+                    const PS::S32 n_ip,
+//                    const TParticleJ * ep_j,
+                    const FPGrav * ep_j,
+                    const PS::S32 n_jp,
+                    FPGrav * force) {
     PS::F64 eps2 = FPGrav::eps * FPGrav::eps;
     for(PS::S32 i = 0; i < n_ip; i++){
-        PS::F64vec xi = ep_i[i].getPos();
+//        PS::F64vec xi = ep_i[i].getPos();
+        PS::F64vec xi = ep_i[i].pos;
+        PS::F64vec vi = ep_i[i].vel;
         PS::F64vec ai = 0.0;
+        PS::F64vec jri = 0.0;
         PS::F64 poti = 0.0;
         for(PS::S32 j = 0; j < n_jp; j++){
-            PS::F64vec rij    = xi - ep_j[j].getPos();
+            PS::F64vec rij    = xi - ep_j[j].pos;
+            PS::F64vec vij    = vi - ep_j[j].vel;
             PS::F64    r3_inv = rij * rij + eps2;
             PS::F64    r_inv  = 1.0/sqrt(r3_inv);
-            r3_inv  = r_inv * r_inv;
-            r_inv  *= ep_j[j].getCharge();
-            r3_inv *= r_inv;
+
+            r3_inv  = r_inv * r_inv * r_inv * ep_j[j].mass;
+            PS::F64    r5_inv = r_inv * r_inv * r_inv * r_inv * r_inv * ep_j[j].mass;
+            r_inv  *= ep_j[j].mass;
+
             ai     -= r3_inv * rij;
+            PS::F64vec    j1     = r3_inv * vij;
+            PS::F64vec    j2     = 3.0 * ( vij * rij ) * r5_inv * rij;
+            jri    -= j1 - j2;
             poti   -= r_inv;
         }
         force[i].acc += ai;
+        force[i].jrk += jri;
         force[i].pot += poti;
     }
 }
+};
+/*
+//This CalcGravity is used in the step2 of Hermite scheme.
+//Therefore, x = xp, v = vp.
+// ---------------------------------------------------------------------------
+//template <class TParticleJ>
+class CalcGravity{
+  public:
+  void operator () (const FPGrav * ep_i,
+                    const PS::S32 n_ip,
+//                    const TParticleJ * ep_j,
+                    const FPGrav * ep_j,
+                    const PS::S32 n_jp,
+                    FPGrav * force) {
+    PS::F64 eps2 = FPGrav::eps * FPGrav::eps;
+    for(PS::S32 i = 0; i < n_ip; i++){
+//        PS::F64vec xi = ep_i[i].getPos();
+        PS::F64vec xi = ep_i[i].xp;
+        PS::F64vec vi = ep_i[i].vp;
+        PS::F64vec ai = 0.0;
+        PS::F64vec jri = 0.0;
+        PS::F64 poti = 0.0;
+        for(PS::S32 j = 0; j < n_jp; j++){
+            PS::F64vec rij    = xi - ep_j[j].xp;
+            PS::F64vec vij    = vi - ep_j[j].vp;
+            PS::F64    r3_inv = rij * rij + eps2;
+            PS::F64    r_inv  = 1.0/sqrt(r3_inv);
 
+            r3_inv  = r_inv * r_inv * r_inv * ep_j[j].mass;
+            PS::F64    r5_inv = r_inv * r_inv * r_inv * r_inv * r_inv * ep_j[j].mass;
+            r_inv  *= ep_j[j].mass;
+
+            ai     -= r3_inv * rij;
+            PS::F64vec    j1     = r3_inv * vij;
+            PS::F64vec    j2     = 3.0 * ( vij * rij ) * r5_inv * rij;
+            jri    -= j1 - j2;
+            poti   -= r_inv;
+        }
+        force[i].a1 += ai;
+        force[i].j1 += jri;
+        force[i].pot += poti;
+    }
+}
+};
+*/
 #endif

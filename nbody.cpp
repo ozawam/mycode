@@ -18,14 +18,6 @@
 
 
 template<class Tpsys>
-PS::S32 kick(Tpsys & system, 
-           const PS::F64 dt) ;
-
-template<class Tpsys>
-PS::S32 drift(Tpsys & system, 
-           const PS::F64 dt) ;
-
-template<class Tpsys>
 void calcEnergy(const Tpsys & system,
                 PS::F64 & etot,
                 PS::F64 & ekin,
@@ -218,8 +210,9 @@ int main(int argc, char *argv[]) {
                                                 dinfo,
                                                 n_walk_limit);
 #else
-    tree_grav.calcForceAllAndWriteBack(CalcGravity<FPGrav>,
-                                       CalcGravity<PS::SPJMonopole>,
+    tree_grav.calcForceAllAndWriteBack(CalcGravity(),
+//                                       CalcGravity<PS::SPJMonopole>,
+//                                       CalcGravity<FPGrav>,
                                        system_grav,
                                        dinfo);
 #endif
@@ -262,7 +255,7 @@ int main(int argc, char *argv[]) {
 //#######################################################
 // orbit integration
 //#######################################################  
-
+/*
 leap_frog(system_grav,
           dt,
           time_sys,
@@ -272,7 +265,17 @@ leap_frog(system_grav,
           n_walk_limit,
           tree_grav
 );
+*/
 
+  hermite(system_grav,
+          dt,
+          time_sys,
+          n_loop,
+          dinfo,
+          tag_max,
+          n_walk_limit,
+          tree_grav
+);
         n_loop++;
     }
     
