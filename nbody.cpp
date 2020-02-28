@@ -16,6 +16,7 @@
 #include "user-defined.hpp"
 #include "integrator.hpp"
 
+PS::F64 FPGrav::eps = 0.00;//1.0/64.0 ;//1.0e-4;
 
 template<class Tpsys>
 void calcEnergy(const Tpsys & system,
@@ -32,7 +33,8 @@ void calcEnergy(const Tpsys & system,
     const PS::S32 nbody = system.getNumberOfParticleLocal();
     for(PS::S32 i = 0; i < nbody; i++){
         ekin_loc += system[i].mass * system[i].vel * system[i].vel;
-        epot_loc += system[i].mass * (system[i].pot + system[i].mass / FPGrav::eps);
+//        epot_loc += system[i].mass * (system[i].pot + system[i].mass / FPGrav::eps);
+       epot_loc += system[i].mass * (system[i].pot );
     }
     ekin_loc *= 0.5;
     epot_loc *= 0.5;
@@ -76,7 +78,6 @@ void makeOutputDirectory(char * dir_name) {
     }
 }
 
-PS::F64 FPGrav::eps = 1.0/32.0;
 
 int main(int argc, char *argv[]) {
     std::cout<<std::setprecision(15);
@@ -233,7 +234,7 @@ int main(int argc, char *argv[]) {
     while(time_sys < time_end){
         if( (time_sys >= time_snap) || ( (time_sys + dt) - time_snap ) > (time_snap - time_sys) ){
             char filename[256];
-            sprintf(filename, "%s/%04d.dat", dir_name, id_snap++);
+            sprintf(filename, "%s/snap%05d.dat", dir_name, id_snap++);
             FileHeader header;
             header.time   = time_sys;
             header.n_body = system_grav.getNumberOfParticleGlobal();

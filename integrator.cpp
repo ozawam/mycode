@@ -8,6 +8,7 @@
 #define FOURTHORDER 4.166666666666667e-2
 #define FIFTHORDER  8.333333333333333e-3
 
+  PS::F64 eta = 3.0e-3 ;
 
 //#######################################################
 // leap-frog
@@ -161,7 +162,7 @@ static void timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,PS
 {
   PS::S32 i;
   PS::S32 n = particle.getNumberOfParticleLocal();
-  PS::F64 eta = 3.0e-3 ;
+//  PS::F64 eta = 3.0e-3 ;
 
   PS::F64vec a1;
   PS::F64vec j1;
@@ -208,7 +209,7 @@ void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,P
 {
   PS::S32 i;
   PS::S32 n = particle.getNumberOfParticleLocal();
-  PS::F64 eta = 3.0e-3 ;
+//  PS::F64 eta = 3.0e-3 ;
 
   PS::F64vec a1;
   PS::F64vec j1;

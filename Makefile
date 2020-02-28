@@ -1,4 +1,4 @@
-PS_PATH = ../../FDPS/src/
+PS_PATH = ../../../FDPS/src/
 INC = -I$(PS_PATH)
 EXEFILE = nbody.out  
 
