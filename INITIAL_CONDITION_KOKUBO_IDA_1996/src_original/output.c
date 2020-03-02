@@ -191,8 +191,8 @@ void reb_output_ascii(struct reb_simulation* r, char* filename){
     }
 
 	fprintf(of,"%e\t\n",r->t);
-	fprintf(of,"%d\t\n",N-1);
-    for (int i=1;i<N;i++){ //Sun is not in output
+	fprintf(of,"%d\t\n",N);
+    for (int i=0;i<N;i++){ //Sun is in output
         struct reb_particle p = r->particles[i];
         fprintf(of,"%d\t%e\t%e\t%e\t%e\t%e\t%e\t%e\n",i,r->particles[i].m,p.x,p.y,p.z,p.vx,p.vy,p.vz);
     }

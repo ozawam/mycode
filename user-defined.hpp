@@ -14,6 +14,8 @@ public:
         fprintf(fp, "%e\n", time);
         fprintf(fp, "%lld\n", n_body);
     }
+
+
 };
 
 class FPGrav{
@@ -48,9 +50,11 @@ public:
 
 //for collision
 // ---------------------------------------------------------------------------
-    std::vector<std::vector<PS::S64>> COL_P;
-//    std::vector<PS::S64> COL_P;
-//    PS::F64vec COL_P;
+
+//    std::vector<std::vector<PS::S64>> COL_P;
+    std::vector<PS::S64> COL_P1;
+    std::vector<PS::S64> COL_P2;
+
     PS::S64 collisions_N;
 
 
@@ -75,7 +79,8 @@ public:
         acc = force.acc;
         jrk = force.jrk;
         pot = force.pot;
-        COL_P = force.COL_P;
+        COL_P1 = force.COL_P1;
+        COL_P2 = force.COL_P2;
         collisions_N = force.collisions_N;
     }
 
@@ -92,7 +97,8 @@ public:
         acc = 0.0;
         jrk = 0.0;
         pot = 0.0;
-        COL_P.erase(COL_P.begin() , COL_P.end() );
+        COL_P1.erase(COL_P1.begin() , COL_P1.end() );
+        COL_P2.erase(COL_P2.begin() , COL_P2.end() );
         collisions_N = 0;
     }
 
@@ -112,36 +118,6 @@ public:
 
 };
 
-
-//#######################################################
-// collision
-//#######################################################  
-
-/*//
-// ---------------------------------------------------------------------------
-
-static void collision(FPGrav * force, const PS::S64 ci, const PS::S64 cj )
-{
-  PS::S64 YES = 1 ;
-
-     fprintf(stdout, "YES: %lld \n", YES);
-  for(PS::S32 i = 0; i < force[0].collisions_N ; i++){
-  if(force[0].COL_P[i][0] == cj  && force[0].COL_P[i][1] == ci || force[0].COL_P[i][0] == ci  && force[0].COL_P[i][1] == cj  ){
-    YES = 0;
-    }
-  }
-
-//     fprintf(stdout, "YES: %lld \n", YES);
-if(YES == 1){
-  force[0].COL_P[force[0].collisions_N][0] == ci ;
-  force[0].COL_P[force[0].collisions_N][1] == cj ;
-  
-  force[0].collisions_N ++ ;
-  }
-
-  return;
-}
-*/
 #ifdef ENABLE_PHANTOM_GRAPE_X86
 
 
@@ -241,13 +217,11 @@ class CalcGravity{
             PS::F64 RAD_ij = pow(rad_i + rad_j, 2.0);
             if(Rij < RAD_ij){
               
-//              collision(force, i, j);
-
             PS::S64 YES = 1 ;
 
 //            fprintf(stdout, "YES: %lld \n", YES);
             for(PS::S64 iC = 0; iC < force[0].collisions_N ; iC++){
-            if(force[0].COL_P[iC][0] == j  && force[0].COL_P[iC][1] == i || force[0].COL_P[iC][0] == i  && force[0].COL_P[iC][1] == j  ){
+            if(force[0].COL_P1[iC] == j  && force[0].COL_P2[iC] == i || force[0].COL_P1[iC] == i  && force[0].COL_P2[iC] == j  ){
             YES = 0;
             }
             }
@@ -255,7 +229,8 @@ class CalcGravity{
 //     fprintf(stdout, "YES: %lld \n", YES);
             if(YES == 1){
   
-            force[0].COL_P.push_back(std::vector<PS::S64>({ i, j }));
+            force[0].COL_P1.push_back( i );
+            force[0].COL_P2.push_back( j );
 //            force[0].COL_P[force[0].collisions_N][0] = i ;
 //            force[0].COL_P[force[0].collisions_N][1] = j ;
 
@@ -272,6 +247,8 @@ class CalcGravity{
         force[i].pot += poti;
     }
 }
+
+
 };
 
 #endif

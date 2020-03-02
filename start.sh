@@ -11,7 +11,8 @@ mkdir result
 
 
 #$MPIRUN
-./nbody.out -T 100 -D 1 -s 1e-5 > log.log &
+./nbody.out -N 3001  -T 200 -D 10 -n 3005  -s 1e-5 > log.log &
+#./nbody.out  -s 1e-9 > log.log &
 #T:timeend 
 
 
