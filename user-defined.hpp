@@ -1,4 +1,6 @@
 #pragma once
+
+
 class FileHeader{
 public:
     PS::S64 n_body;
@@ -44,6 +46,12 @@ public:
     PS::F64vec j1;
 
 
+//for collision
+// ---------------------------------------------------------------------------
+    std::vector<std::vector<PS::S64>> COL_P;
+//    std::vector<PS::S64> COL_P;
+//    PS::F64vec COL_P;
+    PS::S64 collisions_N;
 
 
     static PS::F64 eps;
@@ -67,6 +75,8 @@ public:
         acc = force.acc;
         jrk = force.jrk;
         pot = force.pot;
+        COL_P = force.COL_P;
+        collisions_N = force.collisions_N;
     }
 
 /*
@@ -82,6 +92,8 @@ public:
         acc = 0.0;
         jrk = 0.0;
         pot = 0.0;
+        COL_P.erase(COL_P.begin() , COL_P.end() );
+        collisions_N = 0;
     }
 
     void writeAscii(FILE* fp) const {
@@ -110,6 +122,35 @@ public:
 };
 
 
+//#######################################################
+// collision
+//#######################################################  
+
+/*//
+// ---------------------------------------------------------------------------
+
+static void collision(FPGrav * force, const PS::S64 ci, const PS::S64 cj )
+{
+  PS::S64 YES = 1 ;
+
+     fprintf(stdout, "YES: %lld \n", YES);
+  for(PS::S32 i = 0; i < force[0].collisions_N ; i++){
+  if(force[0].COL_P[i][0] == cj  && force[0].COL_P[i][1] == ci || force[0].COL_P[i][0] == ci  && force[0].COL_P[i][1] == cj  ){
+    YES = 0;
+    }
+  }
+
+//     fprintf(stdout, "YES: %lld \n", YES);
+if(YES == 1){
+  force[0].COL_P[force[0].collisions_N][0] == ci ;
+  force[0].COL_P[force[0].collisions_N][1] == cj ;
+  
+  force[0].collisions_N ++ ;
+  }
+
+  return;
+}
+*/
 #ifdef ENABLE_PHANTOM_GRAPE_X86
 
 
@@ -168,13 +209,15 @@ class CalcGravity{
   public:
   void operator () (const FPGrav * ep_i,
                     const PS::S32 n_ip,
-//                    const TParticleJ * ep_j,
                     const FPGrav * ep_j,
                     const PS::S32 n_jp,
                     FPGrav * force) {
+//    force[0].COL_P[0][0] = 0;
+//    force[0].COL_P[0][1] = 0;
+    force[0].COL_P.resize(2,std::vector<PS::S64>(2));
+    force[0].collisions_N = 0;
     PS::F64 eps2 = FPGrav::eps * FPGrav::eps;
     for(PS::S32 i = 0; i < n_ip; i++){
-//        PS::F64vec xi = ep_i[i].getPos();
         PS::F64vec xi = ep_i[i].pos;
         PS::F64vec vi = ep_i[i].vel;
         PS::F64vec ai = 0.0;
@@ -198,6 +241,40 @@ class CalcGravity{
             jri    -= j1 - j2;
             poti   -= r_inv;
 
+//collision
+// ---------------------------------------------------------------------------
+            PS::F64 Rij = rij * rij;
+            PS::F64 _rho_p = 2.0;// [g/cm^3]
+            PS::F64 rho_p = _rho_p * 1.49597871e13 * 1.49597871e13 * 1.49597871e13 / 1.9884e33; // [Msun/AU^3]
+            PS::F64 radius_f = 1.0;//fold enlargement(radius enhancement)
+            PS::F64 rad_i = pow((3.0*ep_i[i].mass)/(4.0*M_PI*rho_p) ,1.0/3.0) * radius_f; //unit is AU. ;
+            PS::F64 rad_j = pow((3.0*ep_j[j].mass)/(4.0*M_PI*rho_p) ,1.0/3.0) * radius_f; //unit is AU. ;
+            PS::F64 RAD_ij = pow(rad_i + rad_j, 2.0);
+            if(Rij < RAD_ij){
+              
+//              collision(force, i, j);
+
+            PS::S64 YES = 1 ;
+
+//            fprintf(stdout, "YES: %lld \n", YES);
+            for(PS::S64 iC = 0; iC < force[0].collisions_N ; iC++){
+            if(force[0].COL_P[iC][0] == j  && force[0].COL_P[iC][1] == i || force[0].COL_P[iC][0] == i  && force[0].COL_P[iC][1] == j  ){
+            YES = 0;
+            }
+            }
+
+//     fprintf(stdout, "YES: %lld \n", YES);
+            if(YES == 1){
+  
+            force[0].COL_P[force[0].collisions_N][0] = i ;
+            force[0].COL_P[force[0].collisions_N][1] = j ;
+
+            force[0].collisions_N ++ ;
+
+            }
+
+              }
+
         }
         }
         force[i].acc += ai;
@@ -206,48 +283,5 @@ class CalcGravity{
     }
 }
 };
-/*
-//This CalcGravity is used in the step2 of Hermite scheme.
-//Therefore, x = xp, v = vp.
-// ---------------------------------------------------------------------------
-//template <class TParticleJ>
-class CalcGravity{
-  public:
-  void operator () (const FPGrav * ep_i,
-                    const PS::S32 n_ip,
-//                    const TParticleJ * ep_j,
-                    const FPGrav * ep_j,
-                    const PS::S32 n_jp,
-                    FPGrav * force) {
-    PS::F64 eps2 = FPGrav::eps * FPGrav::eps;
-    for(PS::S32 i = 0; i < n_ip; i++){
-//        PS::F64vec xi = ep_i[i].getPos();
-        PS::F64vec xi = ep_i[i].xp;
-        PS::F64vec vi = ep_i[i].vp;
-        PS::F64vec ai = 0.0;
-        PS::F64vec jri = 0.0;
-        PS::F64 poti = 0.0;
-        for(PS::S32 j = 0; j < n_jp; j++){
-            PS::F64vec rij    = xi - ep_j[j].xp;
-            PS::F64vec vij    = vi - ep_j[j].vp;
-            PS::F64    r3_inv = rij * rij + eps2;
-            PS::F64    r_inv  = 1.0/sqrt(r3_inv);
 
-            r3_inv  = r_inv * r_inv * r_inv * ep_j[j].mass;
-            PS::F64    r5_inv = r_inv * r_inv * r_inv * r_inv * r_inv * ep_j[j].mass;
-            r_inv  *= ep_j[j].mass;
-
-            ai     -= r3_inv * rij;
-            PS::F64vec    j1     = r3_inv * vij;
-            PS::F64vec    j2     = 3.0 * ( vij * rij ) * r5_inv * rij;
-            jri    -= j1 - j2;
-            poti   -= r_inv;
-        }
-        force[i].a1 += ai;
-        force[i].j1 += jri;
-        force[i].pot += poti;
-    }
-}
-};
-*/
 #endif

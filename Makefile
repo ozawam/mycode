@@ -21,7 +21,11 @@ all:$(EXEFILE)
 
 integrator.o:integrator.cpp integrator.hpp
 	$(CC) $(INC) $(CFLAGS) -c $<  -o $@
-OBJS = integrator.o integrator.hpp
+OBJS += integrator.o integrator.hpp
+
+#collision.o:collision.cpp collision.hpp
+#	$(CC) $(INC) $(CFLAGS) -c $<  -o $@
+#OBJS += collision.o collision.hpp
 
 ifeq ($(use_phantom_grape_x86),yes)
 PG_ROOT = $(PS_PATH)/phantom_grape_x86/G5/newton/libpg5
