@@ -101,7 +101,7 @@ int main(int argc, char* argv[]){
 //if (r->mpi_id==0){
     reb_add(r, star);
 //}
-    //Jupiter
+/*    //Jupiter
     struct reb_particle Jupiter = {0};
         double aJ    = 5.20260 ;
         double eJ    = 0.04851;// 
@@ -117,15 +117,20 @@ int main(int argc, char* argv[]){
 //if (r->mpi_id==0){
          reb_add(r, Jupiter);
 //}
-
+*/
    // Planetesimal disk parameters
-    double total_disk_mass = 15.0*M_earth/M_sun;
-    int N_planetesimals = 1000;
+//    double total_disk_mass = 15.0*M_earth/M_sun;
+    int N_planetesimals = 3000;
     double rho_planet = _rho_planet * 1.49597871e13 * 1.49597871e13 * 1.49597871e13 / 1.9884e33; // [Msun/AU^3]
-    double planetesimal_mass = total_disk_mass/N_planetesimals;//M_sun //unit:Msun;
+    double planetesimal_mass = 1.0e+23/M_sun;//total_disk_mass/N_planetesimals;//M_sun //unit:Msun;
 //    double rsoft = cbrt(3.0*planetesimal_mass/(4.0*M_PI*rho_planet));//AU
 //   r->softening     = 1.0*rsoft;        // Gravitational softening length
-    double amin = 6.5, amax = 15.0;
+    double acenter =1.0;
+    double delta_a =0.04;
+    double amin = acenter - delta_a/2.0 , amax = acenter + delta_a/2.0 ;
+    double rH = pow(2.0*planetesimal_mass/star.m ,1.0/3.0) ;
+    double h = rH/acenter ;
+    double sigma = sqrt(h/(2.0-(M_PI/2.0)))  ; 
 //    double amin = 7.0, amax = 7.01;
 //    double powerlaw = 1.0;
     
@@ -134,21 +139,21 @@ int main(int argc, char* argv[]){
     // Generate Planetesimal Disk
      for (int i=1;i<= N_planetesimals;i++){
         struct reb_particle pt = {0};
-        double a    = reb_random_uniform(amin,amax);
-
+//        double a    = reb_random_uniform(amin,amax);
+          double a    = reb_random_powerlaw(amin,amax,1.0); 
 //        double e    = reb_random_rayleigh(0.00001);//Is 10^-5 enough small value?     
 //        double inc  = reb_random_rayleigh(0.000001);       
-//        double e    = reb_random_rayleigh(0.0043);
-//        double inc  = reb_random_rayleigh(0.00215);
-        double e    = 0.0;// reb_random_rayleigh(0.003972877/sqrt(2.0));//circular orbit
-        double inc  = 0.0;//reb_random_rayleigh(0.003972877/2.0/sqrt(2.0));//two-dimention
+        double e    = reb_random_rayleigh(sigma);
+        double inc  = reb_random_rayleigh(sigma);
+//        double e    = 0.0;// reb_random_rayleigh(0.003972877/sqrt(2.0));//circular orbit
+//        double inc  = 0.0;//reb_random_rayleigh(0.003972877/2.0/sqrt(2.0));//two-dimention
 //          double e    =  reb_random_rayleigh(0.001/sqrt(2.0));
 //          double inc  = reb_random_rayleigh(0.001/2.0/sqrt(2.0));
 
-        double Omega = 0.0;//reb_random_uniform(0,2.*M_PI);
-//        double Omega = reb_random_uniform(0,2.*M_PI);
+//        double Omega = 0.0;//reb_random_uniform(0,2.*M_PI);
+        double Omega = reb_random_uniform(0,2.*M_PI);
         double apsis = reb_random_uniform(0,2.*M_PI);
-        double phi     = reb_random_uniform(0,2.*M_PI);
+        double phi   = reb_random_uniform(0,2.*M_PI);
 
         double rho = _rho_planet;
   
