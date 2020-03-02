@@ -103,15 +103,6 @@ public:
                 this->vel.x, this->vel.y, this->vel.z);
     }
 
-/*
-    void writeascii(file* fp) const {
-        fprintf(fp, "%lld\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t\n", 
-                this->id, this->mass,
-                this->pos.x, this->pos.y, this->pos.z,
-                this->vel.x, this->vel.y, this->vel.z,
-                this->xp.x, this->xp.y, this->xp.z);
-    }
-*/
     void readAscii(FILE* fp) {
         fscanf(fp, "%lld\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", 
                &this->id, &this->mass,
@@ -212,9 +203,7 @@ class CalcGravity{
                     const FPGrav * ep_j,
                     const PS::S32 n_jp,
                     FPGrav * force) {
-//    force[0].COL_P[0][0] = 0;
-//    force[0].COL_P[0][1] = 0;
-    force[0].COL_P.resize(2,std::vector<PS::S64>(2));
+//    force[0].COL_P.resize(1,std::vector<PS::S64>(2));
     force[0].collisions_N = 0;
     PS::F64 eps2 = FPGrav::eps * FPGrav::eps;
     for(PS::S32 i = 0; i < n_ip; i++){
@@ -266,8 +255,9 @@ class CalcGravity{
 //     fprintf(stdout, "YES: %lld \n", YES);
             if(YES == 1){
   
-            force[0].COL_P[force[0].collisions_N][0] = i ;
-            force[0].COL_P[force[0].collisions_N][1] = j ;
+            force[0].COL_P.push_back(std::vector<PS::S64>({ i, j }));
+//            force[0].COL_P[force[0].collisions_N][0] = i ;
+//            force[0].COL_P[force[0].collisions_N][1] = j ;
 
             force[0].collisions_N ++ ;
 

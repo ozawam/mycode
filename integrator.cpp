@@ -9,6 +9,8 @@
 #define FIFTHORDER  8.333333333333333e-3
 
 PS::F64 eta = 3.0e-3 ;
+PS::F64 G = 1.0;
+
 
 //#######################################################
 // leap-frog
@@ -244,6 +246,130 @@ void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,P
   return;
 }
 
+//#######################################################
+// Merge
+//#######################################################  
+
+//Merge
+// ---------------------------------------------------------------------------
+
+static void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys)
+{
+
+    std::vector<PS::S32> idx;
+    PS::S32 n_remove = 0;
+
+  for(PS::S64 ci = 0; ci < particle[0].collisions_N ; ci++){
+//     fprintf(stdout, "CHECK1 \n");
+
+    // Always remove particle with larger index and merge into lower index particle.
+    // This will keep N_active meaningful even after mergers.
+    PS::S64 swap = 0;
+    PS::S64 i = particle[0].COL_P[ci][0];
+    PS::S64 j = particle[0].COL_P[ci][1];   //want j to be removed particle
+    if (j<i){
+        swap = 1;
+        i = particle[0].COL_P[ci][1];
+        j = particle[0].COL_P[ci][0];
+    }
+    idx.push_back(j);
+    n_remove ++;
+
+    // Check collision of j particle
+    for(PS::S64 iC = ci+1 ; iC < particle[0].collisions_N ; iC++){
+    if(particle[0].COL_P[iC][0] == j  ){
+      particle[0].COL_P[iC][0] = i ;
+    }
+    else if(particle[0].COL_P[iC][1] == j  ){
+      particle[0].COL_P[iC][1] = i ;
+    }
+
+    }
+
+
+    // Scale out energy from collision - initial energy
+    PS::F64 energy_offset = 0.0;
+    PS::F64 Ei=0.0, Ef=0.0;
+    
+        {
+            // Calculate energy difference in inertial frame
+            Ei = 0.5 * particle[i].mass * ( particle[i].vel * particle[i].vel ) + 0.5 * particle[j].mass * ( particle[j].vel * particle[j].vel ) ;
+        }
+        
+    //merge or rebound
+   	//constant
+        PS::F64 M_sun=1.989*pow(10.0,33.0);//g
+        PS::F64 one_au=1.49597870*pow(10.0,13.0);//cm
+        PS::F64 one_year = 365.0*24.0*60.0*60.0;//year-s    
+        PS::F64 L_unit=one_au;
+        PS::F64 M_unit=M_sun;
+        PS::F64 G_unit=6.67408*pow(10.0,-8.0);
+
+        PS::F64 t_16=sqrt(pow(L_unit,3.0)/(G_unit*M_unit));
+        PS::F64 T_unit=t_16;
+
+        PS::F64vec vr;
+        vr = particle[j].vel - particle[i].vel ;
+
+        PS::F64 eps = 0.7;
+        PS::F64 vreb;
+        vreb = fabs( eps * sqrt( vr * vr ));
+
+        PS::F64  vesc12;
+        PS::F64  r1,r2;
+        PS::F64  _rho_planet = 2.0;//g/cm^3
+        PS::F64  rho_planet = _rho_planet * 1.49597871e13 * 1.49597871e13 * 1.49597871e13 / 1.9884e33; // [Msun/AU^3]
+        r1 = pow(3.0*particle[i].mass/(4.0*M_PI*rho_planet),1.0/3.0);
+        r2 = pow(3.0*particle[j].mass/(4.0*M_PI*rho_planet),1.0/3.0);
+        vesc12 = sqrt(2.0*G*(particle[i].mass + particle[j].mass)/(r1 + r2));
+
+        char filename[1024] = "result/collision_after.dat";
+        FILE* of = fopen(filename,"a"); //change mode w->a 
+        if (of==NULL){
+        fprintf(stdout,"Can not open file.");
+        }
+
+        fprintf(of,"%le\t%e\t%e\t%e\t\n",time_sys,vreb,vesc12,Ei);
+        //time T_unit
+
+        particle[i].writeAscii(of);
+        fprintf(of,"%lld\t%e\t\n",i,(particle[i].mass)*M_unit);
+        particle[j].writeAscii(of);
+        fprintf(of,"%lld\t%e\t\n",j,(particle[j].mass)*M_unit);
+
+        // Merge by conserving mass, volume and momentum
+        PS::F64 masssum = particle[i].mass + particle[j].mass ;
+        particle[i].pos = (particle[i].pos * particle[i].mass + particle[j].pos * particle[j].mass)/masssum;
+        particle[i].vel = (particle[i].vel * particle[i].mass + particle[j].vel * particle[j].mass)/masssum;
+        particle[i].mass  = masssum;
+
+        particle[i].writeAscii(of);
+        fprintf(of,"%lld\t%e\t%e\t\n",i,(particle[i].mass)*M_unit,(time_sys)*(T_unit/one_year));        
+        //writeAscii: time T_unit~0.15925 year, mass Msun, length AU
+        //footer: time year, mass g :::::conversion
+   
+        if(vreb < vesc12){
+        fprintf(of,"merge\n");
+        fclose(of);  
+        }
+        else{
+        fprintf(of,"rebound\n"); 
+        fclose(of); 
+        }
+
+        // Keeping track of energy offst
+        {  
+            Ef = 0.5 * particle[i].mass * ( particle[i].vel * particle[i].vel ) ;
+        }
+        energy_offset += Ei - Ef;
+    }
+
+        // Removing particle j
+        particle.removeParticle( idx, n_remove);
+
+
+  return;
+}
 
 
 
@@ -290,6 +416,8 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
 
 //!merge
 // ---------------------------------------------------------------------------
+  merge(system_grav, time_sys); 
+  
 
 
 //3.2 new a1j & jerk1j 
