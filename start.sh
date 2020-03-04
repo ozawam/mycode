@@ -11,7 +11,8 @@ mkdir result
 
 
 #$MPIRUN
-./nbody.out -T 100 -D 0.1 -s 1e-5 > log.log &
+./nbody.out no_collision_IDA1992 -N 401 -T 2000 -D 1 -n 401  -s 1e-3 > log.log &
+#./nbody.out  -s 1e-9 > log.log &
 #T:timeend 
 
 

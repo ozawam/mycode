@@ -104,6 +104,7 @@ int main(int argc, char *argv[]) {
     PS::S32 c;
     sprintf(dir_name,"./result");
     opterr = 0;
+    
     while((c=getopt(argc,argv,"i:o:d:D:t:T:l:n:N:hs:")) != -1){
         switch(c){
         case 'o':
@@ -145,6 +146,7 @@ int main(int argc, char *argv[]) {
             if(PS::Comm::getRank() == 0) {
                 printHelp();
             }
+     fprintf(stdout, "CHECK0 \n");
             PS::Finalize();
             return 0;
         default:
@@ -156,6 +158,31 @@ int main(int argc, char *argv[]) {
         }
     }
 
+     fprintf(stdout, "CHECK1 \n");
+
+//#######################################################
+// set of output and time end
+//#######################################################  
+
+   	//constant
+        PS::F64 M_sun=1.989*pow(10.0,33.0);//g
+        PS::F64 one_au=1.49597870*pow(10.0,13.0);//cm
+        PS::F64 one_year = 365.0*24.0*60.0*60.0;//year-s    
+        PS::F64 L_unit=one_au;
+        PS::F64 M_unit=M_sun;
+        PS::F64 G_unit= 6.67408*pow(10.0,-8.0);
+
+        PS::F64 t_16=sqrt(pow(L_unit,3.0)/(G_unit*M_unit));
+        PS::F64 T_unit=t_16;
+
+//conversion of time unit. year->year
+        dt_snap = dt_snap/(T_unit/one_year);
+        time_end = time_end/(T_unit/one_year) ;
+//        time_end = time_end/0.15924 ;
+
+        fprintf(stdout, "T_unit[year]: %e time_end[T_unit]: %e  \n",
+                        T_unit/one_year, time_end);
+     fprintf(stdout, "CHECK2 \n");
     makeOutputDirectory(dir_name);
 
     std::ofstream fout_eng;
@@ -180,7 +207,9 @@ int main(int argc, char *argv[]) {
 	FileHeader header;
 //	system_grav.readParticleAscii("INITIAL_CONDITION/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_ONE_KEPLER/output/snap00000.dat", header);
-	system_grav.readParticleAscii("INITIAL_CONDITION_PYTHAGORAS/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_PYTHAGORAS/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996/output/snap00000.dat", header);
+	system_grav.readParticleAscii("INITIAL_CONDITION_IDA1992/output/snap00000.dat", header);
 	time_sys = header.time;
 
     } else {
@@ -232,6 +261,10 @@ int main(int argc, char *argv[]) {
 //#######################################################  
 
     while(time_sys < time_end){
+
+//#######################################################
+// output
+//#######################################################  
         if( (time_sys >= time_snap) || ( (time_sys + dt) - time_snap ) > (time_snap - time_sys) ){
             char filename[256];
             sprintf(filename, "%s/snap%05d.dat", dir_name, id_snap++);
@@ -240,18 +273,16 @@ int main(int argc, char *argv[]) {
             header.n_body = system_grav.getNumberOfParticleGlobal();
             system_grav.writeParticleAscii(filename, header);
             time_snap += dt_snap;
+        
+            calcEnergy(system_grav, Etot1, Ekin1, Epot1);
+        if(PS::Comm::getRank() == 0){
+fout_eng << time_sys << "  " << fabs((Etot1 - Etot0) / Etot0)  << "  " << dt << std::endl;
+          // In log.log
+          //  fprintf(stdout, "time: %10.7f energy error: %+e timestep: %10.7f \n",
+          //              time_sys, fabs((Etot1 - Etot0) / Etot0), dt);
+        }
         }
 
-        calcEnergy(system_grav, Etot1, Ekin1, Epot1);
-        
-        if(PS::Comm::getRank() == 0){
-            if( (time_sys >= time_diag) || ( (time_sys + dt) - time_diag ) > (time_diag - time_sys) ){
-                fout_eng << time_sys << "   " << fabs((Etot1 - Etot0) / Etot0) << std::endl;
-                fprintf(stdout, "time: %10.7f energy error: %+e timestep: %10.7f \n",
-                        time_sys, fabs((Etot1 - Etot0) / Etot0), dt);
-                time_diag += dt_diag;
-            }            
-        }
         
 //#######################################################
 // orbit integration
