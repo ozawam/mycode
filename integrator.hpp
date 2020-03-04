@@ -15,7 +15,6 @@
 #endif
 
 #include "user-defined.hpp"
-#include "collision.hpp"
 
 
 void leap_frog(PS::ParticleSystem<FPGrav> & system_grav,

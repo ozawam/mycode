@@ -8,7 +8,7 @@
 #define FOURTHORDER 4.166666666666667e-2
 #define FIFTHORDER  8.333333333333333e-3
 
-PS::F64 eta = 3.0e-3 ;
+PS::F64 eta = 5.0e-2 ;
 PS::F64 G = 1.0;
 
 
@@ -201,7 +201,8 @@ static void timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,PS
       } 
   }
 
-  dt_sys = min_dt;
+//  dt_sys = min_dt;
+      dt_sys = PS::Comm::getMinValue(min_dt);
 
   return;
 }
@@ -241,10 +242,13 @@ void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,P
   }
 
     if(min_dt != std::numeric_limits<double>::infinity() ){ 
-      dt_sys = min_dt;
+//      dt_sys = min_dt;
+      dt_sys = PS::Comm::getMinValue(min_dt);
         }
   return;
 }
+
+
 
 //#######################################################
 // Merge
@@ -265,23 +269,23 @@ static void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys
     // Always remove particle with larger index and merge into lower index particle.
     // This will keep N_active meaningful even after mergers.
     PS::S64 swap = 0;
-    PS::S64 i = particle[0].COL_P[ci][0];
-    PS::S64 j = particle[0].COL_P[ci][1];   //want j to be removed particle
+    PS::S64 i = particle[0].COL_P[2*ci];
+    PS::S64 j = particle[0].COL_P[2*ci+1];   //want j to be removed particle
     if (j<i){
         swap = 1;
-        i = particle[0].COL_P[ci][1];
-        j = particle[0].COL_P[ci][0];
+        i = particle[0].COL_P[2*ci+1];
+        j = particle[0].COL_P[2*ci];
     }
     idx.push_back(j);
     n_remove ++;
 
     // Check collision of j particle
     for(PS::S64 iC = ci+1 ; iC < particle[0].collisions_N ; iC++){
-    if(particle[0].COL_P[iC][0] == j  ){
-      particle[0].COL_P[iC][0] = i ;
+    if(particle[0].COL_P[2*iC] == j  ){
+      particle[0].COL_P[2*iC] = i ;
     }
-    else if(particle[0].COL_P[iC][1] == j  ){
-      particle[0].COL_P[iC][1] = i ;
+    else if(particle[0].COL_P[2*iC+1] == j  ){
+      particle[0].COL_P[2*iC+1] = i ;
     }
 
     }
@@ -416,8 +420,11 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
 
 //!merge
 // ---------------------------------------------------------------------------
-  merge(system_grav, time_sys); 
+//  merge(system_grav, time_sys); 
   
+  if(PS::Comm::getRank() == 0) {
+  merge(system_grav, time_sys); 
+  }  
 
 
 //3.2 new a1j & jerk1j 
