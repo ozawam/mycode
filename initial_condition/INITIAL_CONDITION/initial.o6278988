@@ -1,0 +1,1 @@
+N_tot=  1002      t=  0.000000  dt=  0.062832  cpu=  0.000000 [s]  t/tmax=  0.00%N_tot=  1002      t=  0.000000  dt=  0.000000  cpu=  0.106247 [s]  t/tmax= 100.00%Application 2119227 resources: utime ~0s, stime ~0s, Rss ~6388, inblocks ~220, outblocks ~384

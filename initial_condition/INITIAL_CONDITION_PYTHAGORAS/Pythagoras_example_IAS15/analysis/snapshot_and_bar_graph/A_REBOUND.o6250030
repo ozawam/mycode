@@ -1,0 +1,6 @@
+rm: cannot remove 'nohup.out': No such file or directory
+You need to delete .dat before starting this analysis.
+ファイルが 368 個あります
+I can't open the file. 
+Application 2065895 exit codes: 1
+Application 2065895 resources: utime ~24s, stime ~1s, Rss ~18044, inblocks ~1090, outblocks ~30976

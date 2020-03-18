@@ -11,6 +11,7 @@
 PS::F64 eta = 5.0e-2 ;
 PS::F64 G = 1.0;
 
+PS::S64 col_n;
 
 //#######################################################
 // leap-frog
@@ -257,26 +258,28 @@ void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,P
 //Merge
 // ---------------------------------------------------------------------------
 
-static void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys)
+void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys)
 {
 
-    std::vector<PS::S32> idx;
     PS::S32 n_remove = 0;
 
+    col_n = particle[0].collisions_N;
+    std::vector<PS::S32> idx(col_n);
+//    PS::S32 idx[col_n];
   for(PS::S64 ci = 0; ci < particle[0].collisions_N ; ci++){
 //     fprintf(stdout, "CHECK1 \n");
 
     // Always remove particle with larger index and merge into lower index particle.
     // This will keep N_active meaningful even after mergers.
-    PS::S64 swap = 0;
     PS::S64 i = particle[0].COL_P[2*ci];
     PS::S64 j = particle[0].COL_P[2*ci+1];   //want j to be removed particle
-    if (j<i){
-        swap = 1;
-        i = particle[0].COL_P[2*ci+1];
-        j = particle[0].COL_P[2*ci];
-    }
-    idx.push_back(j);
+//    if (j<i){
+//        i = particle[0].COL_P[2*ci+1];
+//        j = particle[0].COL_P[2*ci];
+//    }
+    fprintf(stdout, "j: %lld \n", j);
+//    idx.push_back(j);
+    idx[ci] = j ;
     n_remove ++;
 
     // Check collision of j particle
@@ -342,10 +345,10 @@ static void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys
         fprintf(of,"%lld\t%e\t\n",j,(particle[j].mass)*M_unit);
 
         // Merge by conserving mass, volume and momentum
-        PS::F64 masssum = particle[i].mass + particle[j].mass ;
-        particle[i].pos = (particle[i].pos * particle[i].mass + particle[j].pos * particle[j].mass)/masssum;
-        particle[i].vel = (particle[i].vel * particle[i].mass + particle[j].vel * particle[j].mass)/masssum;
-        particle[i].mass  = masssum;
+        particle[i].pos = ((particle[i].pos * particle[i].mass) + (particle[j].pos * particle[j].mass))/(particle[i].mass + particle[j].mass) ;
+        particle[i].vel = ((particle[i].vel * particle[i].mass) + (particle[j].vel * particle[j].mass))/(particle[i].mass + particle[j].mass) ;
+        particle[i].mass  = particle[i].mass + particle[j].mass ;
+        particle[i].id = i;
 
         particle[i].writeAscii(of);
         fprintf(of,"%lld\t%e\t%e\t\n",i,(particle[i].mass)*M_unit,(time_sys)*(T_unit/one_year));        
@@ -366,12 +369,34 @@ static void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys
             Ef = 0.5 * particle[i].mass * ( particle[i].vel * particle[i].vel ) ;
         }
         energy_offset += Ei - Ef;
+
     }
 
         // Removing particle j
-        particle.removeParticle( idx, n_remove);
+//        std::sort(idx.begin(),idx.end(),std::greater<PS::S32>());
+//        particle.removeParticle( idx, n_remove);
+           //Keeping sort when removing particle 2020/03/02   
+		        PS::S32 N = particle.getNumberOfParticleGlobal();
+            std::sort(idx.begin(),idx.end(),std::greater<PS::S32>());
+            for(PS::S64 I=0; I<n_remove; I++){
+		        for(PS::S64 J=idx[I]; J<N-1; J++){
+			      particle[J] = particle[J+1];
+		        particle[J].id = J ;
+            }
+            N--;
+            particle[0].N_active --;
 
+            particle[N].mass = 0.0 ;
+            particle[N].pos[2] =1.0e+23;
 
+//            PS::S32 id_last[1] = {N-1};
+//            particle.removeParticle( id_last, 1);
+            }
+
+//            PS::S32 id_last[1] = {71};
+//            particle.removeParticle( id_last, 1);
+            particle[0].collisions_N =0;
+            particle[0].COL_P.erase( particle[0].COL_P.begin() ,  particle[0].COL_P.end() );
   return;
 }
 
@@ -394,10 +419,12 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
 
 //1.predictor
 // ---------------------------------------------------------------------------
+            system_grav[0].hermite_step =1;
   predict(system_grav, dt , time_sys);
 
 //2.a1j & jerk1j
 // --------------------------------------------------------------------------- 
+            system_grav[0].hermite_step =2;
         
         if(n_loop % 4 == 0){
             dinfo.decomposeDomainAll(system_grav);
@@ -421,23 +448,38 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
 //!merge
 // ---------------------------------------------------------------------------
 //  merge(system_grav, time_sys); 
-  
+if(system_grav[0].collisions_N > 0){  
   if(PS::Comm::getRank() == 0) {
   merge(system_grav, time_sys); 
+
+  fprintf(stdout, "CHECK_COL_end \n");
   }  
+   else {
+  system_grav.setNumberOfParticleLocal(0);
+  fprintf(stdout, "CHECK_else \n");
+    }
+}
 
 
 //3.2 new a1j & jerk1j 
 // --------------------------------------------------------------------------- 
+            system_grav[0].hermite_step =3;
         system_grav.exchangeParticle(dinfo);
-  tree_grav.calcForceAllAndWriteBack(CalcGravity(),
-                                     system_grav,
-                                     dinfo);
+        tree_grav.calcForceAllAndWriteBack(CalcGravity(),
+                                           system_grav,
+                                           dinfo);
 
 //4.next step
 // --------------------------------------------------------------------------- 
+            system_grav[0].hermite_step =4;
         time_sys += dt;
+if(col_n == 0){
   timestep(system_grav, dt, time_sys);
+}
+
+else{
+    initial_timestep( system_grav, dt, time_sys);
+}
 
 }
 

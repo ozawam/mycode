@@ -1,0 +1,19 @@
+00125
+Creating simulation from binary file and integrating until tmax
+
+[1mWarning![0m You have to reset function pointers after creating a reb_simulation struct with a binary file.
+N_tot=  691       t=  77911.560640  dt=  0.062832  cpu=  2973.496824 [s]  t/tmax=  0.12%  walltime =  1389.648963 [m] ,  23.160816 [h] A merger occured! Particles involved: 218, 604.
+A merger occured! Particles involved: 445, 217.
+A merger occured! Particles involved: 577, 145.
+N_tot=  688       t=  78539.879171  dt=  0.062832  cpu=  4486.889498 [s]  t/tmax=  0.13%  walltime =  1464.429378 [m] ,  24.407156 [h] A merger occured! Particles involved: 401, 607.
+A merger occured! Particles involved: 35, 116.
+N_tot=  686       t=  79168.197702  dt=  0.062832  cpu=  5315.054147 [s]  t/tmax=  0.13%  walltime =  1553.012624 [m] ,  25.883544 [h] A merger occured! Particles involved: 152, 237.
+N_tot=  685       t=  79796.516232  dt=  0.062832  cpu=  5259.781030 [s]  t/tmax=  0.13%  walltime =  1640.675073 [m] ,  27.344585 [h] A merger occured! Particles involved: 57, 245.
+N_tot=  684       t=  80424.834763  dt=  0.062832  cpu=  5765.345508 [s]  t/tmax=  0.13%  walltime =  1736.763393 [m] ,  28.946057 [h] A merger occured! Particles involved: 230, 529.
+A merger occured! Particles involved: 567, 344.
+N_tot=  682       t=  81053.153294  dt=  0.062832  cpu=  6509.474244 [s]  t/tmax=  0.13%  walltime =  1845.254094 [m] ,  30.754235 [h] A merger occured! Particles involved: 398, 583.
+A merger occured! Particles involved: 98, 435.
+N_tot=  680       t=  81681.471824  dt=  0.062832  cpu=  6274.099918 [s]  t/tmax=  0.13%  walltime =  1949.821292 [m] ,  32.497022 [h] N_tot=  680       t=  82309.790355  dt=  0.062832  cpu=  6941.625740 [s]  t/tmax=  0.13%  walltime =  2065.514223 [m] ,  34.425237 [h] =>> PBS: job killed: walltime 43219 exceeded limit 43200
+aprun: Apid 2077984: Caught signal Terminated, sending to application
+Application 2077984 exit signals: Terminated
+Application 2077984 resources: utime ~43210s, stime ~1s, Rss ~6304, inblocks ~0, outblocks ~4624
