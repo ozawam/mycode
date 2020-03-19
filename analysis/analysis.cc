@@ -190,7 +190,8 @@ int main(int argc, char* argv[])
   double rho = 2.0;//density
 
   double left,center,right;
-  double max,second,min,mean_mass,min_mass,max_mass;
+  double max,second,min,mean_mass,min_mass;
+  int    i_second,i_max;
   double asecond,esecond; 
   double sigma_e_rms = 0.0;
   double sigma_I_rms = 0.0;
@@ -581,6 +582,13 @@ ofstream coaout("collision_au_e_after.dat", ios::app);
            return 1;
           }
 
+  ofstream sjout("sun_and_jupiter.dat", ios::app); 
+  if(!sjout){
+    cout << "I can't open sun_and_jupiter.dat.\n";
+    return 1;
+  }
+      
+
 
 
           // input of file
@@ -658,9 +666,15 @@ ofstream coaout("collision_au_e_after.dat", ios::app);
     sigma_e_rms_hill = 0.0;
     sigma_I_rms_hill = 0.0;
 
+double aS = 0.0;
+double MS = 0.0;
+double eS = 0.0;
+int iS = 0;
+
 double aJ = 0.0;
 double MJ = 0.0;
 double eJ = 0.0;
+int iJ = 0;
   
 	  for(i=0;i<=n-1 ;i++)//Because n includes Sun.
 	    {
@@ -702,11 +716,19 @@ double eJ = 0.0;
 
 	      H[i]=a[i]*pow(m_k[i]/(3.0*1.0),1.0/3.0);
 	   
+   //searching Sun
+ if(m[i] > 1.0*pow(10.0,33.0)){
+   aS = a[i];
+   MS = m[i];
+   eS = e[i];
+   iS = i;
+   }
    //searching Jupiter
  if(m[i] < 1.0*pow(10.0,33.0) && m[i] > 1.0*pow(10.0,30.0)){
    aJ = a[i];
    MJ = m[i];
    eJ = e[i];
+   iJ = i;
    }
 
 //--------------------
@@ -774,7 +796,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
 	  long double pp_max_mass;
 	  pp_max_mass = *max_element(m.begin(), m.end());
 //	  long double max;
-	  max = pp_max_mass;
+//	  max = pp_max_mass;
 
 
 	if(j == 0){
@@ -792,7 +814,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
 	  //下：初期質量(つまり最小天体の質量)の10倍以上の大きさになったらrunaway bodyとする
     //Information of Jupiter is in a header fout_ps.
 	  
-	fout_ps << time_year << " " << eJ << " " << aJ << " " << MJ << '\n' << '\n' << '\n' ;
+//	fout_ps << time_year << " " << eJ << " " << aJ << " " << MJ << '\n' << '\n' << '\n' ;
 	for(i=0 ;i<=n ;i++){
 	    /*
 	      if(m[i] < pp_max_mass/5.0){
@@ -823,35 +845,38 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
 //--------------------
 //second largest mass
 //--------------------
-
+  max = 0.0;
 	second = 0.0;
+  i_max = 0;
+  i_second = 0;
 
 	  for(i=0; i<=n-1; i++)
 	    {
-	      if(second < m[i] && m[i] != max)
+	      if(max < m[i] && m[i] != MS && m[i] != MJ)
 		{
-		  second = m[i];
+		  max = m[i];
+      i_max = i;
 		}
 }
+
+
+	  for(i=0; i<=n-1; i++)
+	    {
+	      if(second < m[i] && m[i] != MS && m[i] != MJ && m[i] != max)
+		{
+		  second = m[i];
+      i_second = i;
+		}
+}
+
 //--------------------
 //Property of second mass
 //--------------------
-
-	  for(i=0; i<=n-1; i++)
-	    {
-	    if(m[i] == second)
-		{
-		  asecond = a[i];
-		  esecond = e[i];
-		}
-
-	    }
-
 	  
-	  mean_mass =( accumulate(&m[0], &m[n-1],0.0) - MJ )/n  ;//mean_mass exclude Jupiter and Sun
+	  mean_mass =( accumulate(&m[0], &m[n-1],0.0) - MJ - MS )/(n-2)  ;//mean_mass exclude Jupiter and Sun
 //	  cout <<" mean_mass  = " << mean_mass  << '\n'; 
 //	  mout << time_year  << "  " << max << "  " << mean_mass  << "  " << second  << "  " << asecond << "  " <<  esecond  << "  " << resonance_angle  << "  " <<  n   << "  " << Npp  <<'\n';//g
-	  mout << time_year  << "  " << max << "  " << mean_mass  << "  " << second  << "  " << asecond << "  " <<  esecond   << "  " <<  n   << "  " << Npp  <<'\n';//g
+	  mout << time_year  << "  " << mean_mass << "  " << max  << "  " << a[i_max]  << "  " <<  e[i_max]  << "  " << second  << "  " << a[i_second] << "  " <<  e[i_second]   << "  " <<  n   << "  " << Npp  <<'\n';//g
 
 
 
@@ -865,7 +890,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
    ss_cum >> file_name_cum;
 //   cout << file_name_cum << endl;
                     
-   for(i=0 ;i<=n-2 ;i++)
+   for(i=0 ;i<=n-1 ;i++)
      {            
        value[i] = m[i] ;
        number[i] = 1.0;
@@ -875,7 +900,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
  //        time_file_name = (int)time;
    dice(n,value,number,time_year,file_name_cum);
 	      
-	  for(i=1;i<=n-1;i++)
+	  for(i=0;i<=n-1;i++)
 	    {
 		
 // Sigma of e and i
@@ -892,7 +917,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
 		sigma_e_rms_hill += pow(e[i]/(H[i]/a[i]),2.0);
 		sigma_I_rms_hill += pow(I[i]/(H[i]/a[i]),2.0); 
 
-		n_field = n-1;
+		n_field = n-2;
 			}
       
 		
@@ -918,6 +943,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
 
 //    cout <<"e_rms_hill=" << sigma_e_rms_hill << '\n';
 	  eout << time_year << "  " <<  e_rms << "  " <<  I_rms << "  " <<  e_mean << "  " <<  I_mean << "  " << e_rms_hill << "  " << I_rms_hill << '\n';
+	sjout << time_year << " " << MS << " " << aS << " " << eS << " " << MJ << " " << aJ << " " << eJ << '\n'  ;
 	}
 
 	}
