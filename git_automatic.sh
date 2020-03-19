@@ -5,6 +5,6 @@ MESSAGE=${1:-"add a subtle touch"}
 git add *
 git commit -m "${MESSAGE}"
 #git push origin master
-git push origin KI1996_new
+git push origin gas_test
 
 
