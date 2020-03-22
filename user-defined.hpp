@@ -65,6 +65,7 @@ public:
     //4:next step
 
     static PS::S64 N_active;
+    static PS::S64 id_sun;
 
     static PS::F64 eps;
 

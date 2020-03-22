@@ -815,7 +815,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
     //Information of Jupiter is in a header fout_ps.
 	  
 //	fout_ps << time_year << " " << eJ << " " << aJ << " " << MJ << '\n' << '\n' << '\n' ;
-	for(i=0 ;i<=n ;i++){
+	for(i=0 ;i<=n-1 ;i++){
 	    /*
 	      if(m[i] < pp_max_mass/5.0){
 	      fout_ps << e[i] << " " << a[i]/one_au << " " << m[i] << '\n';
@@ -827,7 +827,7 @@ e_nout << (e_end + 1.0) * 0.01  << " " << e_truncated  << " "  << time_year  << 
 	    */
 
 	    if(m[i] < min_mass*10.0){
-	      fout_ps << e[i] << " " << a[i] << " " << m[i]  << '\n';
+	      fout_ps << e[i] << " " << a[i] << " " << m[i] << " " <<  time_year   << '\n';
 	//      H[i]=a[i]*pow(m_k[i]/(3.0*1.0),1.0/3.0);
 	    }
 	    else if(m[i] >= min_mass*10.0 && m[i] != MJ){

@@ -12,7 +12,7 @@ mkdir result/snap
 
 
 #$MPIRUN
-./nbody.out KI1996_N300 -N 301  -T 20000 -D 10 -n 305  -s 1e-3  > log.log &
+./nbody.out B_ten_particle -N 12  -T 12000 -D 10 -n 15  -s 1e-3  > log.log &
 #./nbody.out  -s 1e-9 > log.log &
 #T:timeend 
 

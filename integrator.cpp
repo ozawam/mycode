@@ -8,6 +8,12 @@
 #define FOURTHORDER 4.166666666666667e-2
 #define FIFTHORDER  8.333333333333333e-3
 
+//global const                                                                                                                                           
+PS::F64 M_sun = 1.989*pow(10.0,33.0);//g
+PS::F64 M_earth = 5.9724*pow(10.0,27.0);//g
+PS::F64 one_au=1.49597870*pow(10.0,13.0);//cm
+PS::F64 one_year = 365.0*24.0*60.0*60.0;//year-s
+
 PS::F64 eta = 5.0e-2 ;
 PS::F64 G = 1.0;
 
@@ -200,6 +206,11 @@ static void timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,PS
     else if( particle[i].pdt < min_dt  ){
       min_dt = particle[i].pdt  ;  
       } 
+//finding Sun for next output
+// --------------------------------------------------------------------------- 
+    if(particle[i].mass > 0.9){
+      particle[0].id_sun = i;
+      }
   }
 
 //  dt_sys = min_dt;
@@ -240,6 +251,12 @@ void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,P
       min_dt = particle[i].pdt  ;  
       } 
   //    fprintf(stdout, "timestep: %10.7f \n", min_dt);
+//finding Sun for next output
+// --------------------------------------------------------------------------- 
+    if(particle[i].mass > 0.9){
+      particle[0].id_sun = i;
+      }
+
   }
 
     if(min_dt != std::numeric_limits<double>::infinity() ){ 
@@ -305,9 +322,6 @@ void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys)
         
     //merge or rebound
    	//constant
-        PS::F64 M_sun=1.989*pow(10.0,33.0);//g
-        PS::F64 one_au=1.49597870*pow(10.0,13.0);//cm
-        PS::F64 one_year = 365.0*24.0*60.0*60.0;//year-s    
         PS::F64 L_unit=one_au;
         PS::F64 M_unit=M_sun;
         PS::F64 G_unit=6.67408*pow(10.0,-8.0);
@@ -401,6 +415,87 @@ void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys)
 }
 
 
+//#######################################################
+// Gas drag
+//#######################################################  
+
+static void gas_drag(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys, PS::F32 & time_sys)
+{
+//gas
+// ---------------------------------------------------------------------------
+	//Setup constants related units. Units AU,Msun,T G=1
+  PS::F64 L_unit=one_au;
+  PS::F64 M_unit=M_sun;
+  PS::F64 G_unit=6.67408*pow(10.0,-8.0);
+  PS::F64 T_unit=sqrt(pow(L_unit,3.0)/(G_unit*M_unit));
+//const                                                                                                                                           
+  PS::F64 C_aero_drag = 1.0;
+  PS::F64 _rho_planet = 2.0;//g/cm^3
+	PS::F64 rho_planet = _rho_planet * 1.49597871e13 * 1.49597871e13 * 1.49597871e13 / 1.9884e33; // [Msun/AU^3]
+	PS::F64 mass_sun = 1.0;// particles[0].m;
+	PS::F64 Cd = C_aero_drag; // coeficient aero drag
+	PS::F64 alpha = 0.995;
+
+  PS::S32 i;
+  PS::S32 n = particle.getNumberOfParticleLocal();
+  
+  for(i = 0; i < n; i++){
+if(particle[i].mass*M_sun <1.0E+30 ){
+	//Calculation of Aero Drag
+/*//variable
+  PS::F64 gx = particle[i].pos[0];
+  PS::F64 gy = particle[i].pos[1];
+  PS::F64 gz = particle[i].pos[2];
+  PS::F64 gm = particle[i].mass;
+  PS::F64vec xi = particle[i].pos;
+  PS::F64vec vi = particle[i].vel;
+  PS::F64vec ai = particle[i].acc;
+*/
+
+//variable
+  PS::F64vec pos_s =particle[particle[0].id_sun].pos;
+  PS::F64vec vel_s =particle[particle[0].id_sun].vel;
+  PS::F64vec acc_s =particle[particle[0].id_sun].vel;
+
+  PS::F64vec xi = particle[i].pos - pos_s;
+  PS::F64vec vi = particle[i].vel - vel_s;
+  PS::F64vec ai = particle[i].acc - acc_s;
+  PS::F64 gx = xi[0];
+  PS::F64 gy = xi[1];
+  PS::F64 gz = xi[2];
+  PS::F64 gm = particle[i].mass;
+
+	PS::F64 r_sq = gx*gx + gy*gy;
+	PS::F64 inv_r = 1.0 / sqrt(r_sq);
+	PS::F64vec ev = {-gy*inv_r, gx*inv_r, 0.0}; // unit vector of kepler velocity 
+	PS::F64vec vkep = sqrt(mass_sun * inv_r) * ev; // kepler velocity //0 x, 1 y, 2 z
+	PS::F64vec vgas = alpha*vkep;//{(1.0 - eta)*vkep[0],(1.0 - eta)*vkep[1],(1.0 - eta)*vkep[2]};
+	PS::F64vec u = vi - vgas;
+
+
+  PS::F64 Cg = alpha*sqrt(G_unit*mass_sun);
+  PS::F64 r_deriv = inv_r * (gx * vi[0] + gy * vi[1])  ;
+	PS::F64vec vkep_deriv = {(-3.0/2.0)*pow(inv_r,5.0/2.0)*r_deriv*(-1)*gy + pow(inv_r,3.0/2.0)*(-1)*vi[1] , (-3.0/2.0)*pow(inv_r,5.0/2.0)*r_deriv*gx + pow(inv_r,3.0/2.0)*vi[0]   , 0 };
+  PS::F64vec u_deriv = ai - Cg*vkep_deriv;
+
+
+//radius and C1  
+//	PS::F64 m_50 = 4.0/3.0 * pow(5000.0/one_au,3.0) *M_PI * rho_planet;//r=50m 2019/06/12
+//	PS::F64 rate_50 = 8.958600e+25/M_sun/m_50;
+//	PS::F64 rplanet = cbrt(3.0*gm/rate_50/(4.0*M_PI*rho_planet)) * one_au; //unit:cm(Unit is cm in calculation of C1)
+	PS::F64 rplanet = 10.0 * 100.0; //unit:cm(Unit is cm in calculation of C1)
+
+	PS::F64 C1 = 11.1 /(rplanet * rplanet) /(24.0 * 60.0 * 60.0 /T_unit)  ;//* pow(one_au,2.0); //unit:day^-1 -> T_unit^-1, unit:cm -> AU  
+
+
+	PS::F64vec sys_acc_gd = (-C1*Cd*u );
+	PS::F64vec sys_jrk_gd = (-C1*Cd*u_deriv );
+
+        particle[i].acc += sys_acc_gd;
+        particle[i].jrk += sys_jrk_gd;
+}//end of if
+}//end of for
+}
 
 
 // --------------------------------------------------------------------------- 
@@ -424,7 +519,8 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
 
 //2.a1j & jerk1j
 // --------------------------------------------------------------------------- 
-            system_grav[0].hermite_step =2;
+//            system_grav[0].hermite_step =2;
+            system_grav[0].hermite_step =0;//no collision
         
         if(n_loop % 4 == 0){
             dinfo.decomposeDomainAll(system_grav);
@@ -436,6 +532,8 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
   tree_grav.calcForceAllAndWriteBack(CalcGravity(),
                                      system_grav,
                                      dinfo);
+
+  gas_drag(system_grav, dt , time_sys);
 
 //!collision 
 // ---------------------------------------------------------------------------
@@ -468,6 +566,7 @@ if(system_grav[0].collisions_N > 0){
         tree_grav.calcForceAllAndWriteBack(CalcGravity(),
                                            system_grav,
                                            dinfo);
+  gas_drag(system_grav, dt , time_sys);
 
 //4.next step
 // --------------------------------------------------------------------------- 

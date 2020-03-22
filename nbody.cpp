@@ -21,6 +21,7 @@ std::vector<PS::S64> FPGrav::COL_P;
 PS::S64 FPGrav::collisions_N;
 PS::S32 FPGrav::hermite_step;
 PS::S64 FPGrav::N_active;
+PS::S64 FPGrav::id_sun;
 
 template<class Tpsys>
 void calcEnergy(const Tpsys & system,
@@ -229,8 +230,9 @@ int main(int argc, char *argv[]) {
 //	system_grav.readParticleAscii("INITIAL_CONDITION_ONE_KEPLER/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_PYTHAGORAS/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996/output/snap00000.dat", header);
-	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N300/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N300/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N50/output/snap00000.dat", header);
+	system_grav.readParticleAscii("INITIAL_CONDITION_BEAUGE_ten_particles//output/snap00000.dat", header);
 	time_sys = header.time;
     system_grav[0].N_active =  system_grav.getNumberOfParticleGlobal();
     fprintf(stdout, "N_active: %lld\n", system_grav[0].N_active);
@@ -310,10 +312,18 @@ int main(int argc, char *argv[]) {
             fout << time_sys << std::endl;
             fout << system_grav[0].N_active << std::endl;
             
+            PS::F64vec pos_s =system_grav[system_grav[0].id_sun].pos;
+            PS::F64vec vel_s =system_grav[system_grav[0].id_sun].vel;
+            PS::F64vec pos_c_sun;
+            PS::F64vec vel_c_sun;
+            
             for(PS::S64 J=0; J<system_grav[0].N_active; J++){
+            pos_c_sun = system_grav[J].pos - pos_s;
+            vel_c_sun = system_grav[J].vel - vel_s;
+
             fout << J << "  " << system_grav[J].mass
-                     << "  " << system_grav[J].pos[0]  <<  "  " <<  system_grav[J].pos[1]  << "  " <<  system_grav[J].pos[2]
-                     << "  " << system_grav[J].vel[0]  <<  "  " <<  system_grav[J].vel[1]  << "  " <<  system_grav[J].vel[2]
+                      << "  " << pos_c_sun[0]  <<  "  " <<  pos_c_sun[1]  << "  " <<  pos_c_sun[2]
+                     << "  " << vel_c_sun[0]  <<  "  " <<  vel_c_sun[1]  << "  " << vel_c_sun[2]
                      <<  std::endl;
             }
             
