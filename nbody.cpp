@@ -232,7 +232,7 @@ int main(int argc, char *argv[]) {
 //	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N300/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N50/output/snap00000.dat", header);
-	system_grav.readParticleAscii("INITIAL_CONDITION_BEAUGE_ten_particles//output/snap00000.dat", header);
+	system_grav.readParticleAscii("INITIAL_CONDITION_BEAUGE1994/output/snap00000.dat", header);
 	time_sys = header.time;
     system_grav[0].N_active =  system_grav.getNumberOfParticleGlobal();
     fprintf(stdout, "N_active: %lld\n", system_grav[0].N_active);

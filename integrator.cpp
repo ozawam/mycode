@@ -519,8 +519,8 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
 
 //2.a1j & jerk1j
 // --------------------------------------------------------------------------- 
-//            system_grav[0].hermite_step =2;
-            system_grav[0].hermite_step =0;//no collision
+            system_grav[0].hermite_step =2;
+//            system_grav[0].hermite_step =0;//no collision
         
         if(n_loop % 4 == 0){
             dinfo.decomposeDomainAll(system_grav);
