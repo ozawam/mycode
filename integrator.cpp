@@ -8,7 +8,16 @@
 #define FOURTHORDER 4.166666666666667e-2
 #define FIFTHORDER  8.333333333333333e-3
 
-  PS::F64 eta = 3.0e-3 ;
+//global const                                                                                                                                           
+PS::F64 M_sun = 1.989*pow(10.0,33.0);//g
+PS::F64 M_earth = 5.9724*pow(10.0,27.0);//g
+PS::F64 one_au=1.49597870*pow(10.0,13.0);//cm
+PS::F64 one_year = 365.0*24.0*60.0*60.0;//year-s
+
+PS::F64 eta = 5.0e-2 ;
+PS::F64 G = 1.0;
+
+PS::S64 col_n;
 
 //#######################################################
 // leap-frog
@@ -197,9 +206,15 @@ static void timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,PS
     else if( particle[i].pdt < min_dt  ){
       min_dt = particle[i].pdt  ;  
       } 
+//finding Sun for next output
+// --------------------------------------------------------------------------- 
+    if(particle[i].mass > 0.9){
+      particle[0].id_sun = i;
+      }
   }
 
-  dt_sys = min_dt;
+//  dt_sys = min_dt;
+      dt_sys = PS::Comm::getMinValue(min_dt);
 
   return;
 }
@@ -236,16 +251,251 @@ void initial_timestep(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys,P
       min_dt = particle[i].pdt  ;  
       } 
   //    fprintf(stdout, "timestep: %10.7f \n", min_dt);
+//finding Sun for next output
+// --------------------------------------------------------------------------- 
+    if(particle[i].mass > 0.9){
+      particle[0].id_sun = i;
+      }
+
   }
 
     if(min_dt != std::numeric_limits<double>::infinity() ){ 
-      dt_sys = min_dt;
+//      dt_sys = min_dt;
+      dt_sys = PS::Comm::getMinValue(min_dt);
         }
   return;
 }
 
 
 
+//#######################################################
+// Merge
+//#######################################################  
+
+//Merge
+// ---------------------------------------------------------------------------
+
+void merge(PS::ParticleSystem<FPGrav> & particle,  const PS::F32 time_sys)
+{
+
+    PS::S32 n_remove = 0;
+
+    col_n = particle[0].collisions_N;
+    std::vector<PS::S32> idx(col_n);
+//    PS::S32 idx[col_n];
+  for(PS::S64 ci = 0; ci < particle[0].collisions_N ; ci++){
+//     fprintf(stdout, "CHECK1 \n");
+
+    // Always remove particle with larger index and merge into lower index particle.
+    // This will keep N_active meaningful even after mergers.
+    PS::S64 i = particle[0].COL_P[2*ci];
+    PS::S64 j = particle[0].COL_P[2*ci+1];   //want j to be removed particle
+//    if (j<i){
+//        i = particle[0].COL_P[2*ci+1];
+//        j = particle[0].COL_P[2*ci];
+//    }
+    fprintf(stdout, "j: %lld \n", j);
+//    idx.push_back(j);
+    idx[ci] = j ;
+    n_remove ++;
+
+    // Check collision of j particle
+    for(PS::S64 iC = ci+1 ; iC < particle[0].collisions_N ; iC++){
+    if(particle[0].COL_P[2*iC] == j  ){
+      particle[0].COL_P[2*iC] = i ;
+    }
+    else if(particle[0].COL_P[2*iC+1] == j  ){
+      particle[0].COL_P[2*iC+1] = i ;
+    }
+
+    }
+
+
+    // Scale out energy from collision - initial energy
+    PS::F64 energy_offset = 0.0;
+    PS::F64 Ei=0.0, Ef=0.0;
+    
+        {
+            // Calculate energy difference in inertial frame
+            Ei = 0.5 * particle[i].mass * ( particle[i].vel * particle[i].vel ) + 0.5 * particle[j].mass * ( particle[j].vel * particle[j].vel ) ;
+        }
+        
+    //merge or rebound
+   	//constant
+        PS::F64 L_unit=one_au;
+        PS::F64 M_unit=M_sun;
+        PS::F64 G_unit=6.67408*pow(10.0,-8.0);
+
+        PS::F64 t_16=sqrt(pow(L_unit,3.0)/(G_unit*M_unit));
+        PS::F64 T_unit=t_16;
+
+        PS::F64vec vr;
+        vr = particle[j].vel - particle[i].vel ;
+
+        PS::F64 eps = 0.7;
+        PS::F64 vreb;
+        vreb = fabs( eps * sqrt( vr * vr ));
+
+        PS::F64  vesc12;
+        PS::F64  r1,r2;
+        PS::F64  _rho_planet = 2.0;//g/cm^3
+        PS::F64  rho_planet = _rho_planet * 1.49597871e13 * 1.49597871e13 * 1.49597871e13 / 1.9884e33; // [Msun/AU^3]
+        r1 = pow(3.0*particle[i].mass/(4.0*M_PI*rho_planet),1.0/3.0);
+        r2 = pow(3.0*particle[j].mass/(4.0*M_PI*rho_planet),1.0/3.0);
+        vesc12 = sqrt(2.0*G*(particle[i].mass + particle[j].mass)/(r1 + r2));
+
+        char filename[1024] = "result/collision_after.dat";
+        FILE* of = fopen(filename,"a"); //change mode w->a 
+        if (of==NULL){
+        fprintf(stdout,"Can not open file.");
+        }
+
+        fprintf(of,"%le\t%e\t%e\t%e\t\n",time_sys,vreb,vesc12,Ei);
+        //time T_unit
+
+        particle[i].writeAscii(of);
+        fprintf(of,"%lld\t%e\t\n",i,(particle[i].mass)*M_unit);
+        particle[j].writeAscii(of);
+        fprintf(of,"%lld\t%e\t\n",j,(particle[j].mass)*M_unit);
+
+        // Merge by conserving mass, volume and momentum
+        particle[i].pos = ((particle[i].pos * particle[i].mass) + (particle[j].pos * particle[j].mass))/(particle[i].mass + particle[j].mass) ;
+        particle[i].vel = ((particle[i].vel * particle[i].mass) + (particle[j].vel * particle[j].mass))/(particle[i].mass + particle[j].mass) ;
+        particle[i].mass  = particle[i].mass + particle[j].mass ;
+        particle[i].id = i;
+
+        particle[i].writeAscii(of);
+        fprintf(of,"%lld\t%e\t%e\t\n",i,(particle[i].mass)*M_unit,(time_sys)*(T_unit/one_year));        
+        //writeAscii: time T_unit~0.15925 year, mass Msun, length AU
+        //footer: time year, mass g :::::conversion
+   
+        if(vreb < vesc12){
+        fprintf(of,"merge\n");
+        fclose(of);  
+        }
+        else{
+        fprintf(of,"rebound\n"); 
+        fclose(of); 
+        }
+
+        // Keeping track of energy offst
+        {  
+            Ef = 0.5 * particle[i].mass * ( particle[i].vel * particle[i].vel ) ;
+        }
+        energy_offset += Ei - Ef;
+
+    }
+
+        // Removing particle j
+//        std::sort(idx.begin(),idx.end(),std::greater<PS::S32>());
+//        particle.removeParticle( idx, n_remove);
+           //Keeping sort when removing particle 2020/03/02   
+		        PS::S32 N = particle.getNumberOfParticleGlobal();
+            std::sort(idx.begin(),idx.end(),std::greater<PS::S32>());
+            for(PS::S64 I=0; I<n_remove; I++){
+		        for(PS::S64 J=idx[I]; J<N-1; J++){
+			      particle[J] = particle[J+1];
+		        particle[J].id = J ;
+            }
+            N--;
+            particle[0].N_active --;
+
+            particle[N].mass = 0.0 ;
+            particle[N].pos[2] =1.0e+23;
+
+//            PS::S32 id_last[1] = {N-1};
+//            particle.removeParticle( id_last, 1);
+            }
+
+//            PS::S32 id_last[1] = {71};
+//            particle.removeParticle( id_last, 1);
+            particle[0].collisions_N =0;
+            particle[0].COL_P.erase( particle[0].COL_P.begin() ,  particle[0].COL_P.end() );
+  return;
+}
+
+
+//#######################################################
+// Gas drag
+//#######################################################  
+
+static void gas_drag(PS::ParticleSystem<FPGrav> & particle,  PS::F64 & dt_sys, PS::F32 & time_sys)
+{
+//gas
+// ---------------------------------------------------------------------------
+	//Setup constants related units. Units AU,Msun,T G=1
+  PS::F64 L_unit=one_au;
+  PS::F64 M_unit=M_sun;
+  PS::F64 G_unit=6.67408*pow(10.0,-8.0);
+  PS::F64 T_unit=sqrt(pow(L_unit,3.0)/(G_unit*M_unit));
+//const                                                                                                                                           
+  PS::F64 C_aero_drag = 1.0;
+  PS::F64 _rho_planet = 2.0;//g/cm^3
+	PS::F64 rho_planet = _rho_planet * 1.49597871e13 * 1.49597871e13 * 1.49597871e13 / 1.9884e33; // [Msun/AU^3]
+	PS::F64 mass_sun = 1.0;// particles[0].m;
+	PS::F64 Cd = C_aero_drag; // coeficient aero drag
+	PS::F64 alpha = 0.995;
+
+  PS::S32 i;
+  PS::S32 n = particle.getNumberOfParticleLocal();
+  
+  for(i = 0; i < n; i++){
+if(particle[i].mass*M_sun <1.0E+30 ){
+	//Calculation of Aero Drag
+/*//variable
+  PS::F64 gx = particle[i].pos[0];
+  PS::F64 gy = particle[i].pos[1];
+  PS::F64 gz = particle[i].pos[2];
+  PS::F64 gm = particle[i].mass;
+  PS::F64vec xi = particle[i].pos;
+  PS::F64vec vi = particle[i].vel;
+  PS::F64vec ai = particle[i].acc;
+*/
+
+//variable
+  PS::F64vec pos_s =particle[particle[0].id_sun].pos;
+  PS::F64vec vel_s =particle[particle[0].id_sun].vel;
+  PS::F64vec acc_s =particle[particle[0].id_sun].vel;
+
+  PS::F64vec xi = particle[i].pos - pos_s;
+  PS::F64vec vi = particle[i].vel - vel_s;
+  PS::F64vec ai = particle[i].acc - acc_s;
+  PS::F64 gx = xi[0];
+  PS::F64 gy = xi[1];
+  PS::F64 gz = xi[2];
+  PS::F64 gm = particle[i].mass;
+
+	PS::F64 r_sq = gx*gx + gy*gy;
+	PS::F64 inv_r = 1.0 / sqrt(r_sq);
+	PS::F64vec ev = {-gy*inv_r, gx*inv_r, 0.0}; // unit vector of kepler velocity 
+	PS::F64vec vkep = sqrt(mass_sun * inv_r) * ev; // kepler velocity //0 x, 1 y, 2 z
+	PS::F64vec vgas = alpha*vkep;//{(1.0 - eta)*vkep[0],(1.0 - eta)*vkep[1],(1.0 - eta)*vkep[2]};
+	PS::F64vec u = vi - vgas;
+
+
+  PS::F64 Cg = alpha*sqrt(G_unit*mass_sun);
+  PS::F64 r_deriv = inv_r * (gx * vi[0] + gy * vi[1])  ;
+	PS::F64vec vkep_deriv = {(-3.0/2.0)*pow(inv_r,5.0/2.0)*r_deriv*(-1)*gy + pow(inv_r,3.0/2.0)*(-1)*vi[1] , (-3.0/2.0)*pow(inv_r,5.0/2.0)*r_deriv*gx + pow(inv_r,3.0/2.0)*vi[0]   , 0 };
+  PS::F64vec u_deriv = ai - Cg*vkep_deriv;
+
+
+//radius and C1  
+//	PS::F64 m_50 = 4.0/3.0 * pow(5000.0/one_au,3.0) *M_PI * rho_planet;//r=50m 2019/06/12
+//	PS::F64 rate_50 = 8.958600e+25/M_sun/m_50;
+//	PS::F64 rplanet = cbrt(3.0*gm/rate_50/(4.0*M_PI*rho_planet)) * one_au; //unit:cm(Unit is cm in calculation of C1)
+	PS::F64 rplanet = 10.0 * 100.0; //unit:cm(Unit is cm in calculation of C1)
+
+	PS::F64 C1 = 11.1 /(rplanet * rplanet) /(24.0 * 60.0 * 60.0 /T_unit)  ;//* pow(one_au,2.0); //unit:day^-1 -> T_unit^-1, unit:cm -> AU  
+
+
+	PS::F64vec sys_acc_gd = (-C1*Cd*u );
+	PS::F64vec sys_jrk_gd = (-C1*Cd*u_deriv );
+
+        particle[i].acc += sys_acc_gd;
+        particle[i].jrk += sys_jrk_gd;
+}//end of if
+}//end of for
+}
 
 
 // --------------------------------------------------------------------------- 
@@ -262,12 +512,44 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
           PS::TreeForForceLong<FPGrav, FPGrav, FPGrav>::Monopole & tree_grav
 ) {
 
+//cputime
+// ---------------------------------------------------------------------------
+
+  struct timespec ts;
+  clock_gettime(CLOCK_REALTIME, &ts);
+   
+    PS::F64 cpu[6] = {0,0,0,0,0,0} ;
+    PS::F64 time_be = 0.0;
+    PS::F64 time_af = 0.0;
+    
+    std::ofstream fout_cpu_i;
+
+    if(PS::Comm::getRank() == 0) {
+        char sout_cpu[1024];
+	sprintf(sout_cpu, "result/integrator_cpu_time.dat");
+        fout_cpu_i.open(sout_cpu, std::ios::app );
+    }
+
 //1.predictor
 // ---------------------------------------------------------------------------
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_be = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+//      fprintf(stdout, "time_be 1: %.16e \n", time_be);
+
+            system_grav[0].hermite_step =1;
   predict(system_grav, dt , time_sys);
+
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_af = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+//      fprintf(stdout, "time_af 1: %.16e \n", time_af);
+            cpu[1] = time_af - time_be;
 
 //2.a1j & jerk1j
 // --------------------------------------------------------------------------- 
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_be = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            system_grav[0].hermite_step =2;
+//            system_grav[0].hermite_step =0;//no collision
         
         if(n_loop % 4 == 0){
             dinfo.decomposeDomainAll(system_grav);
@@ -280,21 +562,79 @@ void hermite(PS::ParticleSystem<FPGrav> & system_grav,
                                      system_grav,
                                      dinfo);
 
+  gas_drag(system_grav, dt , time_sys);
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_af = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            cpu[2] = time_af - time_be;
+
+//!collision 
+// ---------------------------------------------------------------------------
+
 //3.1 corrector
 // --------------------------------------------------------------------------- 
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_be = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
   correct(system_grav, dt , time_sys);
+
+
+//!merge
+// ---------------------------------------------------------------------------
+//  merge(system_grav, time_sys); 
+if(system_grav[0].collisions_N > 0){  
+  if(PS::Comm::getRank() == 0) {
+  merge(system_grav, time_sys); 
+
+  fprintf(stdout, "CHECK_COL_end \n");
+  }  
+   else {
+  system_grav.setNumberOfParticleLocal(0);
+  fprintf(stdout, "CHECK_else \n");
+    }
+}
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_af = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            cpu[3] = time_af - time_be;
+
 
 //3.2 new a1j & jerk1j 
 // --------------------------------------------------------------------------- 
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_be = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            system_grav[0].hermite_step =3;
         system_grav.exchangeParticle(dinfo);
-  tree_grav.calcForceAllAndWriteBack(CalcGravity(),
-                                     system_grav,
-                                     dinfo);
+        tree_grav.calcForceAllAndWriteBack(CalcGravity(),
+                                           system_grav,
+                                           dinfo);
+  gas_drag(system_grav, dt , time_sys);
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_af = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            cpu[4] = time_af - time_be;
 
 //4.next step
 // --------------------------------------------------------------------------- 
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_be = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            system_grav[0].hermite_step =4;
         time_sys += dt;
+if(col_n == 0){
   timestep(system_grav, dt, time_sys);
+}
 
+else{
+    initial_timestep( system_grav, dt, time_sys);
+}
+  clock_gettime(CLOCK_REALTIME, &ts);
+            time_af = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            cpu[5] = time_af - time_be;
+
+        if(PS::Comm::getRank() == 0){
+            fout_cpu_i << time_sys 
+                     << "  " << cpu[1]  <<  "  " << cpu[2] 
+                     << "  " << cpu[3] 
+                     << "  " << cpu[4]  <<  "  " << cpu[5]
+                     << "  " <<  std::endl;
+}
+
+//      fprintf(stdout, "cpu[5]: %.16e \n", cpu[5]);
 }
 

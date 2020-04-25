@@ -1,0 +1,4 @@
+
+[1mWarning![0m You have to reset function pointers after creating a reb_simulation struct with a binary file.
+Creating simulation from binary file and integrating until tmax
+N_tot=  438       t=  209858.389264  dt=  0.006283  cpu=  4535.937553 [s]  t/tmax=  0.33%  walltime =  2420.105465 [m] ,  40.335091 [h] 

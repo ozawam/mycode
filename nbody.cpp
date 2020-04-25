@@ -17,6 +17,11 @@
 #include "integrator.hpp"
 
 PS::F64 FPGrav::eps = 0.00;//1.0/64.0 ;//1.0e-4;
+std::vector<PS::S64> FPGrav::COL_P;
+int FPGrav::collisions_N;
+PS::S32 FPGrav::hermite_step;
+PS::S64 FPGrav::N_active;
+PS::S64 FPGrav::id_sun;
 
 template<class Tpsys>
 void calcEnergy(const Tpsys & system,
@@ -60,9 +65,17 @@ void printHelp() {
 void makeOutputDirectory(char * dir_name) {
     struct stat st;
     PS::S32 ret;
+    char dir1[1024];
+    char dir2[1024];
+    
+    sprintf(dir1, "%s/original", dir_name);
+    sprintf(dir2, "%s/snap", dir_name);
+
     if (PS::Comm::getRank() == 0) {
         if (stat(dir_name, &st) != 0) {
             ret = mkdir(dir_name, 0777);
+            mkdir("./result/original/",0777);//include N_active
+            mkdir("./reslut/snap/",0777);//only N_active
         } else {
             ret = 0; // the directory named dir_name already exists.
         }
@@ -104,6 +117,7 @@ int main(int argc, char *argv[]) {
     PS::S32 c;
     sprintf(dir_name,"./result");
     opterr = 0;
+    
     while((c=getopt(argc,argv,"i:o:d:D:t:T:l:n:N:hs:")) != -1){
         switch(c){
         case 'o':
@@ -145,6 +159,7 @@ int main(int argc, char *argv[]) {
             if(PS::Comm::getRank() == 0) {
                 printHelp();
             }
+     fprintf(stdout, "CHECK0 \n");
             PS::Finalize();
             return 0;
         default:
@@ -156,6 +171,31 @@ int main(int argc, char *argv[]) {
         }
     }
 
+     fprintf(stdout, "CHECK1 \n");
+
+//#######################################################
+// set of output and time end
+//#######################################################  
+
+   	//constant
+        PS::F64 M_sun=1.989*pow(10.0,33.0);//g
+        PS::F64 one_au=1.49597870*pow(10.0,13.0);//cm
+        PS::F64 one_year = 365.0*24.0*60.0*60.0;//year-s    
+        PS::F64 L_unit=one_au;
+        PS::F64 M_unit=M_sun;
+        PS::F64 G_unit= 6.67408*pow(10.0,-8.0);
+
+        PS::F64 t_16=sqrt(pow(L_unit,3.0)/(G_unit*M_unit));
+        PS::F64 T_unit=t_16;
+
+//conversion of time unit. year->year
+        dt_snap = dt_snap/(T_unit/one_year);
+        time_end = time_end/(T_unit/one_year) ;
+//        time_end = time_end/0.15924 ;
+
+        fprintf(stdout, "T_unit: %e time_end: %e  \n",
+                        T_unit/one_year, time_end);
+     fprintf(stdout, "CHECK2 \n");
     makeOutputDirectory(dir_name);
 
     std::ofstream fout_eng;
@@ -167,6 +207,14 @@ int main(int argc, char *argv[]) {
         fprintf(stdout, "This is a sample program of N-body simulation on FDPS!\n");
         fprintf(stdout, "Number of processes: %d\n", PS::Comm::getNumberOfProc());
         fprintf(stdout, "Number of threads per process: %d\n", PS::Comm::getNumberOfThread());
+    }
+
+    std::ofstream fout_cpu;
+
+    if(PS::Comm::getRank() == 0) {
+        char sout_cpu[1024];
+	sprintf(sout_cpu, "%s/cpu_time.dat", dir_name);
+        fout_cpu.open(sout_cpu);
     }
 //#######################################################
 // initial condition
@@ -180,8 +228,14 @@ int main(int argc, char *argv[]) {
 	FileHeader header;
 //	system_grav.readParticleAscii("INITIAL_CONDITION/output/snap00000.dat", header);
 //	system_grav.readParticleAscii("INITIAL_CONDITION_ONE_KEPLER/output/snap00000.dat", header);
-	system_grav.readParticleAscii("INITIAL_CONDITION_PYTHAGORAS/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_PYTHAGORAS/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N300/output/snap00000.dat", header);
+//	system_grav.readParticleAscii("INITIAL_CONDITION_KOKUBO_IDA_1996N50/output/snap00000.dat", header);
+	system_grav.readParticleAscii("INITIAL_CONDITION_BEAUGE1994/output/snap00000.dat", header);
 	time_sys = header.time;
+    system_grav[0].N_active =  system_grav.getNumberOfParticleGlobal();
+    fprintf(stdout, "N_active: %lld\n", system_grav[0].N_active);
 
     } else {
         system_grav.setNumberOfParticleLocal(n_loc);
@@ -224,6 +278,11 @@ int main(int argc, char *argv[]) {
     PS::F64 time_snap = 0.0;
     PS::S64 n_loop = 0;
     PS::S32 id_snap = 0;
+    PS::TimeProfile TP ;
+    PS::F64 cpu[13] = {0,0,0,0,0,0,0,0,0,0,0,0,0} ;
+    PS::F64 cputime_output = 0.0;
+    PS::F64 time_output_last = 0.0;
+    PS::F64 time_output_now = 0.0;
 
     initial_timestep( system_grav, dt, time_sys);
 
@@ -232,26 +291,90 @@ int main(int argc, char *argv[]) {
 //#######################################################  
 
     while(time_sys < time_end){
+
+//#######################################################
+// output snap and cputime
+//#######################################################  
         if( (time_sys >= time_snap) || ( (time_sys + dt) - time_snap ) > (time_snap - time_sys) ){
             char filename[256];
-            sprintf(filename, "%s/snap%05d.dat", dir_name, id_snap++);
+            sprintf(filename, "%s/original/snap%05d.dat", dir_name, id_snap);
             FileHeader header;
             header.time   = time_sys;
             header.n_body = system_grav.getNumberOfParticleGlobal();
             system_grav.writeParticleAscii(filename, header);
             time_snap += dt_snap;
+        
+            char filename_snap[256];
+            sprintf(filename_snap, "%s/snap/snap%05d.dat", dir_name, id_snap++);
+            std::ofstream fout;
+            fout.open(filename_snap,std::ios::out);
+    
+            fout << time_sys << std::endl;
+            fout << system_grav[0].N_active << std::endl;
+            
+            PS::F64vec pos_s =system_grav[system_grav[0].id_sun].pos;
+            PS::F64vec vel_s =system_grav[system_grav[0].id_sun].vel;
+            PS::F64vec pos_c_sun;
+            PS::F64vec vel_c_sun;
+            
+            for(PS::S64 J=0; J<system_grav[0].N_active; J++){
+            pos_c_sun = system_grav[J].pos - pos_s;
+            vel_c_sun = system_grav[J].vel - vel_s;
+
+            fout << J << "  " << system_grav[J].mass
+                      << "  " << pos_c_sun[0]  <<  "  " <<  pos_c_sun[1]  << "  " <<  pos_c_sun[2]
+                     << "  " << vel_c_sun[0]  <<  "  " <<  vel_c_sun[1]  << "  " << vel_c_sun[2]
+                     <<  std::endl;
+            }
+            
+            calcEnergy(system_grav, Etot1, Ekin1, Epot1);
+        if(PS::Comm::getRank() == 0){
+            TP = dinfo.PS::DomainInfo::getTimeProfile();
+            TP = system_grav.getTimeProfile();
+            TP = tree_grav.getTimeProfile();
+
+            fout_eng << time_sys << "  " << fabs((Etot1 - Etot0) / Etot0)  << "  " << dt  <<  std::endl;
+            //unit of cpu time is second
+            clock_gettime(CLOCK_REALTIME, &ts);
+            time_output_now = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
+            cputime_output  = time_output_now - time_output_last ;
+            
+            fout_cpu << time_sys 
+                     << "  " << cputime_output
+                     << "  " << cpu[0]
+                     << "  " << cpu[1]  <<  "  " << cpu[2] 
+                     << "  " << cpu[3] 
+                     << "  " << cpu[4]  <<  "  " << cpu[5]
+                     << "  " << cpu[6]  <<  "  " << cpu[7]
+                     << "  " << cpu[8]  <<  "  " << cpu[9]
+                     << "  " << cpu[10]  <<  "  " << cpu[11]  <<  "  " << cpu[12]
+                     << "  " <<  std::endl;
+
+            cpu[0] = 0.0 ;
+            cpu[1] = 0.0 ;
+            cpu[2] = 0.0 ;
+            cpu[3] = 0.0 ;
+            cpu[4] = 0.0 ;
+            cpu[5] = 0.0 ;
+            cpu[6] = 0.0 ;
+            cpu[7] = 0.0 ;
+            cpu[8] = 0.0 ;
+            cpu[9] = 0.0 ;
+            cpu[10] = 0.0 ;
+            cpu[11] = 0.0 ;
+            cpu[12] = 0.0 ;
+            time_output_last = time_output_now ;
+
+            TP.PS::TimeProfile::clear();
+            dinfo.clearTimeProfile();
+            system_grav.clearTimeProfile();
+            tree_grav.clearTimeProfile();
+          // In log.log
+          //  fprintf(stdout, "time: %10.7f energy error: %+e timestep: %10.7f \n",
+          //              time_sys, fabs((Etot1 - Etot0) / Etot0), dt);
+        }
         }
 
-        calcEnergy(system_grav, Etot1, Ekin1, Epot1);
-        
-        if(PS::Comm::getRank() == 0){
-            if( (time_sys >= time_diag) || ( (time_sys + dt) - time_diag ) > (time_diag - time_sys) ){
-                fout_eng << time_sys << "   " << fabs((Etot1 - Etot0) / Etot0) << std::endl;
-                fprintf(stdout, "time: %10.7f energy error: %+e timestep: %10.7f \n",
-                        time_sys, fabs((Etot1 - Etot0) / Etot0), dt);
-                time_diag += dt_diag;
-            }            
-        }
         
 //#######################################################
 // orbit integration
@@ -278,6 +401,26 @@ leap_frog(system_grav,
           tree_grav
 );
         n_loop++;
+
+        cpu[0] += TP.PS::TimeProfile::getTotalTime() * 1.0e-3  ;
+        cpu[1] += TP.collect_sample_particle * 1.0e-3   ;
+        cpu[2] += TP.decompose_domain * 1.0e-3    ;
+        cpu[3] += TP.exchange_particle * 1.0e-3   ;
+        cpu[4] += TP.make_local_tree * 1.0e-3  ;
+        cpu[5] += TP.make_global_tree * 1.0e-3   ;
+        cpu[6] += TP.calc_force * 1.0e-3  ;
+        cpu[7] += TP.calc_moment_local_tree * 1.0e-3  ;
+        cpu[8] += TP.calc_moment_global_tree  ;
+        cpu[9] += TP.make_LET_1st * 1.0e-3   ;
+        cpu[10] += TP.make_LET_2nd * 1.0e-3  ;
+        cpu[11] += TP.exchange_LET_1st * 1.0e-3   ;
+        cpu[12] += TP.exchange_LET_2nd * 1.0e-3  ;
+
+        TP.PS::TimeProfile::clear();
+        dinfo.clearTimeProfile();
+        system_grav.clearTimeProfile();
+        tree_grav.clearTimeProfile();
+
     }
     
 #ifdef ENABLE_PHANTOM_GRAPE_X86
@@ -290,7 +433,6 @@ leap_frog(system_grav,
   clock_gettime(CLOCK_REALTIME, &ts);
   double time_after = ts.tv_sec+(ts.tv_nsec/1000000000.0) ;
          std::cout << "cputime:" << "  " << time_after - time_before ;
-
     PS::Finalize();
     return 0;
 }

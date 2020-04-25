@@ -1,11 +1,11 @@
-PS_PATH = ../../../FDPS/src/
+PS_PATH = ../../../../FDPS/src/
 INC = -I$(PS_PATH)
 EXEFILE = nbody.out  
 
-#CC = time g++
-CC = g++
+CC = time g++
+#CC = g++
 #CC = time mpig++
-CFLAGS = -std=c++11 -O3
+CFLAGS = -std=c++11 -O3 
 #CFLAGS += -Wall
 #CFLAGS += -ffast-math
 #CFLAGS += -funroll-loops
@@ -21,7 +21,11 @@ all:$(EXEFILE)
 
 integrator.o:integrator.cpp integrator.hpp
 	$(CC) $(INC) $(CFLAGS) -c $<  -o $@
-OBJS = integrator.o integrator.hpp
+OBJS += integrator.o integrator.hpp
+
+#collision.o:collision.cpp collision.hpp
+#	$(CC) $(INC) $(CFLAGS) -c $<  -o $@
+#OBJS += collision.o collision.hpp
 
 ifeq ($(use_phantom_grape_x86),yes)
 PG_ROOT = $(PS_PATH)/phantom_grape_x86/G5/newton/libpg5
